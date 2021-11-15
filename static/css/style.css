@@ -1,16 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&family=Shippori+Antique+B1&display=swap');
+
+
+
 * {
     margin: 0;
     padding: 0;
     border: none;
+    font-family: 'Quicksand', sans-serif;
+}
+
+h3{
+    margin-top: 0;
+    padding-top: 1.5rem;
 }
 
 
+.nav-wrapper{
+    background-color: #d85d37;
+}
 
-
+nav ul a{
+    font-size: 1.1rem;
+    font-family: 'Shippori Antique B1', sans-serif;
+}
 
 .header-box{
-    min-height: 23vh;
+    min-height: 26vh;
+    background-image: url(../images/b74860e4d6a3132672c01eb04ce9eb82.jpg);
+    background-position: left ;
+    background-repeat: no-repeat;
+    
 }
+
+
+
 
 
 
