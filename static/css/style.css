@@ -11,25 +11,29 @@
 
 h3{
     margin-top: 0;
-    padding-top: 1.5rem;
+    padding-top: 2rem;
 }
 
 
 .nav-wrapper{
-    background-color: #d85d37;
+    background-color: #92a27e;
 }
 
 nav ul a{
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-family: 'Shippori Antique B1', sans-serif;
 }
 
 .header-box{
-    min-height: 26vh;
+    min-height: 28vh;
     background-image: url(../images/b74860e4d6a3132672c01eb04ce9eb82.jpg);
     background-position: left ;
     background-repeat: no-repeat;
     
+}
+
+.header-box hr{
+    width: 100%;
 }
 
 
