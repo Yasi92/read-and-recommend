@@ -8,6 +8,7 @@
     font-family: 'Quicksand', sans-serif;
 }
 
+
 h3 {
     margin-top: 0;
     padding-top: 2.5rem;
@@ -101,11 +102,11 @@ margin: 0 auto;
 }
 
 .card .card-image > img{
-    
- 
     /* object-fit: cover; */
     max-height: 300px;
     max-width: 220px;
+    min-height: 300px;
+    min-width: 220px;
 }
 
 .card.small .card-image{
@@ -121,6 +122,9 @@ margin: 0 auto;
     -webkit-transition: color .4s ease;
     transition: color .3 ease;
 }
+
+
+
 
 /* //////////////////////////////// Ipad size /////////////////////////////////// */
 
