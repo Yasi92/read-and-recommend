@@ -22,7 +22,7 @@ mongo = PyMongo(app)
 @app.route("/get_books")
 def get_books():
     books = mongo.db.books.find()
-    return render_template("base.html", books=books)
+    return render_template("home.html", books=books)
 
 
 if __name__ == "__main__":
