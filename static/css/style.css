@@ -13,6 +13,11 @@ h3 {
     padding-top: 2.5rem;
 }
 
+h6{
+    margin-top:0;
+    font-weight: bold;
+}
+
 /* //////////////////////////////// Navbar and header box /////////////////////////////////// */
 .nav-wrapper {
     background-color: #92a27e;
@@ -83,10 +88,39 @@ ul.collection-bar{
     background-color: rgb(232, 118, 57);
 }
 
+/* //////////////////////////////// Book cards /////////////////////////////////// */
 
+.card .card-content{
+    padding: 10px 24px;
+}
 
+.card.small {
+width: 220px;
+height: 450px;
+margin: 0 auto;
+}
 
+.card .card-image > img{
+    
+ 
+    /* object-fit: cover; */
+    max-height: 300px;
+    max-width: 220px;
+}
 
+.card.small .card-image{
+    max-height: 90%;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating){
+    color: #000;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
+    color: blue;
+    -webkit-transition: color .4s ease;
+    transition: color .3 ease;
+}
 
 /* //////////////////////////////// Ipad size /////////////////////////////////// */
 
