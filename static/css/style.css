@@ -19,6 +19,12 @@ h6{
     font-weight: bold;
 }
 
+p{
+    font-size: 1.2rem;
+
+}
+
+
 /* //////////////////////////////// Navbar and header box /////////////////////////////////// */
 .nav-wrapper {
     background-color: #92a27e;
@@ -50,12 +56,15 @@ nav ul a {
 }
 
 
-input[type=search]:not(.browser-default) {
+input[type=search]:not(.browser-default){
     border-bottom: none;
     background-color: #fff;
-    height: inherit;
 }
 
+input:-internal-autofill-selected{
+    background-color: #fff
+    !important;
+}
 
 ::placeholder {
     text-align: center;
@@ -64,31 +73,47 @@ input[type=search]:not(.browser-default) {
 
 .fa-search {
     padding-right: 5px;
+    line-height: 3;
 }
 
 
 /* //////////////////////////////// Collection-bar /////////////////////////////////// */
 
 ul.collection-bar li{
-    display: inline;
-    padding-left: 2em;
-    font-size: 1.2rem;
+    display: inline-block;
 }
 
+/* The hover effect is borrowed from  [http://ianlunn.github.io/Hover/]*/
 ul.collection-bar li a{
     color: #fff;
     font-weight: bold;
+    padding-left: 2em;
+    font-size: 1.2rem;
+    display: inline-block;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
 }
+
+
+ul.collection-bar li a:hover,ul.collection-bar li a:active,ul.collection-bar li a:focus {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    color: #000;
+}
+
 
 ul.collection-bar{
     
-    border: 1px solid rgb(232, 118, 57);
+    border: 1px solid transparent;
     border-radius: 15px;
     margin: 1.5em 4em 1.5em 4em;
     padding: 1em;
-    background-color: rgb(232, 118, 57);
+    /* background-color: rgb(232, 118, 57); */
 }
-
 /* //////////////////////////////// Book cards /////////////////////////////////// */
 
 .card .card-content{
@@ -98,7 +123,7 @@ ul.collection-bar{
 .card.small {
 width: 220px;
 height: 450px;
-margin: 0 auto;
+margin: 10px auto;
 }
 
 .card .card-image > img{
@@ -121,6 +146,64 @@ margin: 0 auto;
     color: blue;
     -webkit-transition: color .4s ease;
     transition: color .3 ease;
+}
+
+
+/* //////////////////////////////// register & login forms /////////////////////////////////// */
+.card.large .card-image.register-bg{
+    max-height: 100%;
+}
+
+.register-bg{
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/cacb57af3c6b8be1e5d206d203cee7b1.jpg);
+    background-size:cover;
+}
+
+.register-form .input-field{
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: #fff;
+}
+
+form > .row{
+    margin-bottom: 5px;
+}
+
+.form-error{
+    color: tomato;
+    padding-left: 2.3rem;
+}
+
+
+.input-field .prefix{
+    font-size: 1.5rem;
+    top: 1rem;
+}
+
+
+button[type=submit]{
+    margin-top: 1.5rem;
+    margin-bottom: .3rem;
+}
+
+.btn-large i{
+    font-size: 1.3rem;
+    line-height: normal;
+}
+
+.flashes h4{
+    line-height: 1;
+    padding-top: 0.5rem;
+}
+
+
+.input-field>label:not(.label-icon).active{
+    transform: translateY(-4px) scale(0.8);
+    transform-origin:translateY(-4px) scale(0.8) ;
+    -webkit-transform: translateY(-4px) scale(0.8);
+    -webkit-transform-origin: translateY(-4px) scale(0.8);
 }
 
 

@@ -43,11 +43,14 @@
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                 <ul class="hide-on-med-and-down right">
                     <li><a href="{{ url_for('get_books') }}">Home</a></li>
+                    {% if session.user %}
                     <li><a href="#">Profile</a></li>
                     <li><a href="#">Add A Book</a></li>
-                    <li><a href="#">Become A Member</a></li>
-                    <li><a href="#">Sign In</a></li>
                     <li><a href="#">Sign Out</a></li>
+                    {% else %}
+                    <li><a href="{{ url_for('register') }}">Sign Up</a></li>
+                    <li><a href="{{ url_for('login') }}">Sign In</a></li>
+                    {% endif %}
                 </ul>
 
             </div>
@@ -57,14 +60,28 @@
         <!-- moile sidenav -->
         <ul class="sidenav" id="mobile-demo">
             <li><a href="{{ url_for('get_books') }}">Home</a></li>
+            {% if session.user %}
             <li><a href="#">Profile</a></li>
             <li><a href="#">Add A Book</a></li>
-            <li><a href="#">Become A Member</a></li>
-            <li><a href="#">Sign In</a></li>
             <li><a href="#">Sign Out</a></li>
+            {% else %}
+            <li><a href="{{ url_for('register') }}">Sign Up</a></li>
+            <li><a href="{{ url_for('login') }}">Sign In</a></li>
+            {% endif %}
         </ul>
     </header>
-
+    <section>
+        <!-- flash messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="row flashes light-green lighten-4">
+                        <h4 class="center-align">{{ message }}</h4>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </section>
 
     {% block content%}
     {% endblock %}
