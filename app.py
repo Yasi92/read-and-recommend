@@ -29,6 +29,7 @@ def get_books():
     return render_template("home.html", books=books, categories=categories)
 
 
+
 @app.route("/login", methods=["GET", "POST"])   
 def login():
     login_form = LoginForm(request.form)
@@ -106,6 +107,15 @@ def profile(username):
         location=location, email=email, profile_pic=profile_pic)
 
     return redirect(url_for("login"))
+
+
+@app.route("/logout")
+def logout():
+    #removes user from session cookies
+    flash("You have been loged out")
+    session.pop("user")
+    return redirect(url_for('login'))
+
 
 
 if __name__ == "__main__":
