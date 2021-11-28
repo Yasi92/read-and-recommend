@@ -6,7 +6,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 import pymongo
-from classes import RegisterForm, LoginForm, ReviewForm
+from classes import RegisterForm, LoginForm
 
 if os.path.exists("env.py"):
     import env
@@ -57,6 +57,55 @@ def login():
 
     return render_template("login.html", login_form=login_form)
 
+
+
+@app.route("/register", methods=["GET", "POST"])   
+def register():
+    register_form = RegisterForm(request.form)
+
+    if request.method == "POST" and register_form.validate():
+        # Check if username exists in db
+        existing_user = mongo.db.users.find_one(
+            {"username" : register_form.username.data.lower()})
+
+        if existing_user:
+            flash("Username already exists")
+            return redirect(url_for('register'))
+
+    
+        register={
+            "username" : register_form.username.data,
+            "password" : generate_password_hash(str(register_form.password.data)),
+            "email" : register_form.email.data,
+            "location" : register_form.location.data
+        }    
+
+        mongo.db.users.insert_one(register)
+        
+
+        session["user"] = register_form.username.data.lower()
+        flash("Registeration Successful!")
+        return redirect(url_for('profile', username=session["user"]))
+
+    
+    return render_template("register.html", register_form=register_form) 
+
+@app.route("/profile/<username>", methods=["GET", "POST"])   
+def profile(username):
+    # get the session user's username from db
+    username= mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    location = mongo.db.users.find_one(
+        {"username" : username})["location"] 
+    email = mongo.db.users.find_one(
+        {"username" : username})["email"]
+    profile_pic = url_for('static',filename='images/images.jpeg') 
+    
+    if session["user"]:
+        return render_template("profile.html", username=username,
+        location=location, email=email, profile_pic=profile_pic)
+
+    return redirect(url_for("login"))
 
 
 if __name__ == "__main__":
