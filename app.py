@@ -116,6 +116,19 @@ def logout():
     session.pop("user")
     return redirect(url_for('login'))
 
+@app.route("/get_categories/<category_name>")
+def get_categories(category_name):
+    categories = mongo.db.categories.find()
+    category_book = mongo.db.books.find({"category_name" : category_name})
+
+    return render_template("home.html", categories=categories,
+    category_name= category_name, category_book= category_book)
+
+
+
+
+
+
 
 
 if __name__ == "__main__":
