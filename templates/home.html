@@ -3,7 +3,7 @@
 
 <div class="row">
     <div class="col s12">
-        <ul class="collection-bar orange darken-2">
+        <ul class="collection-bar orange darken-2 center">
             <li><a href="{{ url_for('get_books') }}">ALL</a></li>
             {% for category in categories | sort(attribute='category_name') %}
             <li><a href="{{ url_for('get_categories', category_name=category.category_name) }}">{{ category.category_name.upper() }}</a></li>
@@ -15,7 +15,7 @@
 
     <div class="row">
         {% for book in books %}
-        <div class="col s2">
+        <div class="col s2 book-card">
             <div class="card small hoverable">
                 <div class="card-image">
                     <img height="300" width="220" class="responsive-img" src="{{ book.img_url }}"
@@ -26,11 +26,13 @@
                     <p>By {{ book.author }}</p>
                 </div>
                 <div class="card-action">
-                    <a href="#">learn More</a>
+                    <a href="{{ url_for('get_book', book_title=book.title) }}">learn More</a>
                 </div>
             </div>
         </div>
         {% endfor %}
     </div>
+
+
 
 {% endblock %}

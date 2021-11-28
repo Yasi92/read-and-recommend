@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+{% from "_formhelpers.html" import render_field %}
+
+<div class="row">
+    <div class="col s12">
+        <!-- The history back button is learned form https://css-tricks.com/snippets/javascript/go-back-button/ and w3school -->
+        <button class="back-btn" type="button" onclick="history.back()"><i
+                class="fas fa-arrow-alt-circle-left"></i></button>
+        <div class="row profile-info-row">
+            <div class="col s4 offset-m1 ">
+                <img src="{{ book_details.img_url  }}" alt="cover image" class="responsive-img book-img">
+            </div>
+            <div class="col s6">
+                <div class="book_title_div center-align">
+                    <h4>{{ book_title }}</h4>
+                </div>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Author</td>
+                            <td class="right">{{ book_details.author }}</td>
+                        </tr>
+                        <tr>
+                            <td>Publisher:</td>
+                            <td class="right">{{ book_details.publisher }}</td>
+                        </tr>
+                        <tr>
+                            <td>Pages:</td>
+                            <td class="right">{{ book_details.pages }}</td>
+                        </tr>
+                        <tr>
+                            <td>Language:</td>
+                            <td class="right">{{ book_details.language }}</td>
+                        </tr>
+                        <tr>
+                            <td>Price:</td>
+                            <td class="right">{{ book_details.price }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="center">
+                    <a class="waves-effect btn-large center-align wide-btn light-green darken-3 hoverable"
+                        target="blank" href="{{ book_details.shopping_link }}">Go Get It</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col s10 offset-m1">
+        <h4 class="center-align"> About "{{ book_title }}"</h4>
+        <p>{{ book_details.description }}</p>
+    </div>
+</div>
+
+
+{% endblock %}

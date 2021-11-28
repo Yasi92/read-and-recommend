@@ -116,6 +116,23 @@ def logout():
     session.pop("user")
     return redirect(url_for('login'))
 
+
+
+
+
+
+@app.route("/get_book/<book_title>", methods=["GET", "POST"])
+def get_book(book_title):
+    book_details = mongo.db.books.find_one({"title" : book_title})    
+    
+
+
+    return render_template("books.html", book_title=book_title,
+                            book_details=book_details)    
+
+
+
+
 @app.route("/get_categories/<category_name>")
 def get_categories(category_name):
     categories = mongo.db.categories.find()
