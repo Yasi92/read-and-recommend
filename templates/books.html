@@ -13,6 +13,9 @@
             </div>
             <div class="col s6">
                 <div class="book_title_div center-align">
+                    {% if badge  %}
+                        <span class="badge left orange lighten-1"><i class="fas fa-tag"></i> Best Seller</span>
+                    {% endif %}
                     <h4>{{ book_title }}</h4>
                 </div>
                 <table>
@@ -53,6 +56,31 @@
     <div class="col s10 offset-m1">
         <h4 class="center-align"> About "{{ book_title }}"</h4>
         <p>{{ book_details.description }}</p>
+    </div>
+</div>
+
+
+<div class="row">
+
+
+    <div class="col s10 offset-m1 review-box green lighten-5">
+        <div class="heading-div">
+            <h4 class="center-align">Tell Us About This Book</h4>
+        </div>
+        <form class="form" action="{{ url_for('get_book', book_title=book_title) }}" method="POST">
+            <div class="row">
+                <div class="input-field col s8 offset-m2">
+                    {{ render_field(review_form.review) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s4 offset-m4">
+                    <button type="submit" class="col s12 btn-large light-green darken-3">Submit
+                        <i class="far fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 

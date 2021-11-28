@@ -6,7 +6,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 import pymongo
-from classes import RegisterForm, LoginForm
+from classes import RegisterForm, LoginForm, ReviewForm
 
 if os.path.exists("env.py"):
     import env
@@ -126,9 +126,36 @@ def get_book(book_title):
     book_details = mongo.db.books.find_one({"title" : book_title})    
     
 
+    review_form = ReviewForm(request.form)
+    # it selects all the best seller books with a value of true and return a best_seller badge 
+    badge= False
+    
+    if book_details["best_seller"] == "true":
+        badge = True 
+
+
+
+    if request.method == "POST":
+
+        if session:
+            review_details={
+            "username" : session["user"],
+            "review" : review_form.review.data,
+            "date_created" : review_form.created_date,
+            "book_title" : book_title}
+            
+            mongo.db.reviews.insert_one(review_details)
+            flash("Thank you for your feedback!")
+
+        else:
+            pass
+            flash("Please login to write a review!")
+
+
 
     return render_template("books.html", book_title=book_title,
-                            book_details=book_details)    
+                            book_details=book_details, review_form=review_form,
+                            badge=badge)    
 
 
 

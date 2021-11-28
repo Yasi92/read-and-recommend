@@ -23,3 +23,9 @@ class RegisterForm(Form):
 class LoginForm(Form):
     username = StringField('Username')
     password = PasswordField('Password')
+
+
+
+class ReviewForm(Form):
+    review = StringField('Write Here', widget=TextArea())
+    created_date = datetime.datetime.now() 
