@@ -6,6 +6,8 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 import pymongo
+import wtforms 
+
 from classes import RegisterForm, LoginForm, ReviewForm
 
 if os.path.exists("env.py"):
@@ -35,7 +37,7 @@ def best_seller_books():
     best_sellers = mongo.db.books.find({"best_seller" : "true"})
     return render_template("home.html", best_sellers=best_sellers,
     categories=categories)
-    
+
 
 @app.route("/login", methods=["GET", "POST"])   
 def login():

@@ -1,5 +1,5 @@
 
-from wtforms import Form, StringField, PasswordField, validators, RadioField, TextAreaField
+from wtforms import Form, StringField, PasswordField, validators, TextAreaField
 from wtforms.fields.simple import TextAreaField
 from wtforms.widgets import TextArea
 import datetime
