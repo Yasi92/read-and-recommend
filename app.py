@@ -28,7 +28,14 @@ def get_books():
     categories = mongo.db.categories.find()
     return render_template("home.html", books=books, categories=categories)
 
-
+@app.route("/best_seller_books")
+def best_seller_books():
+    
+    categories = mongo.db.categories.find()
+    best_sellers = mongo.db.books.find({"best_seller" : "true"})
+    return render_template("home.html", best_sellers=best_sellers,
+    categories=categories)
+    
 
 @app.route("/login", methods=["GET", "POST"])   
 def login():
