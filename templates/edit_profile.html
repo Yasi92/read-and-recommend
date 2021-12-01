@@ -17,8 +17,7 @@
 
 
 
-    <form class="col s6  register-form" method="POST"
-        action="{{ url_for('edit_profile', user_id=user._id) }}">
+    <form class="col s6 form edit-profile-form" method="POST" action="{{ url_for('edit_profile', user_id=user._id) }}">
         <!-- username -->
         <div class="row">
             <div class="input-field col s12">
@@ -45,12 +44,14 @@
         </div>
         <!-- submit btn -->
         <div class="row">
-            <div class="input-field col s3">
-                <button type="submit" class="col s12 btn light-green darken-3">Save <i
-                        class="fas fa-sign-in-alt"></i>
+            <div class="input-field col s12 center-align center">
+                <a href="{{ url_for('profile', username=session['user']) }}" class="btn-large red">Cancel <i class="fas fa-times"></i>
+                </a>
+                <button type="submit" class="btn-large light-green darken-3">Save <i class="fas fa-sign-in-alt"></i>
                 </button>
             </div>
         </div>
+
     </form>
 </div>
 

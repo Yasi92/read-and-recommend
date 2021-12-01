@@ -109,10 +109,12 @@ def profile(username):
     # get the session user's username from db
     user = mongo.db.users.find_one(
         {"username": session["user"]})
+    username = mongo.db.users.find_one(
+    {"username": session["user"]})["username"]
     profile_pic = url_for('static',filename='images/images.jpeg') 
     
     if session["user"]:
-        return render_template("profile.html", user=user, profile_pic=profile_pic)
+        return render_template("profile.html", user=user, profile_pic=profile_pic, username=username)
 
     return redirect(url_for("login"))
 

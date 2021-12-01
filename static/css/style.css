@@ -99,11 +99,7 @@ input[type=search]:not(.browser-default){
     background-color: #fff;
 }
 
-input[type=text]:not(.browser-default),input[type=email]:not(.browser-default),input[type=password]:not(.browser-default){
-border: 1px solid gray;
-border-radius: 10px;
-height: 4rem;
-}
+
 
 input:-internal-autofill-selected{
     background-color: #fff
@@ -193,10 +189,32 @@ margin: 10px auto;
 }
 
 
-/* //////////////////////////////// register & login forms /////////////////////////////////// */
+/* //////////////////////////////// forms /////////////////////////////////// */
 .card.large .card-image.register-bg{
     max-height: 100%;
 }
+
+.edit-profile-form input[type=text]:not(.browser-default),
+.edit-profile-form input[type=email]:not(.browser-default),
+.edit-profile-form input[type=password]:not(.browser-default){
+    border: 1px solid gray;
+    border-radius: 10px;
+    height: 4rem;
+    }
+
+
+.edit-profile-form .input-field .prefix ~ label{
+    margin-left: 2.4rem;
+    padding-left: .7rem;
+    padding-top: .5rem;
+
+}
+
+
+.edit-profile-form .input-field .prefix ~ input{
+    padding-left: .7rem;
+}
+
 
 .register-bg{
     width: 100%;
@@ -205,27 +223,14 @@ margin: 10px auto;
     background-size:cover;
 }
 
-.register-form .input-field{
+.form .input-field{
     margin-top: 0;
     margin-bottom: 0;
     background-color: #fff;
 }
 
-.register-form{
-    margin-top: 2rem;
 
-}
 
-.input-field .prefix ~ label{
-    margin-left: 2.4rem;
-    padding-left: .7rem;
-    padding-top: .5rem;
-
-}
-
-.input-field .prefix ~ input{
-    padding-left: .7rem;
-}
 
 form > .row{
     margin: 1rem;
@@ -244,10 +249,7 @@ form > .row{
 }
 
 
-button[type=submit]{
-    margin-top: 1.5rem;
-    margin-bottom: .3rem;
-}
+
 
 .btn-large i{
     font-size: 1.3rem;
@@ -269,6 +271,7 @@ button[type=submit]{
     -webkit-transform: translateY(-4px) scale(0.8);
     -webkit-transform-origin: translateY(-4px) scale(0.8);
 }
+
 
 
 /* //////////////////////////////// book details /////////////////////////////////// */
