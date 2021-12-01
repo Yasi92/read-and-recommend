@@ -1,14 +1,16 @@
 import os
+from typing import Set
 from flask import (
      Flask, flash, render_template, redirect,
      request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+import requests
 from werkzeug.security import generate_password_hash, check_password_hash
 import pymongo
 import wtforms 
 
-from classes import RegisterForm, LoginForm, ReviewForm
+from classes import RegisterForm, LoginForm, ReviewForm, EditProfile
 
 if os.path.exists("env.py"):
     import env
@@ -30,6 +32,7 @@ def get_books():
     categories = mongo.db.categories.find()
     return render_template("home.html", books=books, categories=categories)
 
+
 @app.route("/best_seller_books")
 def best_seller_books():
     
@@ -37,6 +40,7 @@ def best_seller_books():
     best_sellers = mongo.db.books.find({"best_seller" : "true"})
     return render_template("home.html", best_sellers=best_sellers,
     categories=categories)
+
 
 
 @app.route("/login", methods=["GET", "POST"])   
@@ -103,30 +107,35 @@ def register():
 @app.route("/profile/<username>", methods=["GET", "POST"])   
 def profile(username):
     # get the session user's username from db
-    username= mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    location = mongo.db.users.find_one(
-        {"username" : username})["location"] 
-    email = mongo.db.users.find_one(
-        {"username" : username})["email"]
+    user = mongo.db.users.find_one(
+        {"username": session["user"]})
     profile_pic = url_for('static',filename='images/images.jpeg') 
     
     if session["user"]:
-        return render_template("profile.html", username=username,
-        location=location, email=email, profile_pic=profile_pic)
+        return render_template("profile.html", user=user, profile_pic=profile_pic)
 
     return redirect(url_for("login"))
 
 
-@app.route("/logout")
-def logout():
-    #removes user from session cookies
-    flash("You have been loged out")
-    session.pop("user")
-    return redirect(url_for('login'))
+@app.route("/edit_profile/<user_id>", methods=["GET", "POST"])   
+def edit_profile(user_id):
+    user = mongo.db.users.find_one({"_id" : ObjectId(user_id)})
+    edit_form = EditProfile(request.form)
+    profile_pic = url_for('static',filename='images/images.jpeg') 
 
+    if request.method == "POST" and edit_form.validate():
+        # Since password is not getting updated in db, "$set" is used to update the specific records.
+        mongo.db.users.update(
+                            {"_id" : ObjectId(user_id)}, {'$set': {"username" : edit_form.username.data,
+                             "email" : edit_form.email.data, "location": edit_form.location.data}} )
+        flash("Profile Updated")
+        session["user"] = edit_form.username.data.lower()
+        return redirect(url_for('profile', username=session['user']))
 
+        
 
+    return render_template('edit_profile.html', edit_form=edit_form,
+                            user=user, profile_pic=profile_pic )
 
 
 
@@ -141,8 +150,6 @@ def get_book(book_title):
     
     if book_details["best_seller"] == "true":
         badge = True 
-
-
 
     if request.method == "POST":
 
@@ -179,9 +186,12 @@ def get_categories(category_name):
 
 
 
-
-
-
+@app.route("/logout")
+def logout():
+    #removes user from session cookies
+    flash("You have been loged out")
+    session.pop("user")
+    return redirect(url_for('login'))
 
 
 if __name__ == "__main__":

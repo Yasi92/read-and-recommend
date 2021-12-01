@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-{% from "_formhelpers.html" import render_field %}
+
 
 
 <div class="row profile-info-row">
@@ -11,10 +11,10 @@
                     height="100%" class="responsive-img circle">
             </div>
             <div class="col s5">
-                <h4>{{ username }}</h4>
-                <p>{{ location }}</p>
-                <p>{{ email }}</p>
-                <a class="edit-btn deep-orange darken-1 waves-effect waves-light btn"><i
+                <h4>{{ user.username }}</h4>
+                <p>{{ user.location }}</p>
+                <p>{{ user.email }}</p>
+                <a href="{{ url_for('edit_profile', user_id=user._id) }}" class="edit-btn deep-orange darken-1 waves-effect waves-light btn"><i
                         class="fas fa-user-edit left"></i>Edit Profile</a>
             </div>
         </div>
