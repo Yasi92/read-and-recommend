@@ -13,6 +13,26 @@
     </div>
 </div>
 
+<div class="row">
+    {% for book in category_book %}
+    <div class="col s2 book-card">
+        <div class="card small hoverable">
+            <div class="card-image">
+                <img height="300" width="220" class="responsive-img" src="{{ book.img_url }}"
+                    alt="Book Cover Image">
+            </div>
+            <div class="card-content">
+                <h6>{{ book.title }}</h6>
+                <p>By {{ book.author }}</p>
+            </div>
+            <div class="card-action">
+                <a href="{{ url_for('get_book', book_title=book.title) }}">learn More</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
     <div class="row">
         {% for book in books %}
         <div class="col s2 book-card">
