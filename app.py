@@ -10,7 +10,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import pymongo
 import wtforms 
 
-from classes import RegisterForm, LoginForm, ReviewForm, EditProfile
+from classes import RegisterForm, LoginForm, ReviewForm, EditProfile, AddBook
 
 if os.path.exists("env.py"):
     import env
@@ -37,7 +37,7 @@ def get_books():
 def best_seller_books():
     
     categories = mongo.db.categories.find()
-    best_sellers = mongo.db.books.find({"best_seller" : "true"})
+    best_sellers = mongo.db.books.find({"best_seller" : True})
     return render_template("home.html", best_sellers=best_sellers,
     categories=categories)
 
@@ -147,11 +147,6 @@ def get_book(book_title):
     
 
     review_form = ReviewForm(request.form)
-    # it selects all the best seller books with a value of true and return a best_seller badge 
-    badge= False
-    
-    if book_details["best_seller"] == "true":
-        badge = True 
 
     if request.method == "POST":
 
@@ -172,8 +167,7 @@ def get_book(book_title):
 
 
     return render_template("books.html", book_title=book_title,
-                            book_details=book_details, review_form=review_form,
-                            badge=badge)    
+                            book_details=book_details, review_form=review_form)    
 
 
 
@@ -194,6 +188,38 @@ def logout():
     flash("You have been loged out")
     session.pop("user")
     return redirect(url_for('login'))
+
+
+@app.route("/add_book", methods=["GET", "POST"])
+def add_book():
+    add_book_form = AddBook(request.form)
+
+    if request.method == "POST" and add_book_form.validate():
+        # This gets the value(not key) of the select field and insert it to db.
+        # The trick has been learned from (https://stackoverflow.com/questions/43071278/how-to-get-value-not-key-data-from-selectfield-in-wtforms/43071533)
+        value = dict(add_book_form.category.choices).get(add_book_form.category.data)
+
+        new_book = {
+            "title" : add_book_form.title.data,
+            "author" : add_book_form.author.data,
+            "category_name" : value,
+            "publisher" :add_book_form.publisher.data,
+            "pages" : add_book_form.pages.data,
+            "language" : add_book_form.language.data,
+            "shopping_link" : add_book_form.shopping_link.data,
+            "img_url" : add_book_form.image.data,
+            "description" :add_book_form.desc.data,
+            "best_seller" : add_book_form.best_seller.data,
+            "price" : add_book_form.price.data,
+        }
+
+        mongo.db.books.insert_one(new_book)
+        flash("Book Added")
+        return redirect(url_for('get_book', book_title=add_book_form.title.data))
+
+    return render_template("add_book.html", add_book_form=add_book_form)
+
+
 
 
 if __name__ == "__main__":

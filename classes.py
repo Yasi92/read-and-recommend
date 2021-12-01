@@ -1,5 +1,6 @@
 
-from wtforms import Form, StringField, PasswordField, validators, TextAreaField, EmailField
+from wtforms import Form, StringField, PasswordField, validators, TextAreaField, EmailField, BooleanField
+from wtforms.fields.choices import SelectField
 from wtforms.widgets import TextArea
 import datetime
 
@@ -38,3 +39,20 @@ class EditProfile(Form):
     location = StringField('Your Location', [validators.Length(min=3, max=50), validators.DataRequired()])
     email = EmailField('Email', [validators.Length(min=6, max=50), validators.DataRequired()])
 
+
+
+class AddBook(Form):
+    categories= [('1', 'literature'), ('2', 'romance'),
+                ('3', 'art'), ('4', 'biography'), ('5', 'business'),
+                ('6', 'children'), ('7', 'history'), ('8', 'nonfiction')]
+    title = StringField('Title', [validators.Length(min=3, max=50), validators.DataRequired()])
+    author = StringField('Author', [validators.Length(min=3, max=50), validators.DataRequired()])
+    category = SelectField('', choices=categories)
+    publisher = StringField('Publisher', [validators.Length(min=3, max=50), validators.DataRequired()])
+    pages = StringField('Pages', [validators.DataRequired()])
+    language = StringField('Language', [validators.DataRequired()])
+    shopping_link = StringField('shopping link', [validators.Length(min=3, max=350), validators.DataRequired()])
+    image = StringField('image url', [validators.Length(min=3, max=350), validators.DataRequired()])
+    desc = TextAreaField('Description', [validators.Length(min=3, max=350), validators.DataRequired()]) 
+    best_seller= BooleanField('Best Seller', [validators.DataRequired()])
+    price = StringField('Price', [validators.DataRequired()])

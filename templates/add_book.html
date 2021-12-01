@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block content %}
+{% from "_formhelpers.html" import render_field %}
+
+
+<div class="container">
+    <div class="row" style="border: 1px solid gray;">
+        <h4 class="center">Add A Book</h4>
+        <div class="col s12">
+            <form class="col s10 offset-m1 form" method="POST" action="{{ url_for('add_book') }}">
+                <!-- title -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{ render_field(add_book_form.title) }}
+
+                    </div>
+                </div>
+                <!-- author -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{ render_field(add_book_form.author) }}
+
+                    </div>
+                </div>
+                <!-- category -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{ render_field(add_book_form.category) }}
+
+                    </div>
+                </div>
+                <!-- publisher -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{ render_field(add_book_form.publisher) }}
+
+                    </div>
+                </div>
+                <!-- pages -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{ render_field(add_book_form.pages) }}
+
+                    </div>
+                </div>
+                <!-- language -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{ render_field(add_book_form.language) }}
+
+                    </div>
+                </div>
+                <!-- price -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{ render_field(add_book_form.price) }}
+
+                    </div>
+                </div>
+                <!-- shopping link -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{ render_field(add_book_form.shopping_link) }}
+
+                    </div>
+                </div>
+                <!-- image-url -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{ render_field(add_book_form.image) }}
+
+                    </div>
+                </div>
+                <!-- description -->
+                <div class="row">
+                    <div class="input-field col s8 offset-m2">
+                        {{ render_field(add_book_form.desc) }}
+                    </div>
+                </div>
+                <!-- best seller -->
+                <div class="row">
+                    <div class="input-field col s8 offset-m2">
+                        <div class="switch">
+                            <label>
+                                {{ render_field(add_book_form.best_seller) }}
+                                <span class="lever"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <!-- submit btn -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <button type="submit" class="col s12 btn-large light-green darken-3">Save <i
+                                class="fas fa-sign-in-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
