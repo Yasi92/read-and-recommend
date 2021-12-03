@@ -196,11 +196,19 @@ margin: 10px auto;
 
 .edit-profile-form input[type=text]:not(.browser-default),
 .edit-profile-form input[type=email]:not(.browser-default),
-.edit-profile-form input[type=password]:not(.browser-default){
+.edit-profile-form input[type=password]:not(.browser-default),
+.add-book-form input[type=email]:not(.browser-default),
+.add-book-form input[type=text]:not(.browser-default),
+.add-book-form input[type=checkbox]:not(.browser-default)
+{
     border: 1px solid gray;
     border-radius: 10px;
     height: 4rem;
+    padding-left: .7rem;
+    ;
     }
+
+
 
 
 .edit-profile-form .input-field .prefix ~ label{
@@ -209,6 +217,12 @@ margin: 10px auto;
     padding-top: .5rem;
 
 }
+
+textarea{
+    height: 8rem;
+    border: 1px solid gray;
+    border-radius: 10px;
+}    
 
 
 .edit-profile-form .input-field .prefix ~ input{
@@ -228,6 +242,7 @@ margin: 10px auto;
     margin-bottom: 0;
     background-color: #fff;
 }
+
 
 
 
@@ -272,7 +287,9 @@ form > .row{
     -webkit-transform-origin: translateY(-4px) scale(0.8);
 }
 
-
+.add-book-form{
+    margin: 2rem;
+}
 
 /* //////////////////////////////// book details /////////////////////////////////// */
 

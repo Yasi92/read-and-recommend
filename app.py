@@ -194,7 +194,7 @@ def logout():
 def add_book():
     add_book_form = AddBook(request.form)
 
-    if request.method == "POST" and add_book_form.validate():
+    if request.method == "POST":
         # This gets the value(not key) of the select field and insert it to db.
         # The trick has been learned from (https://stackoverflow.com/questions/43071278/how-to-get-value-not-key-data-from-selectfield-in-wtforms/43071533)
         value = dict(add_book_form.category.choices).get(add_book_form.category.data)
@@ -210,7 +210,7 @@ def add_book():
             "img_url" : add_book_form.image.data,
             "description" :add_book_form.desc.data,
             "best_seller" : add_book_form.best_seller.data,
-            "price" : add_book_form.price.data,
+            "price" : add_book_form.price.data
         }
 
         mongo.db.books.insert_one(new_book)
