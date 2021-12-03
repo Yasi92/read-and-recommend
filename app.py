@@ -109,12 +109,10 @@ def profile(username):
     # get the session user's username from db
     user = mongo.db.users.find_one(
         {"username": session["user"]})
-    username = mongo.db.users.find_one(
-    {"username": session["user"]})["username"]
     profile_pic = url_for('static',filename='images/images.jpeg') 
     
     if session["user"]:
-        return render_template("profile.html", user=user, profile_pic=profile_pic, username=username)
+        return render_template("profile.html", username=username, user=user, profile_pic=profile_pic)
 
     return redirect(url_for("login"))
 
@@ -205,7 +203,6 @@ def add_book():
             "category_name" : value,
             "publisher" :add_book_form.publisher.data,
             "pages" : add_book_form.pages.data,
-            "language" : add_book_form.language.data,
             "shopping_link" : add_book_form.shopping_link.data,
             "img_url" : add_book_form.image.data,
             "description" :add_book_form.desc.data,
@@ -230,26 +227,23 @@ def edit_book(book_id):
     edit_book_form = AddBook(request.form)
    
     if request.method == "POST":
-        # This gets the value(not key) of the select field and insert it to db.
-        # The trick has been learned from (https://stackoverflow.com/questions/43071278/how-to-get-value-not-key-data-from-selectfield-in-wtforms/43071533)
-        value = dict(edit_book_form.category.choices).get(edit_book_form.category.data)
+       
 
         new_book = {
             "title" : edit_book_form.title.data,
             "author" : edit_book_form.author.data,
-            "category_name" : value,
+            "category_name" : request.form.get("category_name"),
             "publisher" :edit_book_form.publisher.data,
             "pages" : edit_book_form.pages.data,
-            "language" : edit_book_form.language.data,
             "shopping_link" : edit_book_form.shopping_link.data,
             "img_url" : edit_book_form.image.data,
-            "description" :edit_book_form.desc.data,
+            "description" :request.form.get("desc"),
             "best_seller" : edit_book_form.best_seller.data,
             "price" : edit_book_form.price.data,
             "added_by" : session['user']
         }
 
-        mongo.db.books.insert_one(new_book)
+        mongo.db.books.update_one({"_id" : ObjectId(book_id)}, {'$set' : new_book})
         flash("Book Edited")
         return redirect(url_for('get_book', book_title=edit_book_form.title.data))
 

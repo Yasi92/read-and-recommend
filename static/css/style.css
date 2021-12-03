@@ -125,6 +125,12 @@ input:-internal-autofill-selected{
 }
 
 
+button, input, optgroup, select, textarea { 
+    color: inherit;
+    font: inherit;
+    margin: 0px;
+    }
+
 /* //////////////////////////////// Collection-bar /////////////////////////////////// */
 
 ul.collection-bar li{
