@@ -63,6 +63,14 @@ span.badge{
     transform: scale(1.2);
 }
 
+.book-btn{
+    margin-top: 1.5rem;
+}
+
+.btn-small{
+    margin: .3rem;
+}
+
 /* //////////////////////////////// Navbar and header box /////////////////////////////////// */
 .nav-wrapper {
     background-color: #92a27e;
@@ -203,9 +211,9 @@ margin: 10px auto;
 {
     border: 1px solid gray;
     border-radius: 10px;
-    height: 4rem;
+    height: 3rem;
     padding-left: .7rem;
-    ;
+    
     }
 
 
@@ -244,9 +252,6 @@ textarea{
 }
 
 
-
-
-
 form > .row{
     margin: 1rem;
     
@@ -264,8 +269,6 @@ form > .row{
 }
 
 
-
-
 .btn-large i{
     font-size: 1.3rem;
     line-height: normal;
@@ -281,11 +284,9 @@ form > .row{
 
 
 .input-field>label:not(.label-icon).active{
-    transform: translateY(-4px) scale(0.8);
-    transform-origin:translateY(-4px) scale(0.8) ;
-    -webkit-transform: translateY(-4px) scale(0.8);
-    -webkit-transform-origin: translateY(-4px) scale(0.8);
+    display: none;
 }
+
 
 .add-book-form{
     margin: 2rem;
@@ -337,6 +338,45 @@ tr:last-child{
     padding: 0;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .addReadMore.showlesscontent .SecSec,
+    .addReadMore.showlesscontent .readLess {
+        display: none;
+    }
+
+    .addReadMore.showmorecontent .readMore {
+        display: none;
+    }
+
+    .addReadMore .readMore,
+    .addReadMore .readLess {
+        font-weight: bold;
+        margin-left: 2px;
+        color: blue;
+        cursor: pointer;
+    }
+
+    .addReadMoreWrapTxt.showmorecontent .SecSec,
+    .addReadMoreWrapTxt.showmorecontent .readLess {
+        display: block;
+    }
 
 
 /* //////////////////////////////// Ipad size /////////////////////////////////// */

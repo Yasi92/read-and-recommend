@@ -14,7 +14,7 @@
             <div class="col s6">
                 <div class="book_title_div center-align">
                     {% if book_details.best_seller  %}
-                        <span class="badge left orange lighten-1"><i class="fas fa-tag"></i> Best Seller</span>
+                    <span class="badge left orange lighten-1"><i class="fas fa-tag"></i> Best Seller</span>
                     {% endif %}
                     <h4>{{ book_title }}</h4>
                 </div>
@@ -32,19 +32,23 @@
                             <td>Pages:</td>
                             <td class="right">{{ book_details.pages }}</td>
                         </tr>
-                        <tr>
-                            <td>Language:</td>
-                            <td class="right">{{ book_details.language }}</td>
+                        <td>Price:</td>
+                        <td class="right">{{ book_details.price }} €</td>
                         </tr>
                         <tr>
-                            <td>Price:</td>
-                            <td class="right">{{ book_details.price }} €</td>
+                            <td>Created By:</td>
+                            <td class="right">{{ book_details.added_by }}</td>
                         </tr>
+                        <tr>
                     </tbody>
                 </table>
                 <div class="center">
                     <a class="waves-effect btn-large center-align wide-btn light-green darken-3 hoverable"
                         target="blank" href="{{ book_details.shopping_link }}">Go Get It</a>
+                </div>
+                <div class="book-btn">
+                    <a class="btn-small red">Delete</a>
+                    <a class="btn-small light-blue" href="{{ url_for('edit_book', book_id=book_details._id) }}">Edit</a>
                 </div>
             </div>
         </div>
@@ -55,7 +59,7 @@
 <div class="row">
     <div class="col s10 offset-m1">
         <h4 class="center-align"> About "{{ book_title }}"</h4>
-        <p>{{ book_details.description }}</p>
+        <p class="addReadMore showlesscontent">{{ book_details.description }}</p>
     </div>
 </div>
 

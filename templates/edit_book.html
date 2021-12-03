@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% block content %}
+{% from "_formhelpers.html" import render_field %}
+
+
+
+
+<div class="container">
+    <div class="row">
+        <h4 class="center">Edit Book</h4>
+        <div class="col s12" style="border: 1px solid gray;">
+            <form class="col s10 offset-m1 form add-book-form center" method="POST"
+                action="{{ url_for('edit_book', book_id=book._id) }}">
+
+                <!-- title -->
+                <div class="row">
+                    <div class="input-field col s5">
+                        {{ render_field(edit_book_form.title, value=book.title) }}
+
+                    </div>
+
+                    <!-- author -->
+
+                    <div class="input-field col s5 offset-m2">
+                        {{ render_field(edit_book_form.author, value=book.author) }}
+
+                    </div>
+                </div>
+                <!-- category -->
+                <div class="row">
+                    <div class="input-field col s5">
+
+                        <select id="category_name" name="category_name" class="validate" required>
+                            <option value="" disabled>Choose Category</option>
+                            {% for category in categories %}
+                            {% if category.category_name == book.category_name %}
+                            <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                            {% else %}
+                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+
+                    </div>
+
+                    <!-- publisher -->
+
+                    <div class="input-field col s5 offset-m2">
+                        {{ render_field(edit_book_form.publisher, value=book.publisher) }}
+
+                    </div>
+                </div>
+                <!-- pages -->
+                <div class="row">
+                    <div class="input-field col s5">
+                        {{ render_field(edit_book_form.pages, value=book.pages) }}
+
+                    </div>
+                    <!-- image-url -->
+                    <div class="input-field col s5 offset-m2">
+                        {{ render_field(edit_book_form.image, value=book.img_url) }}
+
+                    </div>
+                </div>
+                <!-- price -->
+                <div class="row">
+                    <div class="input-field col s5">
+                        {{ render_field(edit_book_form.price, value=book.price) }}
+
+                    </div>
+
+                    <!-- shopping link -->
+
+                    <div class="input-field col s5 offset-m2">
+                        {{ render_field(edit_book_form.shopping_link, value=book.shopping_link) }}
+
+                    </div>
+                </div>
+                <!-- description -->
+                <div class="row">
+                    <div class="input-field col s12 ">
+                        <textarea id="desc" name="desc" minlength="5" maxlength="350" class="validate" required>
+                    {{- book.description -}}</textarea>
+                        <label for="task_description"></label>
+                    </div>
+                </div>
+                <!-- best seller -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <p>
+                            <label>
+                                {% if book.best_seller == True %}
+                                    {{ render_field(edit_book_form.best_seller, class="filled-in", checked=True) }}
+                                {% else %}
+                                     {{ render_field(edit_book_form.best_seller, class="filled-in") }}   
+                                {% endif %}
+                                <span>Best Seller</span>
+                            </label>
+                        </p>
+                    </div>
+                </div>
+                <!-- submit btn -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <button type="submit" class="col s6 offset-m3 btn-large light-green darken-3">Save <i
+                                class="fas fa-sign-in-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

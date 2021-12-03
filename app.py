@@ -210,7 +210,8 @@ def add_book():
             "img_url" : add_book_form.image.data,
             "description" :add_book_form.desc.data,
             "best_seller" : add_book_form.best_seller.data,
-            "price" : add_book_form.price.data
+            "price" : add_book_form.price.data,
+            "added_by" : session['user']
         }
 
         mongo.db.books.insert_one(new_book)
@@ -221,6 +222,45 @@ def add_book():
 
 
 
+@app.route("/edit_book/<book_id>", methods=["POST", "GET"])
+def edit_book(book_id):
+    book = mongo.db.books.find_one({"_id" : ObjectId(book_id)})
+    categories = mongo.db.categories.find()
+
+    edit_book_form = AddBook(request.form)
+   
+    if request.method == "POST":
+        # This gets the value(not key) of the select field and insert it to db.
+        # The trick has been learned from (https://stackoverflow.com/questions/43071278/how-to-get-value-not-key-data-from-selectfield-in-wtforms/43071533)
+        value = dict(edit_book_form.category.choices).get(edit_book_form.category.data)
+
+        new_book = {
+            "title" : edit_book_form.title.data,
+            "author" : edit_book_form.author.data,
+            "category_name" : value,
+            "publisher" :edit_book_form.publisher.data,
+            "pages" : edit_book_form.pages.data,
+            "language" : edit_book_form.language.data,
+            "shopping_link" : edit_book_form.shopping_link.data,
+            "img_url" : edit_book_form.image.data,
+            "description" :edit_book_form.desc.data,
+            "best_seller" : edit_book_form.best_seller.data,
+            "price" : edit_book_form.price.data,
+            "added_by" : session['user']
+        }
+
+        mongo.db.books.insert_one(new_book)
+        flash("Book Edited")
+        return redirect(url_for('get_book', book_title=edit_book_form.title.data))
+
+    return render_template("edit_book.html", book=book, edit_book_form=edit_book_form, categories=categories)
+
+
+# def edit():
+#     mongo.db.books.update_many({}, {'$unset' : {"language" : 1, "added" : 1}})
+
+
+# edit()    
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

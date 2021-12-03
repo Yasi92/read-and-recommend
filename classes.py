@@ -53,6 +53,13 @@ class AddBook(Form):
     language = StringField('Language', [validators.DataRequired()])
     shopping_link = StringField('shopping link', [validators.Length(min=3, max=350), validators.DataRequired()])
     image = StringField('Image url', [validators.Length(min=3, max=350), validators.DataRequired()])
-    desc = TextAreaField('Description', [validators.Length(min=3, max=350), validators.DataRequired()]) 
+    desc = TextAreaField('Description', [validators.Length(min=3, max=350), validators.DataRequired()], default=None) 
     best_seller= BooleanField('')
     price = StringField('Price', [validators.DataRequired()])
+
+
+
+
+
+
+
