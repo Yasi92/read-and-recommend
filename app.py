@@ -116,6 +116,10 @@ def profile(username):
     # Gets the books added by user.
     books= mongo.db.books.find({"added_by" : session['user']})
 
+    # Gets the reviews added by user.
+    reviews = mongo.db.reviews.find({"username": username})
+    reviews_length = reviews.count()
+
     # This gets the length of the books added by user.
     books_length = books.count()
     num = []
@@ -128,7 +132,8 @@ def profile(username):
     if session["user"]:
         return render_template("profile.html", username=username, user=user,
                                  profile_pic=profile_pic, books=zip(books, num),
-                                 books_length=books_length)
+                                 books_length=books_length, reviews=reviews,
+                                 reviews_length=reviews_length)
 
     return redirect(url_for("login"))
 
