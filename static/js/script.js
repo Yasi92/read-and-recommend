@@ -84,7 +84,7 @@ $(".loadMoreBooks").on("click", function(){
   }
 })
 
-// This function display books added by user on profile page in a max number and loads more books on click  
+// This function display reviews added by user on profile page in a max number and loads more reviews on click  
 $(".collection-item-review").slice(0, 4).show();
 if($(".collection-item-review:hidden").length != 0){
   $(".loadMoreReview").show();

@@ -244,8 +244,9 @@ def add_book():
         }
 
         mongo.db.books.insert_one(new_book)
+        
         flash("Book Added")
-        return redirect(url_for('get_book', book_title=add_book_form.title.data))
+        return redirect(url_for('get_book', book_id=new_book['_id']))
 
     return render_template("add_book.html", add_book_form=add_book_form)
 
@@ -283,7 +284,7 @@ def edit_book(book_id):
 
 
 # def edit():
-#     mongo.db.books.update_many({}, {'$unset' : {"language" : 1, "added" : 1}})
+#     mongo.db.books.delete_many({"title" : "If You Tell"})
 
 
 # edit()    
