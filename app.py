@@ -176,10 +176,11 @@ def get_book(book_title):
             
             mongo.db.reviews.insert_one(review_details)
             flash("Thank you for your feedback!")
+            return redirect(url_for("get_book", book_title=book_title))
 
         else:
-            pass
             flash("Please login to write a review!")
+            return redirect(url_for("login"))
 
     reviews = mongo.db.reviews.find({"book_title" : book_title})
     reviews_length = reviews.count()
