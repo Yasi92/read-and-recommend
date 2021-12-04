@@ -346,11 +346,13 @@ tr:last-child{
     padding: 0;
 }
 
-.row.book-collection{
+.row{
     margin-bottom: 0;
 }
 
-.collection .collection-item.avatar{
+
+
+.collection .collection-item.avatar.book-avt{
     padding-left: 1.2rem;
     padding-bottom: 0;
   
@@ -378,33 +380,48 @@ tr:last-child{
 
 
 
+.collection-item-review{
+    display: none;
+
+}
+
+.collection .collection-item-review{
+    padding: .7rem 1.2rem;
+    background-color: #fff;
+    line-height: 1.5rem;
+    margin: 0;
+    border-bottom: 1px solid #e0e0e0;
+
+}
+
+.collection .collection-item-review.avatar{
+    min-height: 84px;
+    position: relative;
+}
 
 
 
+.addReadMore.showlesscontent .SecSec,
+.addReadMore.showlesscontent .readLess {
+    display: none;
+}
 
+.addReadMore.showmorecontent .readMore {
+    display: none;
+}
 
+.addReadMore .readMore,
+.addReadMore .readLess {
+    font-weight: bold;
+    margin-left: 2px;
+    color: blue;
+    cursor: pointer;
+}
 
-    .addReadMore.showlesscontent .SecSec,
-    .addReadMore.showlesscontent .readLess {
-        display: none;
-    }
-
-    .addReadMore.showmorecontent .readMore {
-        display: none;
-    }
-
-    .addReadMore .readMore,
-    .addReadMore .readLess {
-        font-weight: bold;
-        margin-left: 2px;
-        color: blue;
-        cursor: pointer;
-    }
-
-    .addReadMoreWrapTxt.showmorecontent .SecSec,
-    .addReadMoreWrapTxt.showmorecontent .readLess {
-        display: block;
-    }
+.addReadMoreWrapTxt.showmorecontent .SecSec,
+.addReadMoreWrapTxt.showmorecontent .readLess {
+    display: block;
+}
 
 
 /* //////////////////////////////// Ipad size /////////////////////////////////// */

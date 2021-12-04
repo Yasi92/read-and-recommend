@@ -56,7 +56,7 @@ $(function() {
     AddReadMore();
 });
 
-// This function display books on a max number and loads more books on click 
+// This function display books on home page in a max number and loads more books on click 
 // The method has been learned from this tutorial (https://www.youtube.com/watch?v=XFXDZrjimrY)
 
 $(".book-card").slice(0, 18).show();
@@ -69,7 +69,7 @@ $(".loadMore").on("click", function(){
   }
 })
 
-
+// This function display books added by user on profile page in a max number and loads more books on click  
 $(".collection-item").slice(0, 6).show();
 
 $(".loadMoreBooks").on("click", function(){
@@ -79,5 +79,20 @@ $(".loadMoreBooks").on("click", function(){
     $(".loadMoreBooks").fadeOut();
   }
 })
+
+// This function display books added by user on profile page in a max number and loads more books on click  
+$(".collection-item-review").slice(0, 4).show();
+
+
+
+$(".loadMoreReview").on("click", function(){
+  $(".collection-item-review:hidden").slice(0, 4).show();
+
+  if($(".collection-item-review:hidden").length == 0){
+    $(".loadMoreReview").fadeOut();
+  }
+})
+
+
 
 });

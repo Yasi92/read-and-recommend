@@ -180,10 +180,17 @@ def get_book(book_title):
             pass
             flash("Please login to write a review!")
 
+    reviews = mongo.db.reviews.find({"book_title" : book_title})
+    reviews_length = reviews.count()
+
 
 
     return render_template("books.html", book_title=book_title,
-                            book_details=book_details, review_form=review_form)    
+                            book_details=book_details, review_form=review_form,
+                            reviews=reviews, reviews_length=reviews_length)    
+
+
+
 
 
 
