@@ -9,6 +9,13 @@
 }
 
 
+button, input, optgroup, select, textarea { 
+    color: inherit;
+    font: inherit;
+    margin: 0px;
+}
+
+
 h3 {
     margin-top: 0;
     padding-top: 2.5rem;
@@ -125,11 +132,6 @@ input:-internal-autofill-selected{
 }
 
 
-button, input, optgroup, select, textarea { 
-    color: inherit;
-    font: inherit;
-    margin: 0px;
-    }
 
 /* //////////////////////////////// Collection-bar /////////////////////////////////// */
 
@@ -344,11 +346,23 @@ tr:last-child{
     padding: 0;
 }
 
+.row.book-collection{
+    margin-bottom: 0;
+}
+
+.collection .collection-item.avatar{
+    padding-left: 1.2rem;
+}
+
+.collection .collection-item{
+    padding: .7rem 1.2rem;
+}
 
 
 
-
-
+.profile-info-row{
+    border-bottom: 1px solid gray;
+}
 
 
 

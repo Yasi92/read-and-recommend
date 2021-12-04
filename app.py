@@ -104,17 +104,35 @@ def register():
     
     return render_template("register.html", register_form=register_form) 
 
+
+
 @app.route("/profile/<username>", methods=["GET", "POST"])   
 def profile(username):
     # get the session user's username from db
     user = mongo.db.users.find_one(
         {"username": session["user"]})
     profile_pic = url_for('static',filename='images/images.jpeg') 
+
+    # Gets the books added by user.
+    books= mongo.db.books.find({"added_by" : session['user']})
+
+    # This gets the length of the books added by user.
+    books_length = books.count()
+    num = []
+    i = 0
+    for i in range(books_length):
+        i = i + 1
+        num.append(i)
     
+
     if session["user"]:
-        return render_template("profile.html", username=username, user=user, profile_pic=profile_pic)
+        return render_template("profile.html", username=username, user=user,
+                                 profile_pic=profile_pic, books=zip(books, num))
 
     return redirect(url_for("login"))
+
+
+
 
 
 @app.route("/edit_profile/<user_id>", methods=["GET", "POST"])   
