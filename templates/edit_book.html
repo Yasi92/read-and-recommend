@@ -102,7 +102,9 @@
                 <!-- submit btn -->
                 <div class="row">
                     <div class="input-field col s12">
-                        <button type="submit" class="col s6 offset-m3 btn-large light-green darken-3">Save <i
+                        <a href="{{ url_for('get_book', book_title=book.title) }}" class="btn-large red">Cancel <i class="fas fa-times"></i>
+                        </a>
+                        <button type="submit" class="btn-large light-green darken-3">Save <i
                                 class="fas fa-sign-in-alt"></i>
                         </button>
                     </div>
