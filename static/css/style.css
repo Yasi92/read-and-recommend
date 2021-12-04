@@ -352,6 +352,8 @@ tr:last-child{
 
 .collection .collection-item.avatar{
     padding-left: 1.2rem;
+    padding-bottom: 0;
+  
 }
 
 .collection .collection-item{
@@ -365,7 +367,9 @@ tr:last-child{
 }
 
 
-
+.book-card{
+    display: none;
+}
 
 
 

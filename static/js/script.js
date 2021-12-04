@@ -49,12 +49,25 @@ $(document).ready(function () {
         $(this).closest(".addReadMore").toggleClass("showlesscontent showmorecontent");
     });
 }
+
+
 $(function() {
     //Calling function after Page Load
     AddReadMore();
 });
 
+// This function display books on a max number and loads more books on click 
+// The method has been learned from this tutorial (https://www.youtube.com/watch?v=XFXDZrjimrY)
 
+$(".book-card").slice(0, 18).show();
+
+$(".loadMore").on("click", function(){
+  $(".book-card:hidden").slice(0, 18).show();
+
+  if($(".card-book:hidden").length == 0){
+    $(".loadMore").fadeOut();
+  }
+})
 
 
 });
