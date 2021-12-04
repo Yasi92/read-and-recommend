@@ -27,7 +27,7 @@
                 <p>By {{ book.author }}</p>
             </div>
             <div class="card-action">
-                <a href="{{ url_for('get_book', book_title=book.title) }}">learn More</a>
+                <a href="{{ url_for('get_book', book_id=book._id) }}">learn More</a>
             </div>
         </div>
     </div>
@@ -46,7 +46,7 @@
                 <p>By {{ book.author }}</p>
             </div>
             <div class="card-action">
-                <a href="{{ url_for('get_book', book_title=book.title) }}">learn More</a>
+                <a href="{{ url_for('get_book', book_id=book._id) }}">learn More</a>
             </div>
         </div>
     </div>
@@ -68,7 +68,7 @@
                 <p>By {{ book.author }}</p>
             </div>
             <div class="card-action">
-                <a href="{{ url_for('get_book', book_title=book.title) }}">learn More</a>
+                <a href="{{ url_for('get_book', book_id=book._id) }}">learn More</a>
             </div>
         </div>
     </div>

@@ -163,9 +163,9 @@ def edit_profile(user_id):
 
 
 
-@app.route("/get_book/<book_title>", methods=["GET", "POST"])
-def get_book(book_title):
-    book_details = mongo.db.books.find_one({"title" : book_title})    
+@app.route("/get_book/<book_id>", methods=["GET", "POST"])
+def get_book(book_id):
+    book_details = mongo.db.books.find_one({"_id": ObjectId(book_id)})    
     
 
     review_form = ReviewForm(request.form)
@@ -177,23 +177,23 @@ def get_book(book_title):
             "username" : session["user"],
             "review" : review_form.review.data,
             "date_created" : review_form.created_date,
-            "book_title" : book_title}
+            "book_title" : book_details["title"]}
             
             mongo.db.reviews.insert_one(review_details)
             flash("Thank you for your feedback!")
-            return redirect(url_for("get_book", book_title=book_title))
+            return redirect(url_for("get_book", book_id=book_id))
 
         else:
             flash("Please login to write a review!")
             return redirect(url_for("login"))
 
-    reviews = mongo.db.reviews.find({"book_title" : book_title})
+    reviews = mongo.db.reviews.find({"book_title" : book_details["title"]})
     reviews_length = reviews.count()
 
 
 
-    return render_template("books.html", book_title=book_title,
-                            book_details=book_details, review_form=review_form,
+    return render_template("books.html",book_details=book_details,
+                            review_form=review_form,
                             reviews=reviews, reviews_length=reviews_length)    
 
 
