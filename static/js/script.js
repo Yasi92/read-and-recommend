@@ -70,4 +70,14 @@ $(".loadMore").on("click", function(){
 })
 
 
+$(".collection-item").slice(0, 6).show();
+
+$(".loadMoreBooks").on("click", function(){
+  $(".collection-item:hidden").slice(0, 6).show();
+
+  if($(".collection-item:hidden").length == 0){
+    $(".loadMoreBooks").fadeOut();
+  }
+})
+
 });

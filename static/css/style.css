@@ -371,6 +371,10 @@ tr:last-child{
     display: none;
 }
 
+.collection-item{
+    display: none;
+}
+
 
 
 
