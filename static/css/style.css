@@ -399,6 +399,13 @@ tr:last-child{
     position: relative;
 }
 
+.loadMoreReview{
+    display: none;
+}
+
+.loadMoreBooks{
+    display: none;
+}
 
 
 .addReadMore.showlesscontent .SecSec,

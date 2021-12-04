@@ -127,7 +127,8 @@ def profile(username):
 
     if session["user"]:
         return render_template("profile.html", username=username, user=user,
-                                 profile_pic=profile_pic, books=zip(books, num))
+                                 profile_pic=profile_pic, books=zip(books, num),
+                                 books_length=books_length)
 
     return redirect(url_for("login"))
 

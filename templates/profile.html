@@ -32,45 +32,48 @@
     </div>
 
 
-    <ul class="collection">
-        {% for book, num in books %}
-        <li class="collection-item avatar book-avt">
+    {% if books_length > 0 %}
+        <ul class="collection">
+            {% for book, num in books %}
+            <li class="collection-item avatar book-avt">
 
-            <div class="row">
-                <div class="col s1">
-                    <span>{{ num }}. </span>
-                </div>
-                <div class="col s2">
-                    <img height="180" width="100" class="responsive-img" src="{{ book.img_url }}"
-                        alt="Book Cover Image">
-                </div>
+                <div class="row">
+                    <div class="col s1">
+                        <span>{{ num }}. </span>
+                    </div>
+                    <div class="col s2">
+                        <img height="180" width="100" class="responsive-img" src="{{ book.img_url }}"
+                            alt="Book Cover Image">
+                    </div>
 
 
-                <div class="col s4">
-                    <h6>{{ book.title }}</h6>
-                    <p> By {{ book.author }}</p><br>
-                    {% if book.best_seller  %}
-                    <span class="badge orange left lighten-1"><i class="fas fa-tag"></i> Best Seller</span>
+                    <div class="col s4">
+                        <h6>{{ book.title }}</h6>
+                        <p> By {{ book.author }}</p><br>
+                        {% if book.best_seller  %}
+                        <span class="badge orange left lighten-1"><i class="fas fa-tag"></i> Best Seller</span>
+                        {% endif %}
+                    </div>
+                    {% if session.user|lower == book.added_by|lower %}
+                    <div class="col s3 right">
+                        <a class="btn-small red right">Delete</a>
+                        <a class="btn-small light-blue right" href="{{ url_for('edit_book', book_id=book._id) }}">Edit</a>
+                    </div>
                     {% endif %}
                 </div>
-                {% if session.user|lower == book.added_by|lower %}
-                <div class="col s3 right">
-                    <a class="btn-small red right">Delete</a>
-                    <a class="btn-small light-blue right" href="{{ url_for('edit_book', book_id=book._id) }}">Edit</a>
-                </div>
-                {% endif %}
-            </div>
 
 
 
 
-        </li>
-        {% endfor %}
-       
-    </ul>
-    <div class="center">
-        <button class="btn-large center red loadMoreBooks">Load More</button>
-    </div>
+            </li>
+            {% endfor %}
+        
+        </ul>
+        <div class="center">
+            <button class="btn-large center red loadMoreBooks">Load More</button>
+        </div>
+    {% endif %}
 </div>
+
 
 {% endblock %}

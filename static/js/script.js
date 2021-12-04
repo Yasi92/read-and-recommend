@@ -72,6 +72,10 @@ $(".loadMore").on("click", function(){
 // This function display books added by user on profile page in a max number and loads more books on click  
 $(".collection-item").slice(0, 6).show();
 
+if($(".collection-item:hidden").length != 0){
+  $(".loadMoreBooks").show();
+}
+
 $(".loadMoreBooks").on("click", function(){
   $(".collection-item:hidden").slice(0, 6).show();
 
@@ -82,7 +86,9 @@ $(".loadMoreBooks").on("click", function(){
 
 // This function display books added by user on profile page in a max number and loads more books on click  
 $(".collection-item-review").slice(0, 4).show();
-
+if($(".collection-item-review:hidden").length != 0){
+  $(".loadMoreReview").show();
+}
 
 
 $(".loadMoreReview").on("click", function(){
