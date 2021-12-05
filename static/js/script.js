@@ -56,18 +56,31 @@ $(function() {
     AddReadMore();
 });
 
+
+
+
+
 // This function display books on home page in a max number and loads more books on click 
 // The method has been learned from this tutorial (https://www.youtube.com/watch?v=XFXDZrjimrY)
-
 $(".book-card").slice(0, 18).show();
+
+
+// Hide load more button if there is no book card hidden.
+let bookCardLength = $(".book-card:hidden").slice(0, 18);
+bookCardLength.length != 0 ? $(".loadMore").show() : $(".loadMore").hide();
+
 
 $(".loadMore").on("click", function(){
   $(".book-card:hidden").slice(0, 18).show();
 
+
   if($(".card-book:hidden").length == 0){
     $(".loadMore").fadeOut();
   }
+
 })
+
+
 
 // This function display books added by user on profile page in a max number and loads more books on click  
 $(".collection-item").slice(0, 6).show();

@@ -239,7 +239,7 @@ def add_book():
         value = dict(add_book_form.category.choices).get(add_book_form.category.data)
 
         new_book = {
-            "title" : add_book_form.title.data,
+            "title" : add_book_form.title.data.lower(),
             "author" : add_book_form.author.data,
             "category_name" : value,
             "publisher" :add_book_form.publisher.data,
