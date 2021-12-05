@@ -23,7 +23,7 @@
                 <img height="300" width="220" class="responsive-img" src="{{ book.img_url }}" alt="Book Cover Image">
             </div>
             <div class="card-content">
-                <h6>{{ book.title }}</h6>
+                <h6>{{ book.title|title }}</h6>
                 <p>By {{ book.author }}</p>
             </div>
             <div class="card-action">
@@ -42,7 +42,7 @@
                 <img height="300" width="220" class="responsive-img" src="{{ book.img_url }}" alt="Book Cover Image">
             </div>
             <div class="card-content">
-                <h6>{{ book.title }}</h6>
+                <h6>{{ book.title|title }}</h6>
                 <p>By {{ book.author }}</p>
             </div>
             <div class="card-action">
@@ -64,7 +64,7 @@
                 <img height="300" width="220" class="responsive-img" src="{{ book.img_url }}" alt="Book Cover Image">
             </div>
             <div class="card-content">
-                <h6>{{ book.title }}</h6>
+                <h6>{{ book.title|title }}</h6>
                 <p>By {{ book.author }}</p>
             </div>
             <div class="card-action">

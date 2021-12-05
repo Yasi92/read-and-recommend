@@ -1,4 +1,5 @@
 import os
+import re
 from typing import Set
 from flask import (
      Flask, flash, render_template, redirect,
@@ -225,6 +226,14 @@ def add_book():
     add_book_form = AddBook(request.form)
 
     if request.method == "POST":
+        # Checks if the book exists in db
+        existing_book = mongo.db.books.find_one({"title" : add_book_form.title.data.lower()})
+
+        if existing_book:
+            flash("The Book Title Exists In Our Collection")
+            return redirect(url_for("add_book"))
+            
+
         # This gets the value(not key) of the select field and insert it to db.
         # The trick has been learned from (https://stackoverflow.com/questions/43071278/how-to-get-value-not-key-data-from-selectfield-in-wtforms/43071533)
         value = dict(add_book_form.category.choices).get(add_book_form.category.data)
@@ -284,8 +293,14 @@ def edit_book(book_id):
 
 
 # def edit():
-#     mongo.db.books.delete_many({"title" : "If You Tell"})
+#     books = mongo.db.books.find()
+#     for i in books:
+        
+        
+#         mongo.db.books.update_many({}, {"$set" : {"title" : i["title"].lower()}})
+        
 
+       
 
 # edit()    
 
