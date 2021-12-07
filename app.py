@@ -292,12 +292,19 @@ def edit_book(book_id):
     return render_template("edit_book.html", book=book, edit_book_form=edit_book_form, categories=categories)
 
 
+@app.route("/delete_book/<book_id>")
+def delete_book(book_id):
+    mongo.db.books.remove({"_id" : ObjectId(book_id)})
+    flash("Book Successfuly Deleted")
+    return redirect(url_for("get_books"))
+
+
 # def edit():
-#     books = mongo.db.books.find()
-#     for i in books:
+#     review = mongo.db.reviews.find()
+#     for i in review:
         
         
-#         mongo.db.books.update_many({}, {"$set" : {"title" : i["title"].lower()}})
+#         mongo.db.reviews.update_one(i, {"$set" : {"book_title" : i["book_title"].lower()}})
         
 
        
