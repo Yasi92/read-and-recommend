@@ -48,7 +48,24 @@
                 </div>
                 {% if session.user|lower == book_details.added_by|lower %}
                 <div class="book-btn">
-                    <a class="btn-small red" href="{{ url_for('delete_book', book_id=book_details._id) }}">Delete</a>
+                    <button class="btn-small red" onclick="document.getElementById('id01').style.display='block'">Delete</button>
+
+                    <!-- The delete confirmation modal has been learned from (https://www.w3schools.com/howto/howto_css_delete_modal.asp) -->
+                    <div id="id01" class="modal">
+                        <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                            title="Close Modal">&times;</span>
+                        <form class="modal-content" action="{{ url_for('delete_book', book_id=book_details._id) }}">
+                            <div class="container">
+                                <h1>Delete Book</h1>
+                                <p>Are you sure you want to delete "{{ book_details.title|title }}"?</p>
+
+                                <div class="clearfix">
+                                <a class="btn-small red" href="{{ url_for('get_book', book_id=book_details._id) }}">Cancel</a>
+                                <a class="btn-small green" href="{{ url_for('delete_book', book_id=book_details._id) }}">Yes</a>                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!--  -->
                     <a class="btn-small light-blue" href="{{ url_for('edit_book', book_id=book_details._id) }}">Edit</a>
                 </div>
                 {% endif %}
@@ -98,8 +115,8 @@
             <li class="collection-item-review avatar">
                 <div class="row">
                     <div class="col s1 valign-wrapper">
-                        <img height="80" width="80" class="responsive-img circle" src="{{ url_for('static', filename='images/images.jpeg') }}"
-                            alt="User Profile Image">
+                        <img height="80" width="80" class="responsive-img circle"
+                            src="{{ url_for('static', filename='images/images.jpeg') }}" alt="User Profile Image">
                     </div>
                     <div class="col s11">
                         <h6 class="title"> Review By: {{ review.username }}</h6>
@@ -108,7 +125,7 @@
                 </div>
             </li>
             {% endfor %}
-           
+
         </ul>
         <div class="center">
             <button class="btn-large center red loadMoreReview">Load More</button>

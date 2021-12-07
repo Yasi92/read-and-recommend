@@ -66,15 +66,16 @@ $(".book-card").slice(0, 18).show();
 
 
 // Hide load more button if there is no book card hidden.
-let bookCardLength = $(".book-card:hidden").slice(0, 18);
-bookCardLength.length != 0 ? $(".loadMore").show() : $(".loadMore").hide();
+let bookCardLength = $(".book-card:hidden").length;
+console.log(bookCardLength)
+bookCardLength != 0 ? $(".loadMore").show() : $(".loadMore").hide();
 
 
 $(".loadMore").on("click", function(){
   $(".book-card:hidden").slice(0, 18).show();
 
 
-  if($(".card-book:hidden").length == 0){
+  if($(".book-card:hidden").length == 0){
     $(".loadMore").fadeOut();
   }
 
@@ -113,5 +114,14 @@ $(".loadMoreReview").on("click", function(){
 })
 
 
+
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 
 });
