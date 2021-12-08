@@ -91,12 +91,17 @@ if($(".collection-item:hidden").length != 0){
 }
 
 $(".loadMoreBooks").on("click", function(){
-  $(".collection-item:hidden").slice(0, 6).show();
+    $(".collection-item:hidden").slice(0, 6).show();
 
-  if($(".collection-item:hidden").length == 0){
-    $(".loadMoreBooks").fadeOut();
-  }
+    if($(".collection-item:hidden").length == 0){
+          $(".loadMoreBooks").fadeOut();
+        }
+
+
 })
+
+
+
 
 // This function display reviews added by user on profile page in a max number and loads more reviews on click  
 $(".collection-item-review").slice(0, 4).show();

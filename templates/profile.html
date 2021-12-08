@@ -103,14 +103,13 @@
                                 src="{{ url_for('static', filename='images/images.jpeg') }}" alt="User Profile Image">
                         </div>
                         <div class="col s9">
-                            <h6 class="title"> Review By: {{ review.username }}</h6>
+                            <h6 class="title"> About: {{ review.book_title|title }}</h6>
                             <p>{{ review.review }}</p>
                         </div>
 
                         {% if session.user|lower == review.username|lower %}
                         <div class="col s2">
-                            <a class="btn-small red right">Delete</a>
-                            <a class="btn-small light-blue right" href="#">Edit</a>
+                            <a href="{{ url_for('delete_review', review_id=review._id) }}" class="btn-small red right">Delete</a>
                         </div>
                         {% endif %}
                     </div>

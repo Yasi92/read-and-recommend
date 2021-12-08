@@ -203,6 +203,8 @@ def get_book(book_id):
 
 
 
+
+
 @app.route("/get_categories/<category_name>")
 def get_categories(category_name):
     categories = mongo.db.categories.find()
@@ -294,9 +296,23 @@ def edit_book(book_id):
 
 @app.route("/delete_book/<book_id>")
 def delete_book(book_id):
-    mongo.db.books.remove({"_id" : ObjectId(book_id)})
+    mongo.db.books.delete_one({"_id" : ObjectId(book_id)})
     flash("Book Successfuly Deleted")
     return redirect(url_for("profile", username=session['user']))
+
+
+
+
+
+@app.route("/delete_review/<review_id>")
+def delete_review(review_id):
+    mongo.db.reviews.delete_one({"_id" : ObjectId(review_id)})
+    flash("Review Successfuly Deleted")
+    return redirect(url_for("profile", username=session['user'])) 
+
+    
+
+
 
 
 # def edit():

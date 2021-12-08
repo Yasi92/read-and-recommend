@@ -117,10 +117,15 @@
                         <img height="80" width="80" class="responsive-img circle"
                             src="{{ url_for('static', filename='images/images.jpeg') }}" alt="User Profile Image">
                     </div>
-                    <div class="col s11">
+                    <div class="col s10">
                         <h6 class="title"> Review By: {{ review.username }}</h6>
                         <p>{{ review.review }}</p>
                     </div>
+                    {% if session.user|lower == review.username|lower %}
+                        <div class="col s1">
+                            <a href="{{ url_for('delete_review', review_id=review._id) }}" class="btn-small red right">Delete</a>
+                        </div>
+                    {% endif %}
                 </div>
             </li>
             {% endfor %}
