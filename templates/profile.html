@@ -38,6 +38,7 @@
     </div>
     <ul class="collection">
         {% for book, num in books %}
+        {% set bookId = book._id %}
         <li class="collection-item avatar book-avt">
             <div class="row">
                 <div class="col s1">
@@ -56,7 +57,21 @@
                 </div>
                 {% if session.user|lower == book.added_by|lower %}
                 <div class="col s3 right">
-                    <a class="btn-small red right" href="{{ url_for('delete_book', book_id=book._id) }}">Delete</a>
+                    <button data-target="modal-{{ bookId }}" class="red btn-small modal-trigger right">Delete</button>
+                    <!-- Modal Structure -->
+                    <div id="modal-{{ bookId }}" class="modal">
+                        <div class="modal-content">
+                            <h4>Delete Book</h4>
+                            <p>Are you sure you want to delete "{{ book.title|title }}"?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a class="btn-small red modal-close"
+                                href="#">Cancel</a>
+                            <a class="btn-small green"
+                                href="{{ url_for('delete_book', book_id=bookId) }}">Yes</a> </div>
+                    </div>
+
+
                     <a class="btn-small light-blue right" href="{{ url_for('edit_book', book_id=book._id) }}">Edit</a>
                 </div>
                 {% endif %}
@@ -95,8 +110,7 @@
                         {% if session.user|lower == review.username|lower %}
                         <div class="col s2">
                             <a class="btn-small red right">Delete</a>
-                            <a class="btn-small light-blue right"
-                                href="#">Edit</a>
+                            <a class="btn-small light-blue right" href="#">Edit</a>
                         </div>
                         {% endif %}
                     </div>
