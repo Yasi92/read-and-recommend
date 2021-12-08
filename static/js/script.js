@@ -62,24 +62,24 @@ $(function() {
 
 // This function display books on home page in a max number and loads more books on click 
 // The method has been learned from this tutorial (https://www.youtube.com/watch?v=XFXDZrjimrY)
-$(".book-card").slice(0, 18).show();
+// $(".book-card").slice(0, 18).show();
 
 
 // Hide load more button if there is no book card hidden.
-let bookCardLength = $(".book-card:hidden").length;
-console.log(bookCardLength)
-bookCardLength != 0 ? $(".loadMore").show() : $(".loadMore").hide();
+// let bookCardLength = $(".book-card:hidden").length;
+
+// bookCardLength != 0 ? $(".loadMore").show() : $(".loadMore").hide();
 
 
-$(".loadMore").on("click", function(){
-  $(".book-card:hidden").slice(0, 18).show();
+// $(".loadMore").on("click", function(){
+//   $(".book-card:hidden").slice(0, 18).show();
 
 
-  if($(".book-card:hidden").length == 0){
-    $(".loadMore").fadeOut();
-  }
+//   if($(".book-card:hidden").length == 0){
+//     $(".loadMore").fadeOut();
+//   }
 
-})
+// })
 
 
 
@@ -100,6 +100,8 @@ $(".loadMoreBooks").on("click", function(){
 
 // This function display reviews added by user on profile page in a max number and loads more reviews on click  
 $(".collection-item-review").slice(0, 4).show();
+
+
 if($(".collection-item-review:hidden").length != 0){
   $(".loadMoreReview").show();
 }
@@ -114,6 +116,13 @@ $(".loadMoreReview").on("click", function(){
 })
 
 
+// The history back button is learned form https://css-tricks.com/snippets/javascript/go-back-button/ and w3school 
+$(".back-btn").on("click", function(event){
+
+  window.history.back(-1);
+  
+
+})
 
 $('.modal').modal();
 

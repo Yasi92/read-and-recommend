@@ -296,7 +296,7 @@ def edit_book(book_id):
 def delete_book(book_id):
     mongo.db.books.remove({"_id" : ObjectId(book_id)})
     flash("Book Successfuly Deleted")
-    return redirect(url_for("get_books"))
+    return redirect(url_for("profile", username=session['user']))
 
 
 # def edit():
