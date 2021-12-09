@@ -1,8 +1,6 @@
 $(document).ready(function () {
 
-  var date = new Date().getFullYear();
 
-  document.getElementById("year").innerHTML = date;
 
 
 
@@ -137,5 +135,9 @@ $(".back-btn").on("click", function(event){
 })
 
 $('.modal').modal();
+
+var date = new Date().getFullYear();
+
+document.getElementById("year").innerHTML = date;
 
 });
