@@ -55,6 +55,7 @@ p{
     transition-duration: 0.5s;
     -webkit-transition-property: transform;
     transition-property: transform;
+    color: #000;
 }
 
 
@@ -284,8 +285,8 @@ color: rgb(67, 67, 67);
 
 textarea{
     height: 8rem;
-    border: 1px solid gray;
-    border-radius: 10px;
+    /* border: 1px solid gray;
+    border-radius: 10px; */
 }    
 
 
@@ -381,12 +382,14 @@ tr:last-child{
 }
 
 .review-box{
-    border: 1px solid gray;
+    border: 1px solid rgb(117, 157, 169);
+    box-shadow:0px 0px 7px rgb(81, 83, 84);
     border-radius: .5rem;
+    margin-top: 3rem;
 }
 
 .heading-div{
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid rgb(117, 157, 169);
     
 }
 

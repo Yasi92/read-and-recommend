@@ -8,12 +8,12 @@
                 <div class="row">
                     <div class="input-field col s5 search-box search-form" >
                         <label for="query"><i class="fas fa-search prefix"></i></label>
-                        <input id="query" name="query" type="text" placeholder="Search By Title Or Author" required>
+                        <input id="query" name="query" type="text" placeholder="Search by Title or Author" required>
                         
                     </div>
                     <div class="col s3">
-                        <button type="submit" class="btn-small green">Search</button>
-                        <a href="{{ url_for('get_books') }}" class="btn-small red">Reset</a>
+                        <button type="submit" class="btn-small btn-floating green "><i class="fas fa-search"></i></button>
+                        <a href="{{ url_for('get_books') }}" class="btn-small btn-floating red"><i class="fas fa-redo"></i></a>
                         
                     </div>
                 </div>
@@ -21,7 +21,10 @@
         </form>
     </div>
 
+
 {% endblock %}
+
+
 {% block content %}
 
 <div class="row">
@@ -37,6 +40,7 @@
         </ul>
     </div>
 </div>
+
 
 <div class="row">
     {% for book in category_book %}
@@ -57,6 +61,8 @@
     {% endfor %}
 </div>
 
+
+{% if books_length > 0 %}
 <div class="row">
     {% for book in books %}
     <div class="col s2 book-card">
@@ -75,6 +81,9 @@
     </div>
     {% endfor %}
 </div>
+{% else %}
+<h3 class="center red-text">No Results Found</h3>
+{% endif %}
 
 <div class="row">
     {% for book in best_sellers %}

@@ -30,8 +30,9 @@ mongo = PyMongo(app)
 @app.route("/get_books")
 def get_books():
     books = mongo.db.books.find()
+    books_length = books.count()
     categories = mongo.db.categories.find()
-    return render_template("home.html", books=books, categories=categories)
+    return render_template("home.html", books=books, categories=categories, books_length=books_length)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -40,8 +41,9 @@ def search():
 
     query= request.form.get("query")
     books = mongo.db.books.find({"$text" : {"$search" : query}})
+    books_length = books.count()
     categories = mongo.db.categories.find()
-    return render_template("home.html", books=books, categories=categories)
+    return render_template("home.html", books=books, categories=categories, books_length=books_length)
 
 
 
@@ -50,8 +52,9 @@ def best_seller_books():
     
     categories = mongo.db.categories.find()
     best_sellers = mongo.db.books.find({"best_seller" : True})
+    books_length = best_sellers.count()
     return render_template("home.html", best_sellers=best_sellers,
-    categories=categories)
+    categories=categories, books_length=books_length)
 
 
 
@@ -220,9 +223,10 @@ def get_book(book_id):
 def get_categories(category_name):
     categories = mongo.db.categories.find()
     category_book = mongo.db.books.find({"category_name" : category_name})
+    books_length = category_book.count()
 
     return render_template("home.html", categories=categories,
-    category_name= category_name, category_book= category_book)
+    category_name= category_name, category_book= category_book, books_length=books_length)
 
 
 
