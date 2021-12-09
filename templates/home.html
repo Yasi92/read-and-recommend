@@ -1,4 +1,27 @@
 {% extends "base.html" %}
+
+{% block search %}
+
+    <div class="col s8">
+        <form class="row" action="{{ url_for('search') }}" method="post">
+            <div class="col s12">
+                <div class="row">
+                    <div class="input-field col s5 search-box search-form" >
+                        <label for="query"><i class="fas fa-search prefix"></i></label>
+                        <input id="query" name="query" type="text" placeholder="Search By Title Or Author" required>
+                        
+                    </div>
+                    <div class="col s3">
+                        <button type="submit" class="btn-small green">Search</button>
+                        <a href="{{ url_for('get_books') }}" class="btn-small red">Reset</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
 {% block content %}
 
 <div class="row">

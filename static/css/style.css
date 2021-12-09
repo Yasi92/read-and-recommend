@@ -10,7 +10,7 @@
 
 
 button, input, optgroup, select, textarea { 
-    color: inherit;
+ 
     font: inherit;
     margin: 0px;
 }
@@ -101,9 +101,9 @@ nav ul a {
 
 
 .search-form {
-    position: absolute;
+    /* position: absolute;
     top: 2.5rem;
-    right: 3rem;
+    right: 3rem; */
     width: 20%;
     border: 1px solid black;
     border-radius: 20px;
@@ -115,24 +115,51 @@ input[type=search]:not(.browser-default){
     background-color: #fff;
 }
 
+.search-form input[type=text]:not(.browser-default):focus:not([readonly]){
+    border-bottom: none;
+    box-shadow: none;
+}
+
+.search-form input[type=text]:not(.browser-default){
+    background-color:ivory;
+    border-radius: 20px;
+    height: 100%;
+    width: 80%;
+    font-size: inherit;
+    padding-left: 1rem;
+}
+    
+
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    box-shadow: 0 0 0 30px ivory inset !important;
+    -webkit-box-shadow: 0 0 0 30px ivory inset !important;
+}
 
 
 input:-internal-autofill-selected{
-    background-color: #fff
+    background-color: ivory
     !important;
 }
 
 ::placeholder {
-    text-align: center;
+    text-align: left;
+    padding-left: .5rem;
 }
 
 
-.fa-search {
+/* .fa-search {
     padding-right: 5px;
     line-height: 3;
+} */
+
+nav .nav-wrapper i{
+    line-height: inherit;
 }
-
-
 
 /* //////////////////////////////// Collection-bar /////////////////////////////////// */
 
@@ -224,7 +251,27 @@ margin: 10px auto;
     padding-left: .7rem;
     
     }
+.search-form input[type=text]:not(.browser-default){
+    border-bottom: none;
+    position: relative;
+    top: -8px;
+}
 
+.search-form.input-field{
+    position: relative;
+    top: 8px;
+    background-color: ivory;
+    max-height: 50px;
+    
+}
+
+.search-form.input-field input::placeholder{
+color: rgb(67, 67, 67);
+}
+
+.row .col .search-box{
+    margin-left: 2.5rem;
+}
 
 
 

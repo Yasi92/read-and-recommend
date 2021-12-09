@@ -111,6 +111,7 @@
     <div class="col s10 offset-m1">
         <ul class="collection">
             {% for review in reviews %}
+            {% set review_id = review._id %}
             <li class="collection-item-review avatar">
                 <div class="row">
                     <div class="col s1 valign-wrapper">
@@ -123,7 +124,18 @@
                     </div>
                     {% if session.user|lower == review.username|lower %}
                         <div class="col s1">
-                            <a href="{{ url_for('delete_review', review_id=review._id) }}" class="btn-small red right">Delete</a>
+                            <button data-target="modal-{{ review_id }}" class="red btn-small modal-trigger right">Delete</button>
+                            <!-- Modal Structure -->
+                            <div id="modal-{{ review_id }}" class="modal">
+                                <div class="modal-content">
+                                    <h4>Delete Review</h4>
+                                    <p>Are you sure you want to delete your review about {{ review.book_title|title }}?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <a class="btn-small red modal-close"
+                                        href="#">Cancel</a>
+                                        <a href="{{ url_for('delete_review', review_id=review_id) }}" class="btn-small green">Delete</a>
+                            </div>
                         </div>
                     {% endif %}
                 </div>

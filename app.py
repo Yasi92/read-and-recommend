@@ -34,6 +34,17 @@ def get_books():
     return render_template("home.html", books=books, categories=categories)
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+
+
+    query= request.form.get("query")
+    books = mongo.db.books.find({"$text" : {"$search" : query}})
+    categories = mongo.db.categories.find()
+    return render_template("home.html", books=books, categories=categories)
+
+
+
 @app.route("/best_seller_books")
 def best_seller_books():
     
@@ -326,6 +337,10 @@ def delete_review(review_id):
        
 
 # edit()    
+
+
+
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

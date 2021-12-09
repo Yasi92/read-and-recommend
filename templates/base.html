@@ -21,39 +21,37 @@
 <body>
 
     <header>
-        <div class="header-box">
-            <h3 class="center">READ AND RECOMMEND</h3>
-            <h5 class="center">Find yourself something worth reading<br>
-                and recommend it to others if you liked it!</h5>
-            <form class="search-form">
-                <div class="input-field" style="background-color:aliceblue;">
-                    <input id="search" type="search" placeholder="Search By Title Or Author" required>
-                    <label class="label-icon" for="search"><i class="fas fa-search" style="color: black;"></i></label>
-                    <i class="material-icons">close</i>
-                </div>
-            </form>
-        </div>
+        <div class="header-box row">
+            <div class="col s4 l6 offset-s4  offset-l3">
+                <h3 class="center">READ AND RECOMMEND</h3>
+                <h5 class="center">Find yourself something worth reading<br>
+                    and recommend it to others if you liked it!</h5>
+            </div>
+
+
         </div>
         <nav>
             <!-- top navbar -->
-            <div class="nav-wrapper">
+            <div class="nav-wrapper row">
                 <!-- <a href="{{ url_for('get_books') }}" class="brand-logo">Logo</a> -->
-
-
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
-                <ul class="hide-on-med-and-down right">
-                    <li><a href="{{ url_for('get_books') }}">Home</a></li>
-                    {% if session.user %}
+                <div class="col s4 right">
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
+                    <ul class="hide-on-med-and-down right">
+                        <li><a href="{{ url_for('get_books') }}">Home</a></li>
+                        {% if session.user %}
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                         <li><a href="{{ url_for('add_book') }}">Add A Book</a></li>
                         <li><a href="{{ url_for('logout') }}">Sign Out</a></li>
-                    {% else %}
+                        {% else %}
                         <li><a href="{{ url_for('register') }}">Sign Up</a></li>
                         <li><a href="{{ url_for('login') }}">Sign In</a></li>
-                    {% endif %}
-                </ul>
-
+                        {% endif %}
+                    </ul>
+                </div>
+                {% block search %}
+                {% endblock %}
             </div>
+
         </nav>
 
 
@@ -70,16 +68,18 @@
             {% endif %}
         </ul>
     </header>
+
+
     <section>
         <!-- flash messages -->
         {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="row flashes light-green lighten-4 center">
-                        <h4 class="center-align">{{ message }}</h4>
-                    </div>
-                {% endfor %}
-            {% endif %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="row flashes light-green lighten-4 center">
+            <h4 class="center-align">{{ message }}</h4>
+        </div>
+        {% endfor %}
+        {% endif %}
         {% endwith %}
     </section>
 
