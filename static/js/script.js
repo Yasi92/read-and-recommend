@@ -1,4 +1,11 @@
 $(document).ready(function () {
+
+  var date = new Date().getFullYear();
+
+  document.getElementById("year").innerHTML = date;
+
+
+
   $('.sidenav').sidenav({
     edge: "right",
     draggable: true

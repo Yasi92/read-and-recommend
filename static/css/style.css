@@ -411,7 +411,8 @@ tr:last-child{
 }
 
 .heading-div{
-    border-bottom: 1px solid rgba(117, 157, 169, 0.5);
+    border-bottom: 1px solid rgba(152, 187, 198, 0.5);
+    margin-bottom: 3rem;
     
 }
 
@@ -513,6 +514,22 @@ tr:last-child{
     margin-bottom: 25px;
   }
   
+
+
+/* //////////////////////////////// footer/////////////////////////////////// */  
+
+.page-footer{
+    background-color: #92a27e;
+}
+
+
+
+
+
+
+
+
+
 
 /* //////////////////////////////// Ipad size /////////////////////////////////// */
 

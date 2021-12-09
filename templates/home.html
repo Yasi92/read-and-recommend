@@ -108,4 +108,34 @@
 </div> -->
 
 
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">About</h5>
+                <p class="grey-text text-lighten-4">Read and Recommend was created by Maryam Abdolbeigi.<br>
+                     Born from the need to find a worth-reading book and share with others.<br>
+                    The website's goal is to help book lovers to find their next-to-be-read book from the website.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                    {% for category in categories | sort(attribute='category_name') %}
+                    <li><a class="white-text" href="{{ url_for('get_categories', category_name=category.category_name) }}">{{ category.category_name.upper() }}</a>
+                    </li>
+                    {% endfor %}
+                    <li><a class="white-text" href="{{ url_for('best_seller_books') }}">BEST SELLERS</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container center">
+            <!-- the dynamic copyright year is learned form (https://stackoverflow.com/questions/43714006/how-can-one-create-a-dynamic-copyright-date-without-document-write-in-javascri) -->
+            <p>Copyright &copy; <span id="year"> </span> Read and Recommend All Rights Reserved</p>
+        </div>
+    </div>
+</footer>
+
+
 {% endblock %}
