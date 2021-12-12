@@ -2,16 +2,16 @@
 
 {% block search %}
 
-    <div class="col l7">
+    <div class="col l7 s11">
         <form class="row" action="{{ url_for('search') }}" method="post">
             <div class="col s12">
                 <div class="row">
-                    <div class="input-field col s7 search-box search-form" >
+                    <div class="input-field col s5 search-box search-form" >
                         <label for="query"><i class="fas fa-search prefix"></i></label>
                         <input id="query" name="query" type="text" placeholder="Search by Title or Author" required>
                         
                     </div>
-                    <div class="col s4">
+                    <div class="col s4 m4">
                         <button type="submit" class="btn-small btn-floating green "><i class="fas fa-search"></i></button>
                         <a href="{{ url_for('get_books') }}" class="btn-small btn-floating red"><i class="fas fa-redo"></i></a>
                         

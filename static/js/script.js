@@ -4,7 +4,7 @@ $(document).ready(function () {
 
 
 
-  $('.sidenav').sidenav();
+  $('.sidenav').sidenav({edge : "right"});
 
 
   $(document).ready(function () {
@@ -138,3 +138,4 @@ var date = new Date().getFullYear();
 document.getElementById("year").innerHTML = date;
 
 });
+
