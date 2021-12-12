@@ -22,10 +22,14 @@
 
     <header>
         <div class="header-box row">
-            <div class="col s4 l6 offset-s4  offset-l3">
-                <h3 class="center">READ AND RECOMMEND</h3>
-                <h5 class="center">Find yourself something worth reading<br>
-                    and recommend it to others if you liked it!</h5>
+            <div class="col s12">
+                <div class="row">
+                    <div class="col l6 offset-l3 m8 offset-m2 s12 ">
+                        <h3 class="center">READ AND RECOMMEND</h3>
+                        <h5 class="center">Find yourself something worth reading<br>
+                            and recommend it to others if you liked it!</h5>
+                    </div>
+                </div>
             </div>
 
 
@@ -34,7 +38,7 @@
             <!-- top navbar -->
             <div class="nav-wrapper row">
                 <!-- <a href="{{ url_for('get_books') }}" class="brand-logo">Logo</a> -->
-                <div class="col s4 right">
+                <div class="col l5 right">
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                     <ul class="hide-on-med-and-down right">
                         <li><a href="{{ url_for('get_books') }}">Home</a></li>

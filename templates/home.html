@@ -2,16 +2,16 @@
 
 {% block search %}
 
-    <div class="col s8">
+    <div class="col l7">
         <form class="row" action="{{ url_for('search') }}" method="post">
             <div class="col s12">
                 <div class="row">
-                    <div class="input-field col s5 search-box search-form" >
+                    <div class="input-field col s7 search-box search-form" >
                         <label for="query"><i class="fas fa-search prefix"></i></label>
                         <input id="query" name="query" type="text" placeholder="Search by Title or Author" required>
                         
                     </div>
-                    <div class="col s3">
+                    <div class="col s4">
                         <button type="submit" class="btn-small btn-floating green "><i class="fas fa-search"></i></button>
                         <a href="{{ url_for('get_books') }}" class="btn-small btn-floating red"><i class="fas fa-redo"></i></a>
                         
@@ -41,10 +41,31 @@
     </div>
 </div>
 
-
-<div class="row">
+{% if category_book %}
+<ul class="ul-books">
     {% for book in category_book %}
-    <div class="col s2 book-card">
+    <li class="book-card">
+        <div class="card small hoverable">
+            <div class="card-image">
+                <img class="responsive-img" src="{{ book.img_url }}" alt="Book Cover Image">
+            </div>
+            <div class="card-content">
+                <h6>{{ book.title|title }}</h6>
+                <p>By {{ book.author }}</p>
+            </div>
+            <div class="card-action">
+                <a href="{{ url_for('get_book', book_id=book._id) }}">learn More</a>
+            </div>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% if best_sellers %}
+<ul class="ul-books">
+    {% for book in best_sellers %}
+    <li class=" book-card">
         <div class="card small hoverable">
             <div class="card-image">
                 <img height="300" width="220" class="responsive-img" src="{{ book.img_url }}" alt="Book Cover Image">
@@ -57,15 +78,17 @@
                 <a href="{{ url_for('get_book', book_id=book._id) }}">learn More</a>
             </div>
         </div>
-    </div>
+    </li>
     {% endfor %}
-</div>
+</ul>
+{% endif %}
+
 
 
 {% if books_length > 0 %}
-<div class="row">
+<ul class="ul-books">
     {% for book in books %}
-    <div class="col s2 book-card">
+    <li class=" book-card">
         <div class="card small hoverable">
             <div class="card-image">
                 <img height="300" width="220" class="responsive-img" src="{{ book.img_url }}" alt="Book Cover Image">
@@ -78,42 +101,21 @@
                 <a href="{{ url_for('get_book', book_id=book._id) }}">learn More</a>
             </div>
         </div>
-    </div>
+    </li>
     {% endfor %}
-</div>
+</ul>
 {% else %}
 <h3 class="center red-text">No Results Found</h3>
 {% endif %}
 
-<div class="row">
-    {% for book in best_sellers %}
-    <div class="col s2 book-card">
-        <div class="card small hoverable">
-            <div class="card-image">
-                <img height="300" width="220" class="responsive-img" src="{{ book.img_url }}" alt="Book Cover Image">
-            </div>
-            <div class="card-content">
-                <h6>{{ book.title|title }}</h6>
-                <p>By {{ book.author }}</p>
-            </div>
-            <div class="card-action">
-                <a href="{{ url_for('get_book', book_id=book._id) }}">learn More</a>
-            </div>
-        </div>
-    </div>
-    {% endfor %}
-</div>
-<!-- <div class="center">
-    <button class="btn-large center red loadMore">Load More</button>
-</div> -->
 
-
-    {% block category %}
-    {% for category in categories | sort(attribute='category_name') %}
-    <li><a class="white-text" href="{{ url_for('get_categories', category_name=category.category_name) }}">{{ category.category_name.upper() }}</a>
-    </li>
-    {% endfor %}
-    <li><a class="white-text" href="{{ url_for('best_seller_books') }}">BEST SELLERS</a></li>
-    {% endblock %}
 
 {% endblock %}
+
+{% block category %}
+        {% for category in categories | sort(attribute='category_name') %}
+        <li><a class="white-text" href="{{ url_for('get_categories', category_name=category.category_name) }}">{{ category.category_name.upper() }}</a>
+        </li>
+        {% endfor %}
+        <li><a class="white-text" href="{{ url_for('best_seller_books') }}">BEST SELLERS</a></li>
+    {% endblock %}
