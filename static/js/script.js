@@ -1,7 +1,12 @@
 $(document).ready(function () {
 
+  const cards = document.querySelectorAll('.book-card');
 
-
+  cards.forEach((card) => {
+    
+    card.classList.add('show');
+   
+  });
 
 
   $('.sidenav').sidenav({edge : "right"});
@@ -11,6 +16,8 @@ $(document).ready(function () {
     $('select').formSelect();
   });
 
+
+  
   // This makes the entire div of book cards clickable.
   // The code is borrowed from https://css-tricks.com/snippets/jquery/make-entire-div-clickable/
   $(".book-card").click(function () {
@@ -60,31 +67,6 @@ $(function() {
 
 
 
-
-
-// This function display books on home page in a max number and loads more books on click 
-// The method has been learned from this tutorial (https://www.youtube.com/watch?v=XFXDZrjimrY)
-// $(".book-card").slice(0, 18).show();
-
-
-// Hide load more button if there is no book card hidden.
-// let bookCardLength = $(".book-card:hidden").length;
-
-// bookCardLength != 0 ? $(".loadMore").show() : $(".loadMore").hide();
-
-
-// $(".loadMore").on("click", function(){
-//   $(".book-card:hidden").slice(0, 18).show();
-
-
-//   if($(".book-card:hidden").length == 0){
-//     $(".loadMore").fadeOut();
-//   }
-
-// })
-
-
-
 // This function display books added by user on profile page in a max number and loads more books on click  
 $(".collection-item").slice(0, 6).show();
 
@@ -101,7 +83,6 @@ $(".loadMoreBooks").on("click", function(){
 
 
 })
-
 
 
 
@@ -124,18 +105,17 @@ $(".loadMoreReview").on("click", function(){
 
 
 // The history back button is learned form https://css-tricks.com/snippets/javascript/go-back-button/ and w3school 
-$(".back-btn").on("click", function(event){
-
+$(".back-btn").on("click", function(){
   window.history.back(-1);
-  
 
 })
 
 $('.modal').modal();
 
 var date = new Date().getFullYear();
-
 document.getElementById("year").innerHTML = date;
 
+
 });
+
 

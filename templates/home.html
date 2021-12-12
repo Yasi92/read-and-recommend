@@ -6,12 +6,12 @@
         <form class="row" action="{{ url_for('search') }}" method="post">
             <div class="col s12">
                 <div class="row">
-                    <div class="input-field col s5 search-box search-form" >
+                    <div class="input-field col s5 m6 search-box search-form" >
                         <label for="query"><i class="fas fa-search prefix"></i></label>
                         <input id="query" name="query" type="text" placeholder="Search by Title or Author" required>
                         
                     </div>
-                    <div class="col s4 m4">
+                    <div class="col s4 m5">
                         <button type="submit" class="btn-small btn-floating green "><i class="fas fa-search"></i></button>
                         <a href="{{ url_for('get_books') }}" class="btn-small btn-floating red"><i class="fas fa-redo"></i></a>
                         
@@ -29,14 +29,13 @@
 
 <div class="row">
     <div class="col s12">
-        <ul class="collection-bar orange darken-2 center">
-            <li><a href="{{ url_for('get_books') }}">ALL</a></li>
+        <ul class="collection-bar">
+            <li><a class="col-link" href="{{ url_for('get_books') }}">ALL</a></li>
             {% for category in categories | sort(attribute='category_name') %}
-            <li><a
-                    href="{{ url_for('get_categories', category_name=category.category_name) }}">{{ category.category_name.upper() }}</a>
+            <li><a class="col-link" href="{{ url_for('get_categories', category_name=category.category_name) }}">{{ category.category_name.upper() }}</a>
             </li>
             {% endfor %}
-            <li><a href="{{ url_for('best_seller_books') }}">BEST SELLERS</a></li>
+            <li><a class="col-link" href="{{ url_for('best_seller_books') }}">BEST SELLERS</a></li>
         </ul>
     </div>
 </div>
