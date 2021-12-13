@@ -30,12 +30,12 @@
 <div class="row">
     <div class="col s12">
         <ul class="collection-bar">
-            <li><a class="col-link" href="{{ url_for('get_books') }}">ALL</a></li>
+            <li><a href="{{ url_for('get_books') }}">ALL</a></li>
             {% for category in categories | sort(attribute='category_name') %}
-            <li><a class="col-link" href="{{ url_for('get_categories', category_name=category.category_name) }}">{{ category.category_name.upper() }}</a>
+            <li><a href="{{ url_for('get_categories', category_name=category.category_name) }}">{{ category.category_name.upper() }}</a>
             </li>
             {% endfor %}
-            <li><a class="col-link" href="{{ url_for('best_seller_books') }}">BEST SELLERS</a></li>
+            <li><a href="{{ url_for('best_seller_books') }}">BEST SELLERS</a></li>
         </ul>
     </div>
 </div>
@@ -48,11 +48,11 @@
             <div class="card-image">
                 <img class="responsive-img" src="{{ book.img_url }}" alt="Book Cover Image">
             </div>
-            <div class="card-content">
+            <div class="card-content left-align">
                 <h6>{{ book.title|title }}</h6>
                 <p>By {{ book.author }}</p>
             </div>
-            <div class="card-action">
+            <div class="card-action left-align">
                 <a href="{{ url_for('get_book', book_id=book._id) }}">learn More</a>
             </div>
         </div>
@@ -69,11 +69,11 @@
             <div class="card-image">
                 <img height="300" width="220" class="responsive-img" src="{{ book.img_url }}" alt="Book Cover Image">
             </div>
-            <div class="card-content">
+            <div class="card-content left-align">
                 <h6>{{ book.title|title }}</h6>
                 <p>By {{ book.author }}</p>
             </div>
-            <div class="card-action">
+            <div class="card-action left-align">
                 <a href="{{ url_for('get_book', book_id=book._id) }}">learn More</a>
             </div>
         </div>
@@ -92,11 +92,11 @@
             <div class="card-image">
                 <img height="300" width="220" class="responsive-img" src="{{ book.img_url }}" alt="Book Cover Image">
             </div>
-            <div class="card-content">
+            <div class="card-content left-align">
                 <h6>{{ book.title|title }}</h6>
                 <p>By {{ book.author }}</p>
             </div>
-            <div class="card-action">
+            <div class="card-action left-align">
                 <a href="{{ url_for('get_book', book_id=book._id) }}">learn More</a>
             </div>
         </div>

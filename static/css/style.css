@@ -208,6 +208,10 @@ ul.collection-bar li{
     display: block;  
     margin: 0 auto;
     background-color: #e38450;
+    border: 1px solid transparent;
+    border-radius: 15px;
+    margin: 1.5em 4em 1.5em 4em;
+    padding: 1em;
 
 }
 
@@ -234,14 +238,6 @@ ul.collection-bar li a:hover,ul.collection-bar li a:active,ul.collection-bar li 
 }
 
 
-ul.collection-bar{
-    
-    border: 1px solid transparent;
-    border-radius: 15px;
-    margin: 1.5em 4em 1.5em 4em;
-    padding: 1em;
-    /* background-color: rgb(232, 118, 57); */
-}
 /* //////////////////////////////// Book cards /////////////////////////////////// */
 
 .ul-books{
@@ -622,6 +618,11 @@ h5{
     
 }
 
+h4{
+    font-size: 1.3rem;
+    margin-top: 0;
+}
+
 
 .header-box {
     background-position: right;
@@ -645,4 +646,36 @@ h5{
 }
 
 
+.collection-bar{
+
+    margin: 1em 2em 1em 2em;
+    padding:.5em;
+
+}
+
+
+.book-img-div{
+    text-align: center;
+}
+.back-btn{
+    top: .2rem;
+}
+
+.row .col.s12{
+    padding: 1.4rem;
+
+}
+.review-box{
+padding: 1rem;
+}
+
+
+.form .input-field{
+    position: relative;
+}
+
+.form .input-field > label{
+    position: unset;
+    
+}
 }

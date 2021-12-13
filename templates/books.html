@@ -7,10 +7,10 @@
       
         <a class="back-btn" href="#"><i class="fas fa-arrow-alt-circle-left"></i></a>
         <div class="row">
-            <div class="col s4 offset-m1 ">
+            <div class="col m4 s12 offset-m1 book-img-div">
                 <img src="{{ book_details.img_url  }}" alt="cover image" class="responsive-img book-img">
             </div>
-            <div class="col s6">
+            <div class="col m6 s12">
                 <div class="book_title_div center-align">
                     {% if book_details.best_seller  %}
                     <span class="badge left orange lighten-1"><i class="fas fa-tag"></i> Best Seller</span>
@@ -74,7 +74,7 @@
 </div>
 
 <div class="row">
-    <div class="col s10 offset-m1">
+    <div class="col s12 m10 offset-m1">
         <h4 class="center-align"> About "{{ book_details.title|title }}"</h4>
         <p class="addReadMore showlesscontent">{{ book_details.description }}</p>
     </div>
@@ -84,19 +84,19 @@
 <div class="row">
 
 
-    <div class="col s10 offset-m1 review-box teal lighten-5">
+    <div class="col s12 m10 offset-m1 review-box teal lighten-5">
         <div class="heading-div">
             <h4 class="center-align">Tell Us About This Book</h4>
         </div>
         <form class="form" action="{{ url_for('get_book', book_id=book_details._id) }}" method="POST">
             <div class="row">
-                <div class="input-field col s8 offset-m2">
+                <div class="input-field col s12 m8 offset-m2">
                     {{ render_field(review_form.review) }}
                 </div>
             </div>
             <div class="row">
-                <div class="col s2 offset-m5">
-                    <button type="submit" class="col s12 btn-large light-green darken-1">Submit
+                <div class="col s12 m2 offset-m5">
+                    <button type="submit" class="col s10 offset-s1 btn-large light-green darken-1">Submit
                         <i class="far fa-paper-plane"></i>
                     </button>
                 </div>
@@ -108,7 +108,7 @@
 
 {% if reviews_length > 0  %}
 <div class="row">
-    <div class="col s10 offset-m1">
+    <div class="col s12 m10 offset-m1">
         <ul class="collection">
             {% for review in reviews %}
             {% set review_id = review._id %}
