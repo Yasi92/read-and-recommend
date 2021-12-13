@@ -18,6 +18,10 @@ html, body {
 }
 
 
+.right{
+    text-align: right;
+}
+
 button, input, optgroup, select, textarea { 
  
     font: inherit;
@@ -463,6 +467,7 @@ tr:last-child{
     box-shadow:0px 0px 7px rgba(81, 83, 84, .5);
     border-radius: .5rem;
     margin-top: 3rem;
+    margin-bottom: 3rem;
 }
 
 .bordered-box{
@@ -620,7 +625,7 @@ h5{
 
 h4{
     font-size: 1.3rem;
-    margin-top: 0;
+    
 }
 
 
@@ -661,12 +666,15 @@ h4{
     top: .2rem;
 }
 
-.row .col.s12{
-    padding: 1.4rem;
+#book-detail .row .col.s12{
+    padding: 0 1.4rem 1.4rem 1.4rem;
 
 }
-.review-box{
-padding: 1rem;
+
+
+.col.review-box{
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    
 }
 
 
@@ -678,4 +686,9 @@ padding: 1rem;
     position: unset;
     
 }
+
+p.addReadMore {
+    text-align: justify;
+}
+
 }
