@@ -56,9 +56,7 @@ p{
 
 .back-btn{
     font-size: 3rem;
-    position: relative;
-    top: 1rem;
-    left: 2rem;
+    padding: 1rem 2rem;
     background-color: transparent;
     display: inline-block;
     -webkit-transform: perspective(1px) translateZ(0);
@@ -249,13 +247,16 @@ ul.collection-bar li a:hover,ul.collection-bar li a:active,ul.collection-bar li 
 
 
 /* //////////////////////////////// Book cards /////////////////////////////////// */
+ul:not(.browser-default){
+    padding-left: 1rem;
+}
+
 
 .ul-books{
-    text-align: center;
+    text-align: justify;
     list-style: none;
-    margin: 0 auto;
+    padding: 1rem;   
     width: 100%;
-    padding: 20px 0;
     display: block;  
 }
 
@@ -288,8 +289,16 @@ margin: .7rem auto;
     max-height: 90%;
 }
 
+
+.card .card-action{
+border-top: 1px solid rgba(143, 143, 142, 0.4);
+}
+
+
+
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating){
     color: #000;
+   
 }
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
@@ -489,8 +498,12 @@ tr:last-child{
     margin-bottom: 3rem;
     
 }
-
+/* 
 .row .col{
+    padding: 0;
+} */
+
+.add-book-form .col{
     padding: 0;
 }
 
@@ -620,7 +633,7 @@ tr:last-child{
 
 h3{
    font-size: 2rem;
-   padding-top: 0;
+   padding: 0 1rem;
 }
 
 h5{
@@ -635,11 +648,22 @@ h4{
 }
 
 
+
 .header-box {
     background-position: right;
 }
 
 
+.ul-books{
+    text-align: center;
+}
+
+
+.btn-small{
+    font-size: .7rem;
+    margin: 0;
+    
+}
 
 .header-box > div{
     background-color: rgba(250, 250, 240, .4);
@@ -659,8 +683,8 @@ h4{
 
 .collection-bar{
 
-    margin: 1em 2em 1em 2em;
-    padding:.5em;
+    margin: 1rem;
+    padding:.5rem;
 
 }
 
@@ -668,12 +692,9 @@ h4{
 .book-img-div{
     text-align: center;
 }
-.back-btn{
-    top: .2rem;
-}
 
 #book-detail .row .col.s12{
-    padding: 0 1.4rem 1.4rem 1.4rem;
+    padding: 0 1.5rem 1.5rem 1.5rem;
 
 }
 
@@ -695,6 +716,50 @@ h4{
 
 p.addReadMore {
     text-align: justify;
+    padding: 0 1.1rem;
 }
 
+
+.card.small {
+    width: 11.5rem;
+    height: 25rem;
+    margin: .7rem auto;
+    }
+    
+
+        
+.card .card-image > img{
+    
+    max-height: 14.71rem;
+    max-width: 11.5rem;
+    min-height: 14.71rem;
+    min-width: 11.5rem;
+}
+
+
+.card .card-action{
+    padding: .8rem 1rem;
+
+}
+
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating){
+    margin-right: 0;
+}
+
+ul.collection-bar li a{
+    font-size: 1rem;
+}
+
+.row .card.large{
+margin-bottom: 2rem;
+}
+
+.card.large{
+    height: 400px;
+}
+
+#xl-card{
+    height: 600px;
+}
 }
