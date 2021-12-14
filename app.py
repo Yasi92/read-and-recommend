@@ -1,16 +1,17 @@
 import os
-from typing import Set
 from flask import (
      Flask, flash, render_template, redirect,
      request, session, url_for)
+import flask
+from datetime import timedelta, datetime   
+import timeago, datetime
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-import requests
 from werkzeug.security import generate_password_hash, check_password_hash
-import pymongo
-import wtforms 
-
 from classes import RegisterForm, LoginForm, ReviewForm, EditProfile, AddBook
+
+now = datetime.datetime.now() + datetime.timedelta(seconds = 60 * 3.4)
+
 
 if os.path.exists("env.py"):
     import env
@@ -24,6 +25,16 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 
 mongo = PyMongo(app)
+
+
+# The user will be logged out after 1 hour of inactivity
+# The method is learned from (https://www.bonser.dev/blog/basic-flask-session-timeout-on-inactivity)
+@app.before_request
+def before_request():
+    flask.session.permanent = True
+    app.permanent_session_lifetime = timedelta(minutes=60)
+    flask.session.modified = True
+    
 
 @app.route("/")
 @app.route("/get_books")
@@ -83,6 +94,8 @@ def login():
             flash(f"Incorrect Username and/or Password")
             redirect(url_for("login"))
 
+
+    session.permanent = True
     return render_template("login.html", login_form=login_form)
 
 
@@ -214,17 +227,16 @@ def get_book(book_id):
     reviews = mongo.db.reviews.find({"book_title" : book_details["title"]})
     reviews_length = reviews.count()
 
-
-
     return render_template("books.html",book_details=book_details,
                             review_form=review_form,
                             reviews=reviews, reviews_length=reviews_length)    
 
 
 
-
-
-
+# The timeago method has been learned from (https://stackoverflow.com/questions/60162353/how-to-use-python-module-timeago-with-flask)
+@app.template_filter('timeago')
+def fromnow(date):
+    return timeago.format(date, datetime.datetime.now())
 
 
 

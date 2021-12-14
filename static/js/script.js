@@ -118,4 +118,9 @@ document.getElementById("year").innerHTML = date;
 
 });
 
-
+document.querySelectorAll(".collection-bar").forEach((el) =>{
+  el.querySelector('a').addEventListener('click', (e) => {
+  e.preventDefault;
+  el.classList.add('.try');
+  })
+})

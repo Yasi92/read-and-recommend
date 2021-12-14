@@ -110,6 +110,7 @@
                         <div class="col s10">
                             <p class="title red-text"> Book Title: {{ review.book_title|title }}</p>
                             <blockquote>{{ review.review }}</blockquote>
+                            <p>{{ review.date_created|timeago }}</p>
                         </div>
 
                         {% if session.user|lower == review.username|lower %}
