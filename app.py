@@ -36,6 +36,15 @@ def before_request():
     flask.session.modified = True
     
 
+
+# The timeago method has been learned from (https://stackoverflow.com/questions/60162353/how-to-use-python-module-timeago-with-flask)
+@app.template_filter('timeago')
+def fromnow(date):
+    return timeago.format(date, datetime.datetime.now())
+
+
+
+
 @app.route("/")
 @app.route("/get_books")
 def get_books():
@@ -213,7 +222,7 @@ def get_book(book_id):
             review_details={
             "username" : session["user"],
             "review" : review_form.review.data,
-            "date_created" : review_form.created_date,
+            "date_created" : datetime.datetime.now(),
             "book_title" : book_details["title"]}
             
             mongo.db.reviews.insert_one(review_details)
@@ -233,10 +242,7 @@ def get_book(book_id):
 
 
 
-# The timeago method has been learned from (https://stackoverflow.com/questions/60162353/how-to-use-python-module-timeago-with-flask)
-@app.template_filter('timeago')
-def fromnow(date):
-    return timeago.format(date, datetime.datetime.now())
+
 
 
 

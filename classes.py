@@ -28,7 +28,7 @@ class LoginForm(Form):
 
 class ReviewForm(Form):
     review =  TextAreaField('Write Here', [validators.Length(min=3, max=8000), validators.DataRequired()], default=None)
-    created_date = datetime.datetime.now() 
+    
 
 
 
