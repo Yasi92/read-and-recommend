@@ -245,6 +245,10 @@ ul.collection-bar li a:hover,ul.collection-bar li a:active,ul.collection-bar li 
     color: #000;
 }
 
+ul:not(.browser-default).collection{
+    padding-left: 0;
+}
+
 
 /* //////////////////////////////// Book cards /////////////////////////////////// */
 ul:not(.browser-default){
@@ -498,10 +502,10 @@ tr:last-child{
     margin-bottom: 3rem;
     
 }
-/* 
+
 .row .col{
     padding: 0;
-} */
+}
 
 .add-book-form .col{
     padding: 0;
@@ -643,7 +647,7 @@ h5{
 }
 
 h4{
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     
 }
 
@@ -762,4 +766,37 @@ margin-bottom: 2rem;
 #xl-card{
     height: 600px;
 }
+
+span.badge{
+    margin-bottom: .5rem;
+    font-size: .9rem;
+    padding: 0;
+}
+
+.modal-trigger{
+    margin-bottom: .5rem;
+}
+
+.collection-item-review .row .col{
+    padding: 0;
+}
+
+.collection-item-review .title{
+    padding:0 1rem;
+}
+
+blockquote{
+    margin-left: 1rem;
+}
+
+small.blue-text{
+    padding-left: 1rem;
+}
+
+.add-book-btn{
+    text-align: center;
+}
+
+
+
 }

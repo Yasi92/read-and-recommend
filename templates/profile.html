@@ -4,13 +4,13 @@
 
 
 <div class="row profile-info-row">
-    <div class="col s12 m5 offset-m3">
+    <div class="col s10 offset-s1 m5 offset-m3">
         <div class="row valign-wrapper">
-            <div class="col s5 offset-m3 prof-pic">
+            <div class="col s3 offset-m3 prof-pic">
                 <img src="{{ url_for('static',filename='images/images.jpeg') }}" alt="Profile Picture" width="100%"
                     height="100%" class="responsive-img circle">
             </div>
-            <div class="col s5">
+            <div class="col s9 m5">
                 <h4>{{ user.username }}</h4>
                 <p>{{ user.location }}</p>
                 <p>{{ user.email }}</p>
@@ -26,7 +26,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col s12">
+        <div class="col s12 add-book-btn">
             <a href="{{ url_for('add_book') }}" class="btn-large grey lighten-2 black-text"><i class="fas fa-plus"></i>
                 Add a Book</a>
         </div>
@@ -45,11 +45,11 @@
                 <div class="col s1">
                     <span>{{ num }}. </span>
                 </div>
-                <div class="col s2">
+                <div class="col s3">
                     <img height="180" width="100" class="responsive-img" src="{{ book.img_url }}"
                         alt="Book Cover Image">
                 </div>
-                <div class="col s4">
+                <div class="col m5 s10 offset-s1">
                     <h6>{{ book.title|title }}</h6>
                     <p> By {{ book.author }}</p><br>
                     {% if book.best_seller  %}
@@ -57,7 +57,7 @@
                     {% endif %}
                 </div>
                 {% if session.user|lower == book.added_by|lower %}
-                <div class="col s3 right">
+                <div class="col s12 m3 right">
                     <button data-target="modal-{{ bookId }}" class="red btn-small modal-trigger right">Delete</button>
                     <!-- Modal Structure -->
                     <div id="modal-{{ bookId }}" class="modal">
@@ -72,7 +72,7 @@
                     </div>
 
 
-                    <a class="btn-small light-blue right" href="{{ url_for('edit_book', book_id=book._id) }}">Edit</a>
+                    <a class="btn-small light-blue right" href="{{ url_for('edit_book', book_id=book._id) }}"> Edit </a>
                 </div>
                 {% endif %}
             </div>
@@ -107,15 +107,15 @@
                             <img height="80" width="80" class="responsive-img circle"
                                 src="{{ url_for('static', filename='images/images.jpeg') }}" alt="User Profile Image">
                         </div>
-                        <div class="col s10">
-                            <p class="title red-text"> {{ review.book_title|title }}</p>
+                        <div class="col s8">
+                            <p class="title"> {{ review.book_title|title }}</p>
                             <blockquote>{{ review.review }}</blockquote>                       
                             <small class="blue-text">{{ review.date_created|timeago }}</small>
                         </div>
 
                         {% if session.user|lower == review.username|lower %}
 
-                        <div class="col s1">
+                        <div class="col s1 offset-s2">
                             <button data-target="modal-{{ review_id }}"
                                 class="red btn-small modal-trigger right">Delete</button>
                             <!-- Modal Structure -->
