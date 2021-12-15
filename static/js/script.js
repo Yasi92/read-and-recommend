@@ -106,7 +106,7 @@ $(".loadMoreReview").on("click", function(){
 
 // The history back button is learned form https://css-tricks.com/snippets/javascript/go-back-button/ and w3school 
 $(".back-btn").on("click", function(){
-  window.history.go(-1);
+  window.history.go(0);
 
 })
 
