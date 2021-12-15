@@ -377,7 +377,7 @@ border-top: 1px solid rgba(143, 143, 142, 0.4);
 color: rgb(67, 67, 67);
 }
 
-.row .col .search-box{
+.row .col .search-form{
     margin-left: 2.5rem;
 }
 
@@ -684,12 +684,11 @@ h4{
 
 .search-form.input-field{
     position: relative;
-    top: 9px;
-    background-color: ivory;
-    max-height: 40px;
+    top: .56rem;
+    max-height: 2.9rem;
 }
 
-.row .col .search-box {
+.row .col .search-form {
     margin-left: 2rem;
 }
 
