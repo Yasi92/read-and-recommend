@@ -38,6 +38,7 @@ h4{
 }
 
 
+
 h6{
     margin-top:0;
     font-weight: bold;
@@ -68,14 +69,19 @@ p{
     color: #000;
 }
 
+.btn-groups{
+    margin-bottom: 1rem;
+}
+
 button.loadMoreReview{
     margin: 1.5rem 0;
 }
 
 span.badge{
-    margin-left: 0;
+    margin:0;
     font-size: 1.3rem;
     color: #000;
+    
 }
 
 .back-btn:focus, .back-btn:hover{
@@ -342,7 +348,13 @@ border-top: 1px solid rgba(143, 143, 142, 0.4);
     height: 3rem;
     padding-left: .7rem;
     
-    }
+}
+
+.edit-profile-form{
+    margin: 2rem 0;
+}
+
+
 .search-form input[type=text]:not(.browser-default){
     border-bottom: none;
     position: relative;
@@ -522,10 +534,9 @@ tr:last-child{
     padding-bottom: 0;
   
 }
-
-.collection .collection-item{
+ /* .collection .collection-item{
     padding: .7rem 1.2rem;
-}
+}  */
 
 
 
@@ -551,7 +562,7 @@ tr:last-child{
 }
 
 .collection .collection-item-review{
-    padding: .7rem 1.2rem;
+    padding: .7rem 1.9rem;
     background-color: #fff;
     line-height: 1.5rem;
     margin: 0;
@@ -698,7 +709,7 @@ h4{
 }
 
 #book-detail .row .col.s12{
-    padding: 0 1.5rem 1.5rem 1.5rem;
+    padding: 0 1.5rem 0 1.5rem;
 
 }
 
@@ -768,13 +779,13 @@ margin-bottom: 2rem;
 }
 
 span.badge{
-    margin-bottom: .5rem;
+    
     font-size: .9rem;
     padding: 0;
 }
 
 .modal-trigger{
-    margin-bottom: .5rem;
+    margin-left: 0.5rem;
 }
 
 .collection-item-review .row .col{
@@ -820,5 +831,19 @@ small.blue-text{
     margin: 0;
 }
 
-
+.edit-profile-form{
+    position: relative;
+    left: .3rem
+    !important;
+    }
+    
+.edit-profile-form .center-align{
+    position: relative;
+    left: 1rem
+    !important;
 }
+
+.review-box .input-field>label{
+    position: unset;
+}
+} 
