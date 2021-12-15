@@ -9,65 +9,65 @@
     <div class="row">
         <h4 class="center">Add a Book</h4>
         <div class="col s12 bordered-box">
-            <form class="col s10 offset-m1 form add-book-form center" method="POST" action="{{ url_for('add_book') }}">
+            <form class="col s10 offset-s1 form add-book-form center" method="POST" action="{{ url_for('add_book') }}">
 
                 <!-- title -->
                 <div class="row">
-                    <div class="input-field col s5">
+                    <div class="input-field col m5 s12">
                         {{ render_field(add_book_form.title) }}
 
                     </div>
 
                     <!-- author -->
 
-                    <div class="input-field col s5 offset-m2">
+                    <div class="input-field col m5 offset-m1 s12">
                         {{ render_field(add_book_form.author) }}
 
                     </div>
                 </div>
                 <!-- category -->
                 <div class="row">
-                    <div class="input-field col s5">
+                    <div class="input-field col m5 s12">
                         {{ render_field(add_book_form.category) }}
 
                     </div>
 
                     <!-- publisher -->
 
-                    <div class="input-field col s5 offset-m2">
+                    <div class="input-field col m5 offset-m1 s12">
                         {{ render_field(add_book_form.publisher) }}
 
                     </div>
                 </div>
                 <!-- pages -->
                 <div class="row">
-                    <div class="input-field col s5">
+                    <div class="input-field col m5 s12">
                         {{ render_field(add_book_form.pages) }}
 
                     </div>
                     <!-- image-url -->
-                    <div class="input-field col s5 offset-m2">
+                    <div class="input-field col m5 offset-m1 s12">
                         {{ render_field(add_book_form.image) }}
 
                     </div>
                 </div>
                 <!-- price -->
                 <div class="row">
-                    <div class="input-field col s5">
+                    <div class="input-field col m5 s12">
                         {{ render_field(add_book_form.price) }}
 
                     </div>
 
                     <!-- shopping link -->
 
-                    <div class="input-field col s5 offset-m2">
+                    <div class="input-field col m5 offset-m1 s12">
                         {{ render_field(add_book_form.shopping_link) }}
 
                     </div>
                 </div>
                 <!-- description -->
                 <div class="row">
-                    <div class="input-field col s12 ">
+                    <div class="input-field col s10 offset-s1 ">
                         {{ render_field(add_book_form.desc) }}
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                 <!-- submit btn -->
                 <div class="row">
                     <div class="input-field col s12">
-                        <button type="submit" class="col s6 offset-m3 btn-large light-green darken-3">Save <i
+                        <button type="submit" class="col s10 offset-s1 m6 offset-m3 btn-large light-green darken-3">Save <i
                                 class="fas fa-sign-in-alt"></i>
                         </button>
                     </div>
