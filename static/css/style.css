@@ -18,25 +18,16 @@ html, body {
 }
 
 
-.right{
-    text-align: right;
-}
-
-button, input, optgroup, select, textarea { 
- 
-    font: inherit;
-    margin: 0px;
-}
 
 
 h3 {
     margin: 1.9rem 0;
 }
 
+
 h4{
     margin: 1.52rem 0;
 }
-
 
 
 h6{
@@ -44,11 +35,30 @@ h6{
     font-weight: bold;
 }
 
+
 p{
     font-size: 1rem;
-
 }
 
+
+.right{
+    text-align: right;
+}
+
+
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+
+.flashes h4{
+    line-height: 1;
+    margin-bottom: 0;
+    margin-top: 1.5;
+    padding: 1rem;  
+}
+/* //////////////////////////////// buttons and badge /////////////////////////////////// */
 
 .edit-btn{
     margin-top:1rem;
@@ -69,24 +79,27 @@ p{
     color: #000;
 }
 
+
 .btn-groups{
     margin-bottom: 1rem;
 }
+
+
+.wide-btn{
+    width: 100%;
+    margin-top: .7rem;
+}
+
 
 button.loadMoreReview{
     margin: 1.5rem 0;
 }
 
-span.badge{
-    margin:0;
-    font-size: 1.3rem;
-    color: #000;
-    
-}
 
 .btn-floating.btn-small{
     margin-left:.5rem;
 }
+
 
 .back-btn:focus, .back-btn:hover{
     background-color: transparent;
@@ -94,22 +107,42 @@ span.badge{
     transform: scale(1.2);
 }
 
+
 .book-btn{
     margin-top: 1.5rem;
 }
+
 
 .btn-small{
     margin: .3rem;
 }
 
+
+span.badge{
+    margin:0;
+    font-size: 1.3rem;
+    color: #000;   
+}
+
+
+.btn-large i{
+    font-size: 1.3rem;
+    line-height: normal;
+}
+
+
+
+
 /* //////////////////////////////// Navbar and header box /////////////////////////////////// */
 .nav-wrapper {
     background-color: #92a27e;
-  
 }
-.prof-pic{
-    margin-top: 1rem;
+
+
+nav .nav-wrapper i{
+    line-height: inherit;
 }
+
 
 nav ul a {
     font-size: 1.2rem;
@@ -133,9 +166,7 @@ nav ul a {
 .header-content{
   display: table-cell;
   vertical-align: middle;
-  
 }
-
 
 
 .header-box > div{
@@ -145,6 +176,7 @@ nav ul a {
 }
 
 
+/* //////////////////////////////// Search box /////////////////////////////////// */
 
 .search-form {
     /* position: absolute;
@@ -155,12 +187,6 @@ nav ul a {
     border-radius: 20px;
 }
 
-
-input[type=text]:not(.browser-default){
-    border-bottom: none;
-    background-color: #fff;
-
-}
 
 .search-form input[type=text]:not(.browser-default):focus:not([readonly]){
     border-bottom: none;
@@ -181,6 +207,29 @@ input[type=text]:not(.browser-default){
 }
     
 
+.search-form.input-field{
+    position: relative;
+    top: .56rem;
+    background-color: ivory;
+    max-height: 3rem;
+}
+
+
+.search-form.input-field input::placeholder{
+color: rgb(67, 67, 67);
+}
+
+
+.row .col .search-form{
+    margin-left: 2.5rem;
+}
+
+/* //////////////////////////////// forms /////////////////////////////////// */
+
+input[type=text]:not(.browser-default){
+    border-bottom: none;
+    background-color: #fff;
+}
 
 
 input:-webkit-autofill,
@@ -197,19 +246,57 @@ input:-internal-autofill-selected{
     !important;
 }
 
+
 ::placeholder {
     text-align: left;
     padding-left: .5rem;
 }
 
 
-/* .fa-search {
-    padding-right: 5px;
-    line-height: 3;
-} */
+button, input, optgroup, select, textarea { 
+    font: inherit;
+    margin: 0px;
+}
 
-nav .nav-wrapper i{
-    line-height: inherit;
+
+textarea{
+    height: 8rem;
+    border: 1px solid rgba(143, 143, 142, 0.5);
+    border-radius: 10px;
+    background-color: #fff;
+}    
+
+
+form > .row{
+    margin: 1rem;
+}
+
+.form-error{
+    color: tomato;
+    padding-left: 2.3rem;
+}
+
+
+.input-field .prefix{
+    font-size: 1.5rem;
+    top: 1rem;
+}
+
+
+.form .input-field{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.form input[type=text]:not(.browser-default),
+.form input[type=password]:not(.browser-default),
+.form input[type=email]:not(.browser-default){
+    border-bottom:1px solid rgba(160, 156, 156, 0.5);
+}
+
+
+.input-field>label:not(.label-icon).active{
+    display: none;
 }
 
 /* //////////////////////////////// Collection-bar /////////////////////////////////// */
@@ -218,11 +305,8 @@ ul.collection-bar li{
     display: inline-block;
     vertical-align: middle;
     text-align: center;
+}
 
-}
-.try {
-    color: black;
-}
 
 .collection-bar{
     text-align: center;
@@ -234,8 +318,8 @@ ul.collection-bar li{
     border-radius: 15px;
     margin: 1.5em 4em 1.5em 4em;
     padding: 1em;
-
 }
+
 
 /* The hover effect is borrowed from  [http://ianlunn.github.io/Hover/]*/
 ul.collection-bar li a{
@@ -259,12 +343,19 @@ ul.collection-bar li a:hover,ul.collection-bar li a:active,ul.collection-bar li 
     color: #000;
 }
 
+
+/* //////////////////////////////// Book collection /////////////////////////////////// */
+
 ul:not(.browser-default).collection{
     padding-left: 0;
 }
 
 
-/* //////////////////////////////// Book cards /////////////////////////////////// */
+.collection-item{
+    display: none;
+}
+
+
 ul.ul-books:not(.browser-default){
     padding-left: 1rem;
 }
@@ -278,16 +369,20 @@ ul.ul-books:not(.browser-default){
     display: block;  
 }
 
+
 .ul-books li{
     display: inline-block;
     margin: 10px 5px 0 5px;
     vertical-align: top;
-
 }
+
+/* //////////////////////////////// Book cards /////////////////////////////////// */
 
 .card .card-content{
     padding: .9rem;
 }
+
+
 
 .card.small {
 width: 14.2rem;
@@ -296,12 +391,12 @@ margin: .7rem auto;
 }
 
 .card .card-image > img{
-    
     max-height: 19rem;
     max-width: 14.2rem;
     min-height: 19rem;
     min-width: 14.2rem;
 }
+
 
 .card.small .card-image{
     max-height: 90%;
@@ -313,11 +408,10 @@ border-top: 1px solid rgba(143, 143, 142, 0.4);
 }
 
 
-
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating){
     color: #000;
-   
 }
+
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
     color: blue;
@@ -325,24 +419,34 @@ border-top: 1px solid rgba(143, 143, 142, 0.4);
     transition: color .3 ease;
 }
 
-/* The fadeIn effect is learned from this article (https://stackoverflow.com/questions/54384218/fade-in-effect-for-div-without-id) */
 
+/* The fadeIn effect is learned from this article (https://stackoverflow.com/questions/54384218/fade-in-effect-for-div-without-id) */
 .book-card {
     opacity: 0;
     transition: opacity 0.35s ease-in;
     display: inline-block;
-
-  }
+}
   
-  .book-card.show {
+.book-card.show {
     opacity: 1;
-  }
+}
 
+/* //////////////////////////////// register/login forms /////////////////////////////////// */
 
-/* //////////////////////////////// forms /////////////////////////////////// */
 .card.large .card-image.register-bg{
     max-height: 100%;
 }
+
+
+.register-bg{
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/cacb57af3c6b8be1e5d206d203cee7b1.jpg);
+    background-size:cover;
+}
+
+
+/* //////////////////////////////// Edit profile form /////////////////////////////////// */
 
 .edit-profile-form input[type=text]:not(.browser-default),
 .edit-profile-form input[type=email]:not(.browser-default),
@@ -355,121 +459,39 @@ border-top: 1px solid rgba(143, 143, 142, 0.4);
     border-radius: 10px;
     height: 3rem;
     padding-left: .7rem;
-    
 }
+
 
 .edit-profile-form{
     margin: 2rem 0;
 }
 
 
-
-.search-form.input-field{
-    position: relative;
-    top: .56rem;
-    background-color: ivory;
-    max-height: 3rem;
-    
-}
-
-.search-form.input-field input::placeholder{
-color: rgb(67, 67, 67);
-}
-
-.row .col .search-form{
-    margin-left: 2.5rem;
-}
-
-
-
 .edit-profile-form .input-field .prefix ~ label{
     margin-left: 2.4rem;
     padding-left: .7rem;
     padding-top: .5rem;
-
 }
-
-textarea{
-    height: 8rem;
-    border: 1px solid rgba(143, 143, 142, 0.5);
-    border-radius: 10px;
-    background-color: #fff;
-   
-}    
 
 
 .edit-profile-form .input-field .prefix ~ input{
     padding-left: .7rem;
 }
-
-
-.register-bg{
-    width: 100%;
-    height: 100%;
-    background-image: url(../images/cacb57af3c6b8be1e5d206d203cee7b1.jpg);
-    background-size:cover;
-}
-
-.form .input-field{
-    margin-top: 0;
-    margin-bottom: 0;
-  
-
-}
-
-.form input[type=text]:not(.browser-default),
-.form input[type=password]:not(.browser-default),
-.form input[type=email]:not(.browser-default){
-    border-bottom:1px solid rgba(160, 156, 156, 0.5);
-}
-
-
-form > .row{
-    margin: 1rem;
-    
-}
-
-.form-error{
-    color: tomato;
-    padding-left: 2.3rem;
-}
-
-
-.input-field .prefix{
-    font-size: 1.5rem;
-    top: 1rem;
-}
-
-
-.btn-large i{
-    font-size: 1.3rem;
-    line-height: normal;
-}
-
-.flashes h4{
-    line-height: 1;
-    margin-bottom: 0;
-    margin-top: 1.5;
-    padding: 1rem;
-    
-}
-
-
-.input-field>label:not(.label-icon).active{
-    display: none;
-}
-
+/* //////////////////////////////// add book form /////////////////////////////////// */
 
 .add-book-form{
     margin: 2rem;
 }
 
+.add-book-form .col{
+    padding: 0;
+}
+
 /* //////////////////////////////// book details /////////////////////////////////// */
 
-
 .book_title_div{
-    border-bottom: 3px solid gray;
-    border-top: 3px solid gray;
+    border-bottom: 3px solid rgba(143, 143, 142, 0.5);
+    border-top: 3px solid rgba(143, 143, 142, 0.5);
 }
 
 .book_title_div > h3{
@@ -478,17 +500,14 @@ form > .row{
     margin-bottom: 0;
 }   
 
+
 td{
     font-size: 1.3rem;
 }
 
+
 tr:last-child{
     border-bottom: none;
-}
-
-.wide-btn{
-    width: 100%;
-    margin-top: .7rem;
 }
 
 
@@ -496,73 +515,37 @@ tr:last-child{
     width: 90%;
 }
 
+
+/* //////////////////////////////// review form /////////////////////////////////// */
 .review-box{
-    
     box-shadow:0px 0px 7px rgba(81, 83, 84, .5);
     border-radius: .5rem;
     margin-top: 3rem;
     margin-bottom: 3rem;
 }
 
-.bordered-box{
-    border: 1px solid rgba(143, 143, 142, 0.5);
-    box-shadow:0px 0px 7px rgba(81, 83, 84, .5);
-    border-radius: .5rem;
-    margin-bottom: 2rem;
-    
-}
 
 .heading-div{
     border-bottom: 1px solid rgba(152, 187, 198, 0.5);
     margin-bottom: 3rem;
-    
 }
 
-.row .col{
-    padding: 0;
-}
+/* //////////////////////////////// review lists /////////////////////////////////// */
 
-.add-book-form .col{
-    padding: 0;
+.collection-item-review{
+    display: none;
 }
-
-.row{
-    margin-bottom: 0;
-}
-
 
 
 .collection .collection-item.avatar.book-avt{
     padding-left: 1.2rem;
     padding-bottom: 0;
-  
 }
+
  /* .collection .collection-item{
     padding: .7rem 1.2rem;
 }  */
 
-
-
-.profile-info-row{
-    border-bottom: 1px solid rgba(164, 156, 156, 0.5);
-    margin-bottom: 2rem;
-    padding-bottom: 1.7rem;
-}
-
-
-
-
-.collection-item{
-    display: none;
-}
-
-
-
-
-.collection-item-review{
-    display: none;
-
-}
 
 .collection .collection-item-review{
     padding: .7rem 1.9rem;
@@ -570,32 +553,71 @@ tr:last-child{
     line-height: 1.5rem;
     margin: 0;
     border-bottom: 1px solid #e0e0e0;
-
 }
+
 
 .collection .collection-item-review.avatar{
     min-height: 84px;
     position: relative;
 }
 
-.loadMoreReview{
-    display: none;
+
+/* //////////////////////////////// containers / rows /cols /////////////////////////////////// */
+
+.row .col{
+    padding: 0;
 }
+
+
+.row{
+    margin-bottom: 0;
+}
+
+.bordered-box{
+    border: 1px solid rgba(143, 143, 142, 0.4);
+    box-shadow:0px 0px 7px rgba(81, 83, 84, .5);
+    border-radius: .5rem;
+    margin-bottom: 2rem;
+}
+
+
+/* //////////////////////////////// profile section /////////////////////////////////// */
+
+.profile-info-row{
+    border-bottom: 1px solid rgba(164, 156, 156, 0.4);
+    margin-bottom: 2rem;
+    padding-bottom: 1.7rem;
+}
+
+
+.prof-pic{
+    margin-top: 1rem;
+}
+
 
 .loadMoreBooks{
     display: none;
 }
 
 
+.loadMoreReview{
+    display: none;
+}
 
+
+/* //////////////////////////////// book description field /////////////////////////////////// */
+
+/* Read more / Read less method is learned from ("https://stackoverflow.com/questions/25341429/jquery-read-more-read-less-how-to-replace-text") */
 .addReadMore.showlesscontent .SecSec,
 .addReadMore.showlesscontent .readLess {
     display: none;
 }
 
+
 .addReadMore.showmorecontent .readMore {
     display: none;
 }
+
 
 .addReadMore .readMore,
 .addReadMore .readLess {
@@ -605,18 +627,11 @@ tr:last-child{
     cursor: pointer;
 }
 
+
 .addReadMoreWrapTxt.showmorecontent .SecSec,
 .addReadMoreWrapTxt.showmorecontent .readLess {
     display: block;
 }
-
-
-
-  hr {
-    border: 1px solid #f1f1f1;
-    margin-bottom: 25px;
-  }
-  
 
 
 /* //////////////////////////////// footer/////////////////////////////////// */  
@@ -625,21 +640,14 @@ tr:last-child{
     background-color: #92a27e;
 }
 
-
-
-
+/* //////////////////////////////// 404 / 500 page/////////////////////////////////// */  
 
 .container.not-found-pg{
     margin-top: 2rem;
     margin-bottom: 4rem;
 }
 
-
-
-
-/* //////////////////////////////// Ipad size /////////////////////////////////// */
-
-
+/* //////////////////////////////// Mobile size devices /////////////////////////////////// */
 
 @media screen and (max-width: 568px) {
 
@@ -648,17 +656,16 @@ h3{
    padding: 0 1rem;
 }
 
+
 h5{
     font-size: 1.1rem;
     margin: 0;
-    
 }
+
 
 h4{
     font-size: 1.4rem;
-    
 }
-
 
 
 .header-box {
@@ -674,12 +681,13 @@ h4{
 .btn-small{
     font-size: .7rem;
     margin: 0;
-    
 }
+
 
 .header-box > div{
     background-color: rgba(250, 250, 240, .4);
 }
+
 
 /* .search-form input[type=text]:not(.browser-default){
     height: 2rem;
@@ -696,10 +704,8 @@ h4{
 
 
 .collection-bar{
-
     margin: 1rem;
     padding:.5rem;
-
 }
 
 
@@ -709,13 +715,11 @@ h4{
 
 #book-detail .row .col.s12{
     padding: 0 1.5rem 0 1.5rem;
-
 }
 
 
 .col.review-box{
     padding: 0 1.5rem 1.5rem 1.5rem;
-    
 }
 
 
@@ -725,7 +729,6 @@ h4{
 
 /* .form .input-field > label{
     position: unset;
-    
 } */
 
 p.addReadMore {
@@ -738,12 +741,10 @@ p.addReadMore {
     width: 11.5rem;
     height: 25rem;
     margin: .7rem auto;
-    }
+}
     
-
-        
+   
 .card .card-image > img{
-    
     max-height: 14.71rem;
     max-width: 11.5rem;
     min-height: 14.71rem;
@@ -753,7 +754,6 @@ p.addReadMore {
 
 .card .card-action{
     padding: .8rem 1rem;
-
 }
 
 
@@ -761,58 +761,67 @@ p.addReadMore {
     margin-right: 0;
 }
 
+
 ul.collection-bar li a{
     font-size: 1rem;
 }
+
 
 .row .card.large{
 margin-bottom: 2rem;
 }
 
+
 .card.large{
     height: 400px;
 }
+
 
 #xl-card{
     height: 600px;
 }
 
+
 span.badge{
-    
     font-size: .9rem;
     padding: 0;
 }
+
 
 .modal-trigger{
     margin-left: 0.5rem;
 }
 
+
 .collection-item-review .row .col{
     padding: 0;
 }
+
 
 .collection-item-review .title{
     padding:0 1rem;
 }
 
+
 blockquote{
     margin-left: 1rem;
 }
+
 
 small.blue-text{
     padding-left: 1rem;
 }
 
+
 .add-book-btn{
     text-align: center;
 }
 
-
 .bordered-box{
     padding: 1rem
     !important;
-   
 }
+
 
 .add-book-form .row .col.s12{
     width: 97%;
@@ -822,7 +831,6 @@ small.blue-text{
 
 .add-book-form .row .col.s10{
     margin-bottom: .8rem;
-
 }
 
 
@@ -830,20 +838,30 @@ small.blue-text{
     margin: 0;
 }
 
+
 .edit-profile-form{
     position: relative;
     left: .3rem
     !important;
-    }
+}
     
+
 .edit-profile-form .center-align{
     position: relative;
     left: 1rem
     !important;
 }
 
+
 .review-box .input-field>label{
     position: unset;
+}
+
+
+.search-form input[type=text]:not(.browser-default){
+    max-height: 3rem;
+    top: -8px;
+    height: 100%;
 }
 
 
