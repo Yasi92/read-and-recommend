@@ -105,11 +105,15 @@ $(".loadMoreReview").on("click", function(){
 
 
 // The history back button is learned form https://css-tricks.com/snippets/javascript/go-back-button/ and w3school 
-$(".back-btn").on("click", function(){
-  window.history.go(0);
-  return false;
+$(".back-btn").on("click", function(e){
+  e.preventDefault();
+  window.history.go(-1);
+  
 
 })
+
+
+
 
 $('.modal').modal();
 
