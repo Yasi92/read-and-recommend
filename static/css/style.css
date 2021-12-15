@@ -630,7 +630,10 @@ tr:last-child{
 
 
 
-
+.container.not-found-pg{
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
 
 
 

@@ -33,9 +33,6 @@ class ReviewForm(Form):
 
 
 class EditProfile(Form):
-    username = StringField('Username', [validators.Length(min=4, max=25),
-                            validators.DataRequired(), validators.Regexp('^\w+$',
-                            message="Username must contain only letters numbers or underscore")])
     location = StringField('Your Location', [validators.Length(min=3, max=50), validators.DataRequired()])
     email = EmailField('Email', [validators.Length(min=6, max=50), validators.DataRequired()])
 

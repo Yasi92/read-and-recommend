@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container not-found-pg">
+    <div class="row">
+        <div class="col s12">
+            <h1 class="center">Oops, Something Went Wrong!</h1>
+        </div>
+        <div class="col s12 center">
+            <a href="{{ url_for('get_books') }}" class="btn-large light-blue center" aria-label="Home">Let's go back</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

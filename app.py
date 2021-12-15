@@ -146,14 +146,16 @@ def register():
 def profile(username):
     # get the session user's username from db
     user = mongo.db.users.find_one(
-        {"username": session["user"]})
+        {"username": username})   
+
+    print(user)    
     
 
     # Gets the books added by user.
-    books= mongo.db.books.find({"added_by" : session['user']})
+    books= mongo.db.books.find({"added_by" : user["username"]})
 
     # Gets the reviews added by user.
-    reviews = mongo.db.reviews.find({"username": username})
+    reviews = mongo.db.reviews.find({"username": user["username"]})
     reviews_length = reviews.count()
 
     # This gets the length of the books added by user.
@@ -166,7 +168,7 @@ def profile(username):
     
 
     if session["user"]:
-        return render_template("profile.html", username=username, user=user, books=zip(books, num),
+        return render_template("profile.html",user=user, books=zip(books, num),
                                  books_length=books_length, reviews=reviews,
                                  reviews_length=reviews_length)
 
@@ -182,11 +184,9 @@ def edit_profile(user_id):
     edit_form = EditProfile(request.form)
          
         
-        
-
     if request.method == "POST" and edit_form.validate():
         # Checks whether data has been changed or not
-        no_change = edit_form.username.data == user["username"] and edit_form.location.data == user["location"] and edit_form.email.data == user["email"]
+        no_change = edit_form.location.data == user["location"] and edit_form.email.data == user["email"]
         
         # returns to profile if data is not changed
         if  no_change:
@@ -196,10 +196,9 @@ def edit_profile(user_id):
         else:    # Since password is not getting updated in db, "$set" is used to update the specific records.
         
             mongo.db.users.update(
-                                {"_id" : ObjectId(user_id)}, {'$set': {"username" : edit_form.username.data,
-                                "email" : edit_form.email.data, "location": edit_form.location.data}} )
+                                {"_id" : ObjectId(user_id)}, {'$set': {"email" : edit_form.email.data,
+                                 "location": edit_form.location.data}} )
             flash("Profile Updated")
-            session["user"] = edit_form.username.data.lower()
             return redirect(url_for('profile', username=session['user']))
 
         
@@ -367,11 +366,21 @@ def delete_review(review_id):
 #         mongo.db.reviews.update_one(i, {"$set" : {"book_title" : i["book_title"].lower()}})
         
 
-       
-
 # edit()    
 
+@app.errorhandler(404)
+def page_not_found(e):
+    """
+    On 404 error passes user to custom 404 page
+    """
+    return render_template('404.html'), 404
 
+@app.errorhandler(500)
+def internal_error(err):
+    """
+    On 500 error passes user to custom 500 page
+    """
+    return render_template('500.html'), 500
 
 
 
