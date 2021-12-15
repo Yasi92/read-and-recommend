@@ -156,7 +156,7 @@ nav ul a {
 }
 
 
-input[type=search]:not(.browser-default){
+input[type=text]:not(.browser-default){
     border-bottom: none;
     background-color: #fff;
 
@@ -170,10 +170,14 @@ input[type=search]:not(.browser-default){
 .search-form input[type=text]:not(.browser-default){
     background-color:ivory;
     border-radius: 20px;
-    height: 100%;
+    
     width: 80%;
     font-size: inherit;
     padding-left: 1rem;
+    border-bottom: none;
+    position: relative;
+    top: -8px;
+    height: 100%;
 }
     
 
@@ -359,11 +363,6 @@ border-top: 1px solid rgba(143, 143, 142, 0.4);
 }
 
 
-.search-form input[type=text]:not(.browser-default){
-    border-bottom: none;
-    position: relative;
-    top: -8px;
-}
 
 .search-form.input-field{
     position: relative;
@@ -683,7 +682,6 @@ h4{
 }
 
 .search-form.input-field{
-    position: relative;
     top: .56rem;
     max-height: 2.9rem;
 }
