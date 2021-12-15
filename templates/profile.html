@@ -57,7 +57,7 @@
                     {% endif %}
                 </div>
                 {% if session.user|lower == book.added_by|lower %}
-                <div class="col s12 m3 right btn-groups">
+                <div class="col s12 m3 btn-groups">
                     <button data-target="modal-{{ bookId }}" class="red btn-small modal-trigger right">Delete</button>
                     <!-- Modal Structure -->
                     <div id="modal-{{ bookId }}" class="modal">

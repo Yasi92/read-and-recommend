@@ -84,6 +84,10 @@ span.badge{
     
 }
 
+.btn-floating.btn-small{
+    margin-left:.5rem;
+}
+
 .back-btn:focus, .back-btn:hover{
     background-color: transparent;
     -webkit-transform: scale(1.2);
@@ -633,15 +637,6 @@ tr:last-child{
 
 /* //////////////////////////////// Ipad size /////////////////////////////////// */
 
-@media screen and (max-width: 1020px) {
-  
-
-
-    ul.collection-bar li a{
-        padding: .5rem 1rem;
-    }
-    
-}
 
 
 @media screen and (max-width: 568px) {
@@ -847,3 +842,5 @@ small.blue-text{
     position: unset;
 }
 } 
+
+
