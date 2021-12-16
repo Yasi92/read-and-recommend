@@ -182,8 +182,8 @@ nav ul a {
     /* position: absolute;
     top: 2.5rem;
     right: 3rem; */
-    width: 20%;
-    border: 1px solid rgba(143, 143, 142, 0.5);
+    /* width: 20%; */
+    /* border: 1px solid rgba(143, 143, 142, 0.5); */
     border-radius: 20px;
 }
 
@@ -194,24 +194,23 @@ nav ul a {
 }
 
 .search-form > input[type=text]:not(.browser-default){
-    background-color:rgb(211, 211, 72);
+    background-color:ivory;
     border-radius: 20px;
     /* max-height: 3rem; */
-    width: 80%;
+    width: 90%;
     font-size: inherit;
     padding-left: 1rem;
     border-bottom: none;
-    /* position: relative;
-    top: -8px; */
-    /* height: 100%; */
+    position: absolute;
+    top: 0;
     overflow: hidden;
 }
     
 
 .search-form.input-field{
-    /* position: relative; */
+    position: relative;
     top: .56rem;
-    background-color: ivory;
+    background-color: #92a27e;
     max-height: 3rem;
 }
 
@@ -722,21 +721,22 @@ h4{
 .col.review-box{
     padding: 0 1.5rem 1.5rem 1.5rem;
 }
-/* 
-.search-form input[type=text]:not(.browser-default){
-    max-height: 3rem;
-    top: -8px;
-    height: 100%;
-} */
 
-/* .form .input-field{
-    position: relative;
-} */
 
-/* .form .input-field > label{
-    position: unset;
-} */
-
+/* .search-form > input[type=text]:not(.browser-default){
+    background-color:rgb(211, 211, 72);
+    border-radius: 20px;
+    
+    width: 90%;
+    font-size: inherit;
+    padding-left: 1rem;
+    border-bottom: none;
+    overflow: hidden;
+}  */
+/* position: relative;
+    top: -8px; */
+    /* height: 100%; */
+    /* max-height: 3rem; */
 p.addReadMore {
     text-align: justify;
     padding: 0 1.1rem;
