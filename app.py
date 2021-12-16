@@ -49,7 +49,7 @@ def fromnow(date):
 @app.route("/get_books")
 def get_books():
     books = mongo.db.books.find()
-    books_length = books.count()
+    books_length = mongo.db.books.count_documents({})
     categories = list(mongo.db.categories.find())
     return render_template("home.html", books=books, categories=categories, books_length=books_length)
 
@@ -60,7 +60,7 @@ def search():
 
     query= request.form.get("query")
     books = mongo.db.books.find({"$text" : {"$search" : query}})
-    books_length = books.count()
+    books_length = mongo.db.books.count_documents({"$text" : {"$search" : query}})
     categories = mongo.db.categories.find()
     return render_template("home.html", books=books, categories=categories, books_length=books_length)
 
@@ -71,7 +71,7 @@ def best_seller_books():
     
     categories = list(mongo.db.categories.find())
     best_sellers = mongo.db.books.find({"best_seller" : True})
-    books_length = best_sellers.count()
+    books_length = mongo.db.books.count_documents({"best_seller" : True})
     return render_template("home.html", best_sellers=best_sellers,
     categories=categories, books_length=books_length)
 
@@ -156,10 +156,10 @@ def profile(username):
 
     # Gets the reviews added by user.
     reviews = mongo.db.reviews.find({"username": user["username"]})
-    reviews_length = reviews.count()
+    reviews_length = mongo.db.reviews.count_documents({"username": user["username"]})
 
     # This gets the length of the books added by user.
-    books_length = books.count()
+    books_length = mongo.db.books.count_documents({"added_by" : user["username"]})
     num = []
     i = 0
     for i in range(books_length):
@@ -233,7 +233,7 @@ def get_book(book_id):
             return redirect(url_for("login"))
 
     reviews = mongo.db.reviews.find({"book_title" : book_details["title"]})
-    reviews_length = reviews.count()
+    reviews_length = mongo.db.reviews.count_documents({"book_title" : book_details["title"]})
 
     return render_template("books.html",book_details=book_details,
                             review_form=review_form,
@@ -251,7 +251,7 @@ def get_categories(category_name):
     categories = list(mongo.db.categories.find())
 
     category_book = mongo.db.books.find({"category_name" : category_name})
-    books_length = category_book.count()
+    books_length = mongo.db.books.count_documents({"category_name" : category_name})
 
     return render_template("home.html", categories=categories,
     category_name= category_name, category_book=category_book , books_length=books_length)
