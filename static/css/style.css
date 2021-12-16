@@ -18,8 +18,6 @@ html, body {
 }
 
 
-
-
 h3 {
     margin: 1.9rem 0;
 }
@@ -630,9 +628,11 @@ tr:last-child{
 
 /* //////////////////////////////// footer/////////////////////////////////// */  
 
-.page-footer{
+footer.page-footer{
     background-color: #92a27e;
-}
+    
+ }
+
 
 /* //////////////////////////////// 404 / 500 page/////////////////////////////////// */  
 
@@ -849,7 +849,6 @@ small.blue-text{
 .review-box .input-field>label{
     position: unset;
 }
-
 
 
 
