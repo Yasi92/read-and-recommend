@@ -193,8 +193,8 @@ nav ul a {
     box-shadow: none;
 }
 
-.search-form > input[type=text]{
-    background-color:ivory;
+.search-form > input[type=text]:not(.browser-default){
+    background-color:rgb(211, 211, 72);
     border-radius: 20px;
     /* max-height: 3rem; */
     width: 80%;
