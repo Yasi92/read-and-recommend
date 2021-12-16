@@ -179,11 +179,6 @@ nav ul a {
 /* //////////////////////////////// Search box /////////////////////////////////// */
 
 .search-form {
-    /* position: absolute;
-    top: 2.5rem;
-    right: 3rem; */
-    /* width: 20%; */
-    /* border: 1px solid rgba(143, 143, 142, 0.5); */
     border-radius: 20px;
 }
 
@@ -196,7 +191,6 @@ nav ul a {
 .search-form > input[type=text]:not(.browser-default){
     background-color:ivory;
     border-radius: 20px;
-    /* max-height: 3rem; */
     width: 90%;
     font-size: inherit;
     padding-left: 1rem;
@@ -723,20 +717,12 @@ h4{
 }
 
 
-/* .search-form > input[type=text]:not(.browser-default){
-    background-color:rgb(211, 211, 72);
-    border-radius: 20px;
-    
-    width: 90%;
-    font-size: inherit;
-    padding-left: 1rem;
-    border-bottom: none;
-    overflow: hidden;
-}  */
-/* position: relative;
-    top: -8px; */
-    /* height: 100%; */
-    /* max-height: 3rem; */
+.search-form > input[type=text]:not(.browser-default){
+    padding-left: .5rem;
+    padding-right: .5rem;
+    font-size: .8rem;
+} 
+
 p.addReadMore {
     text-align: justify;
     padding: 0 1.1rem;
