@@ -196,19 +196,19 @@ nav ul a {
 .search-form input[type=text]:not(.browser-default){
     background-color:ivory;
     border-radius: 20px;
-    max-height: 3rem;
+    /* max-height: 3rem; */
     width: 80%;
     font-size: inherit;
     padding-left: 1rem;
     border-bottom: none;
     position: relative;
     top: -8px;
-    height: 100%;
+    height: inherit;
 }
     
 
 .search-form.input-field{
-    position: relative;
+    /* position: relative; */
     top: .56rem;
     background-color: ivory;
     max-height: 3rem;
