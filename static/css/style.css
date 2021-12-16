@@ -191,7 +191,7 @@ nav ul a {
 .search-form > input[type=text]:not(.browser-default){
     background-color:ivory;
     border-radius: 20px;
-    width: 90%;
+    width: 95%;
     font-size: inherit;
     padding-left: 1rem;
     border-bottom: none;
@@ -721,6 +721,7 @@ h4{
     padding-left: .5rem;
     padding-right: .5rem;
     font-size: .8rem;
+    width: 90%;
 } 
 
 p.addReadMore {
