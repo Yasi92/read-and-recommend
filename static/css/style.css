@@ -193,7 +193,7 @@ nav ul a {
     box-shadow: none;
 }
 
-.search-form input[type=text]{
+.search-form > input[type=text]{
     background-color:ivory;
     border-radius: 20px;
     /* max-height: 3rem; */
