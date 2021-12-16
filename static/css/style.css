@@ -721,11 +721,16 @@ h4{
 .col.review-box{
     padding: 0 1.5rem 1.5rem 1.5rem;
 }
+/* 
+.search-form input[type=text]:not(.browser-default){
+    max-height: 3rem;
+    top: -8px;
+    height: 100%;
+} */
 
-
-.form .input-field{
+/* .form .input-field{
     position: relative;
-}
+} */
 
 /* .form .input-field > label{
     position: unset;
@@ -847,7 +852,7 @@ small.blue-text{
     
 
 .edit-profile-form .center-align{
-    position: relative;
+    /* position: relative; */
     left: 1rem
     !important;
 }
@@ -858,11 +863,7 @@ small.blue-text{
 }
 
 
-.search-form input[type=text]:not(.browser-default){
-    max-height: 3rem;
-    top: -8px;
-    height: 100%;
-}
+
 
 
 } 
