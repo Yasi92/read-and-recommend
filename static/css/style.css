@@ -198,12 +198,13 @@ nav ul a {
     border-radius: 20px;
     /* max-height: 3rem; */
     width: 80%;
-    font-size: inherit;
+    /* font-size: inherit; */
     padding-left: 1rem;
     border-bottom: none;
     position: relative;
     top: -8px;
     height: inherit;
+    overflow: hidden;
 }
     
 
