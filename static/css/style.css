@@ -193,17 +193,17 @@ nav ul a {
     box-shadow: none;
 }
 
-.search-form input[type=text]:not(.browser-default){
+.search-form input[type=text]{
     background-color:ivory;
     border-radius: 20px;
     /* max-height: 3rem; */
     width: 80%;
-    /* font-size: inherit; */
+    font-size: inherit;
     padding-left: 1rem;
     border-bottom: none;
     position: relative;
     top: -8px;
-    height: inherit;
+    height: 100%;
     overflow: hidden;
 }
     
