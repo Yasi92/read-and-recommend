@@ -220,8 +220,18 @@ color: rgb(67, 67, 67);
 
 input[type=text]:not(.browser-default){
     border-bottom: none;
-    background-color: #fff;
 }
+
+
+input:not([type]):focus:not([readonly]),
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]){
+    border-bottom: 1px solid rgba(46, 46, 44, 0.8);
+    box-shadow: none;
+}
+
 
 
 input:-webkit-autofill,

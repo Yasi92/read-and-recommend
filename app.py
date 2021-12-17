@@ -10,7 +10,6 @@ from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from classes import RegisterForm, LoginForm, ReviewForm, EditProfile, AddBook
 
-now = datetime.datetime.now() + datetime.timedelta(seconds = 60 * 3.4)
 
 
 if os.path.exists("env.py"):
@@ -22,19 +21,11 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
+app.config['PERMANENT_SESSION_LIFETIME'] =  timedelta(days=1)
+
 
 
 mongo = PyMongo(app)
-
-
-# The user will be logged out after 1 hour of inactivity
-# The method is learned from (https://www.bonser.dev/blog/basic-flask-session-timeout-on-inactivity)
-@app.before_request
-def before_request():
-    flask.session.permanent = True
-    app.permanent_session_lifetime = timedelta(minutes=60)
-    flask.session.modified = True
-    
 
 
 # The timeago method has been learned from (https://stackoverflow.com/questions/60162353/how-to-use-python-module-timeago-with-flask)
@@ -43,6 +34,7 @@ def fromnow(date):
     return timeago.format(date, datetime.datetime.now())
 
 
+now = datetime.datetime.now() + datetime.timedelta(seconds = 60 * 3.4)
 
 
 @app.route("/")
@@ -104,7 +96,6 @@ def login():
             redirect(url_for("login"))
 
 
-    session.permanent = True
     return render_template("login.html", login_form=login_form)
 
 
