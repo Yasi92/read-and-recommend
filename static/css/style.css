@@ -693,15 +693,6 @@ h4{
 }
 
 
-/* .search-form input[type=text]:not(.browser-default){
-    height: 2rem;
-} */
-
-/* .search-form.input-field{
-    top: .56rem;
-    max-height: 2.9rem;
-} */
-
 .row .col .search-form {
     margin-left: 2rem;
 }
@@ -741,17 +732,17 @@ p.addReadMore {
 
 
 .card.small {
-    width: 11.5rem;
-    height: 25rem;
+    width: 10.5rem;
+    height: 22.82rem;
     margin: .7rem auto;
 }
     
    
 .card .card-image > img{
-    max-height: 14.71rem;
-    max-width: 11.5rem;
-    min-height: 14.71rem;
-    min-width: 11.5rem;
+    max-height: 13.43rem;
+    max-width: 10.5rem;
+    min-height: 13.43rem;
+    min-width: 10.5rem;
 }
 
 
