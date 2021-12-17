@@ -123,6 +123,11 @@ span.badge{
 }
 
 
+.btn-large{
+    min-width: 11rem;
+}
+
+
 .btn-large i{
     font-size: 1.3rem;
     line-height: normal;
@@ -579,7 +584,7 @@ tr:last-child{
     border: 1px solid rgba(143, 143, 142, 0.4);
     box-shadow:0px 0px 7px rgba(81, 83, 84, .5);
     border-radius: .5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 
@@ -651,6 +656,56 @@ footer.page-footer{
     margin-bottom: 4rem;
 }
 
+
+/* //////////////////////////////// Mobile size devices /////////////////////////////////// */
+
+@media screen and (max-width: 992px) {
+
+.row.card.large.valign-wrapper{
+    padding: 1.2rem;
+    margin-left: .3rem;
+    margin-bottom: 3rem;
+}
+
+h3{
+    padding: 0 5rem;
+}
+
+.card.small {
+    width: 10.5rem;
+    height: 22.82rem;
+    margin: .7rem auto;
+}
+    
+   
+.card .card-image > img{
+    max-height: 13.43rem;
+    max-width: 10.5rem;
+    min-height: 13.43rem;
+    min-width: 10.5rem;
+}
+
+
+.card .card-action{
+    padding: .8rem 1rem;
+}
+
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating){
+    margin-right: 0;
+}
+
+.ul-books{
+    text-align: center;
+}
+
+
+.header-box > div{
+    background-color: rgba(250, 250, 240, .4);
+}
+
+}
+
 /* //////////////////////////////// Mobile size devices /////////////////////////////////// */
 
 @media screen and (max-width: 568px) {
@@ -677,19 +732,9 @@ h4{
 }
 
 
-.ul-books{
-    text-align: center;
-}
-
-
 .btn-small{
     font-size: .7rem;
     margin: 0;
-}
-
-
-.header-box > div{
-    background-color: rgba(250, 250, 240, .4);
 }
 
 
@@ -731,39 +776,15 @@ p.addReadMore {
 }
 
 
-.card.small {
-    width: 10.5rem;
-    height: 22.82rem;
-    margin: .7rem auto;
-}
-    
-   
-.card .card-image > img{
-    max-height: 13.43rem;
-    max-width: 10.5rem;
-    min-height: 13.43rem;
-    min-width: 10.5rem;
-}
-
-
-.card .card-action{
-    padding: .8rem 1rem;
-}
-
-
-.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating){
-    margin-right: 0;
-}
-
 
 ul.collection-bar li a{
     font-size: 1rem;
 }
 
 
-.row .card.large{
+/* .row .card.large{
 margin-bottom: 2rem;
-}
+} */
 
 
 .card.large{
