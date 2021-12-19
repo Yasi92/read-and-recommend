@@ -228,6 +228,8 @@ input[type=text]:not(.browser-default){
 }
 
 
+
+
 input:not([type]):focus:not([readonly]),
 input[type=text]:not(.browser-default):focus:not([readonly]),
 input[type=password]:not(.browser-default):focus:not([readonly]),
@@ -469,6 +471,7 @@ border-top: 1px solid rgba(143, 143, 142, 0.4);
 }
 
 
+
 .edit-profile-form{
     margin: 2rem 0;
 }
@@ -482,7 +485,11 @@ border-top: 1px solid rgba(143, 143, 142, 0.4);
 
 
 .edit-profile-form .input-field .prefix ~ input{
-    padding-left: .7rem;
+     width: calc(100% - 4.8rem);
+}
+
+.edit-profile-form .btn-large{
+    width: 90%;
 }
 /* //////////////////////////////// add book form /////////////////////////////////// */
 
@@ -657,7 +664,7 @@ footer.page-footer{
 }
 
 
-/* //////////////////////////////// Mobile size devices /////////////////////////////////// */
+/* //////////////////////////////// iPad size devices /////////////////////////////////// */
 
 @media screen and (max-width: 992px) {
 
@@ -670,6 +677,12 @@ footer.page-footer{
 h3{
     padding: 0 5rem;
 }
+
+
+.edit-profile-form .input-field .prefix ~ input{
+    width: calc(100% - 4rem);
+}
+
 
 .card.small {
     width: 10.5rem;
@@ -738,6 +751,25 @@ h4{
 }
 
 
+.edit-profile-form{
+    margin: 1rem 0;
+}
+
+
+.edit-profile-form .btn-large{
+    margin-left: 1.3rem;
+}
+
+
+.col img.circle{
+    margin-top: 1rem;
+}
+
+
+.btn-large{
+    min-width: 9.5rem;
+}
+
 .row .col .search-form {
     margin-left: 2rem;
 }
@@ -782,9 +814,10 @@ ul.collection-bar li a{
 }
 
 
-/* .row .card.large{
-margin-bottom: 2rem;
-} */
+
+.edit-profile-form .input-field .prefix ~ input{
+    width: calc(100% - 3rem);
+}
 
 
 .card.large{
