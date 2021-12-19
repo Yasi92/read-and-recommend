@@ -280,7 +280,7 @@ def add_book():
 
         new_book = {
             "title" : add_book_form.title.data.lower(),
-            "author" : add_book_form.author.data,
+            "author" : add_book_form.author.data.lower(),
             "category_name" : value,
             "publisher" :add_book_form.publisher.data,
             "pages" : add_book_form.pages.data,
@@ -310,7 +310,6 @@ def edit_book(book_id):
    
     if request.method == "POST":
        
-
         new_book = {
             "title" : edit_book_form.title.data,
             "author" : edit_book_form.author.data,
@@ -327,7 +326,7 @@ def edit_book(book_id):
 
         mongo.db.books.update_one({"_id" : ObjectId(book_id)}, {'$set' : new_book})
         flash("Book Edited")
-        return redirect(url_for('get_book', book_title=edit_book_form.title.data))
+        return redirect(url_for('get_book', book_id=book["_id"]))
 
     return render_template("edit_book.html", book=book, edit_book_form=edit_book_form, categories=categories)
 

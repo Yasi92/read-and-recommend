@@ -51,7 +51,7 @@
                 </div>
                 <div class="col s7 offset-s1 m4 l5">
                     <h6>{{ book.title|title }}</h6>
-                    <p> By {{ book.author }}</p><br>
+                    <p> By {{ book.author|title }}</p><br>
                     {% if book.best_seller  %}
                     <span class="badge orange left lighten-1"><i class="fas fa-tag"></i> Best Seller</span>
                     {% endif %}

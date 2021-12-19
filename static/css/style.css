@@ -228,14 +228,22 @@ input[type=text]:not(.browser-default){
 }
 
 
-
-
 input:not([type]):focus:not([readonly]),
 input[type=text]:not(.browser-default):focus:not([readonly]),
 input[type=password]:not(.browser-default):focus:not([readonly]),
 input[type=email]:not(.browser-default):focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]){
-    border-bottom: 1px solid rgba(46, 46, 44, 0.8);
+    border-bottom: 1px solid rgba(143, 143, 142, 0.5);
+    box-shadow: none;
+}
+
+
+.add-book-form input:not([type]):focus:not([readonly]),
+.add-book-form input[type=text]:not(.browser-default):focus:not([readonly]),
+.add-book-form input[type=password]:not(.browser-default):focus:not([readonly]),
+.add-book-form input[type=email]:not(.browser-default):focus:not([readonly]),
+.add-book-form textarea.materialize-textarea:focus:not([readonly]){
+    border: 1px solid rgba(12, 12, 12, 0.5);
     box-shadow: none;
 }
 
@@ -273,6 +281,8 @@ textarea{
     border: 1px solid rgba(143, 143, 142, 0.5);
     border-radius: 10px;
     background-color: #fff;
+    padding-left: .5rem;
+    padding-top: .5rem;
 }    
 
 

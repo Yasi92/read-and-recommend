@@ -50,7 +50,7 @@
             </div>
             <div class="card-content left-align">
                 <h6>{{ book.title|title }}</h6>
-                <p>By {{ book.author }}</p>
+                <p>By {{ book.author|title }}</p>
             </div>
             <div class="card-action left-align">
                 <a href="{{ url_for('get_book', book_id=book._id) }}">learn More</a>
@@ -72,7 +72,7 @@
             </div>
             <div class="card-content left-align">
                 <h6>{{ book.title|title }}</h6>
-                <p>By {{ book.author }}</p>
+                <p>By {{ book.author|title }}</p>
             </div>
             <div class="card-action left-align">
                 <a href="{{ url_for('get_book', book_id=book._id) }}">learn More</a>
@@ -114,8 +114,8 @@
 
 {% block category %}
         {% for category in categories | sort(attribute='category_name') %}
-        <li><a class="white-text" href="{{ url_for('get_categories', category_name=category.category_name) }}">{{ category.category_name.upper() }}</a>
+        <li><a class="deep-purple-text darken-4" href="{{ url_for('get_categories', category_name=category.category_name) }}">{{ category.category_name.upper() }}</a>
         </li>
         {% endfor %}
-        <li><a class="white-text" href="{{ url_for('best_seller_books') }}">BEST SELLERS</a></li>
+        <li><a class="deep-purple-text darken-4" href="{{ url_for('best_seller_books') }}">BEST SELLERS</a></li>
     {% endblock %}
