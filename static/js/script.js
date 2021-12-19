@@ -121,10 +121,14 @@ document.getElementById("year").innerHTML = date;
 
 
 
-// $('.collection-bar a')
-//     .click(function (event) {
-//         event.preventDefault();
-//     })
+// Get the height of header and footer on different screen size to push 
+// the footer to the bottom of the page regardless of the size of content.
 
+
+// The method has been learned from (https://www.youtube.com/watch?v=US_3XvufMLU) and manipulated by me to make it responsive to all screen sizes.
+var header = document.querySelector("header").offsetHeight;
+var footer = document.querySelector("footer").offsetHeight;
+
+document.getElementById("main").style.minHeight = "calc( 100vh - " + header + "px" + " - " + footer + "px )";
 
 })

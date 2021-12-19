@@ -81,59 +81,59 @@
         {% endif %}
         {% endwith %}
     </section>
-    
+
     <section id="main">
-    {% block content%}
-    {% endblock %}
+            {% block content%}
+            {% endblock %}
     </section>
 
 
 
 
-        <footer class="page-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col l6 s12">
-                        <h5 class="white-text">About</h5>
-                        <p class="grey-text text-lighten-4">Read and Recommend was created by Maryam Abdolbeigi.<br>
-                            Born from the need to find a worth-reading book and share with others.<br>
-                            The website's goal is to help book lovers to find their next-to-be-read book from the
-                            website.
-                        </p>
-                    </div>
-                    <div class="col l4 offset-l2 s12">
-                        <h5 class="white-text">Links</h5>
-                        <ul>
-                            {% block category %}
-                            {% endblock %}
-                            {% if session.user %}
-                            <li><a class="white-text" href="{{ url_for('add_book') }}">Add A Book</a></li>
-                            <li><a class="white-text" href="{{ url_for('logout') }}">Sign Out</a></li>
-                            {% else %}
-                            <li><a class="white-text" href="{{ url_for('register') }}">Sign Up</a></li>
-                            <li><a class="white-text" href="{{ url_for('login') }}">Sign In</a></li>
-                            {% endif %}
-                        </ul>
-                    </div>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">About</h5>
+                    <p class="grey-text text-lighten-4">Read and Recommend was created by Maryam Abdolbeigi.<br>
+                        Born from the need to find a worth-reading book and share with others.<br>
+                        The website's goal is to help book lovers to find their next-to-be-read book from the
+                        website.
+                    </p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        {% block category %}
+                        {% endblock %}
+                        {% if session.user %}
+                        <li><a class="white-text" href="{{ url_for('add_book') }}">Add A Book</a></li>
+                        <li><a class="white-text" href="{{ url_for('logout') }}">Sign Out</a></li>
+                        {% else %}
+                        <li><a class="white-text" href="{{ url_for('register') }}">Sign Up</a></li>
+                        <li><a class="white-text" href="{{ url_for('login') }}">Sign In</a></li>
+                        {% endif %}
+                    </ul>
                 </div>
             </div>
-            <div class="footer-copyright">
-                <div class="container center">
-                    <!-- the dynamic copyright year is learned form (https://stackoverflow.com/questions/43714006/how-can-one-create-a-dynamic-copyright-date-without-document-write-in-javascri) -->
-                    <p>Copyright &copy; <span id="year"> </span> Read and Recommend All Rights Reserved</p>
-                </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container center">
+                <!-- the dynamic copyright year is learned form (https://stackoverflow.com/questions/43714006/how-can-one-create-a-dynamic-copyright-date-without-document-write-in-javascri) -->
+                <p>Copyright &copy; <span id="year"> </span> Read and Recommend All Rights Reserved</p>
             </div>
-        </footer>
+        </div>
+    </footer>
 
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
-        {% block scripts %}
-        {% endblock %}
+    {% block scripts %}
+    {% endblock %}
 
 </body>
 

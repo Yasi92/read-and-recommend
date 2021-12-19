@@ -3,7 +3,7 @@
 
 html, body {
     width: 100%;
-    height: auto;
+    height: 100%;
     margin: 0px;
     padding: 0px;
     overflow-x: hidden; 
@@ -471,6 +471,10 @@ border-top: 1px solid rgba(143, 143, 142, 0.4);
 }
 
 
+.col img.circle{
+    margin-top: 1rem;
+}
+
 
 .edit-profile-form{
     margin: 2rem 0;
@@ -652,9 +656,7 @@ tr:last-child{
 
 footer.page-footer{
     background-color: #92a27e;
-    
  }
-
 
 /* //////////////////////////////// 404 / 500 page/////////////////////////////////// */  
 
@@ -667,6 +669,7 @@ footer.page-footer{
 /* //////////////////////////////// iPad size devices /////////////////////////////////// */
 
 @media screen and (max-width: 992px) {
+
 
 .row.card.large.valign-wrapper{
     padding: 1.2rem;
@@ -760,10 +763,6 @@ h4{
     margin-left: 1.3rem;
 }
 
-
-.col img.circle{
-    margin-top: 1rem;
-}
 
 
 .btn-large{
