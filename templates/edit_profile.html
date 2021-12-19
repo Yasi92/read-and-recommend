@@ -19,6 +19,14 @@
 
     <form class="col s9 offset-s1 m5 offset-m1 form edit-profile-form" method="POST"
         action="{{ url_for('edit_profile', user_id=user._id) }}">
+         <!-- username -->
+         <div class="row">
+            <div class="input-field col s12">
+                <i class="far fa-user prefix small-icon grey-text"></i>
+                {{ render_field(edit_form.username, value= user.username  ) }}
+
+            </div>
+        </div>
 
         <!-- email -->
         <div class="row">

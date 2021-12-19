@@ -177,7 +177,7 @@ def edit_profile(user_id):
         
     if request.method == "POST" and edit_form.validate():
         # Checks whether data has been changed or not
-        no_change = edit_form.location.data == user["location"] and edit_form.email.data == user["email"]
+        no_change = edit_form.location.data == user["location"] and edit_form.email.data == user["email"] and edit_form.username.data == user["username"]
         
         # returns to profile if data is not changed
         if  no_change:
@@ -187,8 +187,12 @@ def edit_profile(user_id):
         else:    # Since password is not getting updated in db, "$set" is used to update the specific records.
         
             mongo.db.users.update(
-                                {"_id" : ObjectId(user_id)}, {'$set': {"email" : edit_form.email.data,
+                                {"_id" : ObjectId(user_id)}, {'$set': {"username" : edit_form.username.data, "email" : edit_form.email.data,
                                  "location": edit_form.location.data}} )
+            
+            mongo.db.books.update_many({"added_by" : session['user']}, {'$set' : {"added_by" : edit_form.username.data.lower()}})
+            mongo.db.reviews.update_many({"username" : session['user']}, {'$set' : {"username" : edit_form.username.data.lower()}})      
+            session["user"] = edit_form.username.data.lower()         
             flash("Profile Updated")
             return redirect(url_for('profile', username=session['user']))
 

@@ -658,14 +658,6 @@ footer.page-footer{
     background-color: #92a27e;
  }
 
-/* //////////////////////////////// 404 / 500 page/////////////////////////////////// */  
-
-.container.not-found-pg{
-    margin-top: 2rem;
-    margin-bottom: 4rem;
-}
-
-
 /* //////////////////////////////// iPad size devices /////////////////////////////////// */
 
 @media screen and (max-width: 992px) {
