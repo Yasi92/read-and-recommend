@@ -350,7 +350,7 @@ ul.collection-bar li{
     list-style: none;
     display: block;  
     margin: 0 auto;
-    background-color: #e38450;
+    background-color: #f7a87e;
     border: 1px solid transparent;
     border-radius: 15px;
     margin: 1.5em 4em 1.5em 4em;
@@ -360,7 +360,7 @@ ul.collection-bar li{
 
 /* The hover effect is borrowed from  [http://ianlunn.github.io/Hover/]*/
 ul.collection-bar li a{
-    color: #fff;
+    color: #000;
     font-weight: bold;
     padding: 0 1rem;
     font-size: 1.2rem;
@@ -377,7 +377,7 @@ ul.collection-bar li a{
 ul.collection-bar li a:hover,ul.collection-bar li a:active,ul.collection-bar li a:focus {
     /* -webkit-transform: scale(1.1); */
     /* transform: scale(1.1); */
-    color: #000;
+    color: #fff;
 }
 
 
