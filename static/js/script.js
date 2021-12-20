@@ -1,16 +1,18 @@
 $(document).ready(function () {
 
- 
+
   const cards = document.querySelectorAll('.book-card');
 
   cards.forEach((card) => {
-    
+
     card.classList.add('show');
-   
+
   });
 
 
-  $('.sidenav').sidenav({edge : "right"});
+  $('.sidenav').sidenav({
+    edge: "right"
+  });
 
 
   $(document).ready(function () {
@@ -18,7 +20,7 @@ $(document).ready(function () {
   });
 
 
-  
+
   // This makes the entire div of book cards clickable.
   // The code is borrowed from https://css-tricks.com/snippets/jquery/make-entire-div-clickable/
   $(".book-card").click(function () {
@@ -40,116 +42,136 @@ $(document).ready(function () {
 
 
     //Traverse all selectors with this class and manupulate HTML part to show Read More
-    $(".addReadMore").each(function() {
-      
+    $(".addReadMore").each(function () {
+
       var allstr = $(this).text();
       if (allstr.length > carLmt) {
-          var firstSet = allstr.substring(0, carLmt);
-          var secdHalf = allstr.substring(carLmt, allstr.length);
-          var strtoadd = firstSet + "<span class='SecSec'>" + secdHalf +
+        var firstSet = allstr.substring(0, carLmt);
+        var secdHalf = allstr.substring(carLmt, allstr.length);
+        var strtoadd = firstSet + "<span class='SecSec'>" + secdHalf +
           "</span><span class='readMore'  title='Click to Show More'>" +
           readMoreTxt + "</span><span class='readLess' title='Click to Show Less'>" +
           readLessTxt + "</span>";
-          $(this).html(strtoadd);
+        $(this).html(strtoadd);
       }
 
     });
     //Read More and Read Less Click Event binding
-    $(document).on("click", ".readMore,.readLess", function() {
-        $(this).closest(".addReadMore").toggleClass("showlesscontent showmorecontent");
+    $(document).on("click", ".readMore,.readLess", function () {
+      $(this).closest(".addReadMore").toggleClass("showlesscontent showmorecontent");
     });
-}
+  }
 
 
-$(function() {
+  $(function () {
     //Calling function after Page Load
     AddReadMore();
-});
+  });
 
 
 
-// This function display books added by user on profile page in a max number and loads more books on click  
-$(".collection-item").slice(0, 6).show();
+  // This function display books added by user on profile page in a max number and loads more books on click  
+  $(".collection-item").slice(0, 6).show();
 
-if($(".collection-item:hidden").length != 0){
-  $(".loadMoreBooks").show();
-}
+  if ($(".collection-item:hidden").length != 0) {
+    $(".loadMoreBooks").show();
+  }
 
-$(".loadMoreBooks").on("click", function(){
+  $(".loadMoreBooks").on("click", function () {
     $(".collection-item:hidden").slice(0, 6).show();
 
-    if($(".collection-item:hidden").length == 0){
-          $(".loadMoreBooks").fadeOut();
-        }
+    if ($(".collection-item:hidden").length == 0) {
+      $(".loadMoreBooks").fadeOut();
+    }
 
-})
+  })
 
-// The history back button is learned form https://css-tricks.com/snippets/javascript/go-back-button/ and w3school 
-$(".back-btn").on("click", function(e){
-  e.preventDefault();
-  window.history.go(-1);
-  
-})
+  // The history back button is learned form https://css-tricks.com/snippets/javascript/go-back-button/ and w3school 
+  $(".back-btn").on("click", function (e) {
+    e.preventDefault();
+    window.history.go(-1);
 
-
-$('.modal').modal();
-
-var date = new Date().getFullYear();
-document.getElementById("year").innerHTML = date;
+  })
 
 
+  $('.modal').modal();
 
-// Get the height of header and footer on different screen size to push 
-// the footer to the bottom of the page regardless of the size of content.
-
-
-// The method has been learned from (https://www.youtube.com/watch?v=US_3XvufMLU) and manipulated by me to make it responsive to all screen sizes.
-var header = document.querySelector("header").offsetHeight;
-var footer = document.querySelector("footer").offsetHeight;
-
-document.getElementById("main").style.minHeight = "calc( 100vh - " + header + "px" + " - " + footer + "px )";
+  var date = new Date().getFullYear();
+  document.getElementById("year").innerHTML = date;
 
 
-// This function display reviews added by user on profile page in a max number and loads more reviews on click  
-$(".collection-item-review").slice(0, 4).show();
+
+  // Get the height of header and footer on different screen size to push 
+  // the footer to the bottom of the page regardless of the size of content.
 
 
-if($(".collection-item-review:hidden").length != 0){
-  $(".loadMoreReview").show();
-}
+  // The method has been learned from (https://www.youtube.com/watch?v=US_3XvufMLU) and manipulated by me to make it responsive to all screen sizes.
+  var header = document.querySelector("header").offsetHeight;
+  var footer = document.querySelector("footer").offsetHeight;
+
+  document.getElementById("main").style.minHeight = "calc( 100vh - " + header + "px" + " - " + footer + "px )";
 
 
-$(".loadMoreReview").on("click", function(){
-  $(".collection-item-review:hidden").slice(0, 4).show();
+  // This function display reviews added by user on profile page in a max number and loads more reviews on click  
+  $(".collection-item-review").slice(0, 4).show();
 
-  if($(".collection-item-review:hidden").length == 0){
-    $(".loadMoreReview").fadeOut();
+
+  if ($(".collection-item-review:hidden").length != 0) {
+    $(".loadMoreReview").show();
   }
+
+
+  $(".loadMoreReview").on("click", function () {
+    $(".collection-item-review:hidden").slice(0, 4).show();
+
+    if ($(".collection-item-review:hidden").length == 0) {
+      $(".loadMoreReview").fadeOut();
+    }
+  })
+
+
+
+
+  
+  //check if window scroll is < 100
+  if ($(window).scrollTop() < 100) {
+    $('#myBtn').hide();
+  }
+
+  $("body").on("scroll", function () {
+    if ($(this).scrollTop() > 500) {
+      $('#myBtn').fadeIn();
+    } else {
+      $('#myBtn').fadeOut();
+    }
+  });
+
+  $("#myBtn").click(function () {
+    $("html, body").animate({
+      scrollTop: 0
+    }, 1000);
+    return false;
+  })
+
+
+
+  // Fixing the back-to-top button on top of the footer
+  document.getElementById("myBtn").style.bottom = footer + "px ";
+
 })
 
 
 
-//check if window scroll is < 100
-if($(window).scrollTop() < 100){
-$('#myBtn').hide();
-}
-
-$("body").on("scroll", function() {
-if ($(this).scrollTop() > 500) {
-  $('#myBtn').fadeIn();
-} else {
-  $('#myBtn').fadeOut();
-}
-});
-
-$("#myBtn").click(function() {
-$("html, body").animate({scrollTop: 0}, 1000);
-return false;
-})
 
 
+// let myStorage = window.sessionStorage;
 
-// fixing the back-to-top button on top of the footer
-document.getElementById("myBtn").style.bottom =  footer + "px ";
+// $("a").click(function () {
+//   content = $(this).text();
+//   myStorage.setItem("linkName", content)
+//   myStorage.setItem("clickedLink", true);
 
-})
+// })
+
+
+// const myTime = setTimeout(checkLinkVal(), 500);

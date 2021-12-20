@@ -1,10 +1,10 @@
 import os
+import timeago, datetime
+import flask
 from flask import (
      Flask, flash, render_template, redirect,
      request, session, url_for)
-import flask
 from datetime import timedelta, datetime   
-import timeago, datetime
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -24,22 +24,27 @@ app.secret_key = os.environ.get("SECRET_KEY")
 app.config['PERMANENT_SESSION_LIFETIME'] =  timedelta(days=1)
 
 
-
 mongo = PyMongo(app)
 
 
 # The timeago method has been learned from (https://stackoverflow.com/questions/60162353/how-to-use-python-module-timeago-with-flask)
+now = datetime.datetime.now() + datetime.timedelta(seconds = 60 * 3.4)
+
 @app.template_filter('timeago')
 def fromnow(date):
+    '''
+    Return passed time to a format of timeago
+    '''
     return timeago.format(date, datetime.datetime.now())
 
-
-now = datetime.datetime.now() + datetime.timedelta(seconds = 60 * 3.4)
 
 
 @app.route("/")
 @app.route("/get_books")
 def get_books():
+    '''
+    Gets all the books from db to display on the home page
+    '''
     books = mongo.db.books.find()
     books_length = mongo.db.books.count_documents({})
     categories = list(mongo.db.categories.find())
@@ -48,8 +53,9 @@ def get_books():
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
-
-
+    '''
+    It filters the queries based on the title or author name.
+    '''
     query= request.form.get("query")
     books = mongo.db.books.find({"$text" : {"$search" : query}})
     books_length = mongo.db.books.count_documents({"$text" : {"$search" : query}})
@@ -60,7 +66,9 @@ def search():
 
 @app.route("/best_seller_books")
 def best_seller_books():
-    
+    '''
+    Gets the best seller books from db.
+    '''
     categories = list(mongo.db.categories.find())
     best_sellers = mongo.db.books.find({"best_seller" : True})
     books_length = mongo.db.books.count_documents({"best_seller" : True})
@@ -137,10 +145,7 @@ def register():
 def profile(username):
     # get the session user's username from db
     user = mongo.db.users.find_one(
-        {"username": username})   
-
-    print(user)    
-    
+        {"username": username})       
 
     # Gets the books added by user.
     books= mongo.db.books.find({"added_by" : user["username"]})
@@ -171,6 +176,9 @@ def profile(username):
 
 @app.route("/edit_profile/<user_id>", methods=["GET", "POST"])   
 def edit_profile(user_id):
+    '''
+    Edits user's profile
+    '''
     user = mongo.db.users.find_one({"_id" : ObjectId(user_id)})
     edit_form = EditProfile(request.form)
          
@@ -183,14 +191,15 @@ def edit_profile(user_id):
         if  no_change:
             return redirect(url_for("profile", username=session["user"]))
 
-        
-        else:    # Since password is not getting updated in db, "$set" is used to update the specific records.
-        
+        # Since password is not getting updated in db, "$set" is used to update the specific records.
+        else:    
             mongo.db.users.update(
                                 {"_id" : ObjectId(user_id)}, {'$set': {"username" : edit_form.username.data, "email" : edit_form.email.data,
                                  "location": edit_form.location.data}} )
-            
+            # updates the username in books collection added by the user
             mongo.db.books.update_many({"added_by" : session['user']}, {'$set' : {"added_by" : edit_form.username.data.lower()}})
+
+            # updates the username in reviews collection added by the user
             mongo.db.reviews.update_many({"username" : session['user']}, {'$set' : {"username" : edit_form.username.data.lower()}})      
             session["user"] = edit_form.username.data.lower()         
             flash("Profile Updated")
@@ -205,13 +214,14 @@ def edit_profile(user_id):
 
 @app.route("/get_book/<book_id>", methods=["GET", "POST"])
 def get_book(book_id):
+    '''
+    Gets book details 
+    '''
     book_details = mongo.db.books.find_one({"_id": ObjectId(book_id)})    
-    
-
     review_form = ReviewForm(request.form)
 
     if request.method == "POST":
-
+        # Checks if there is session to insert the review
         if session:
             review_details={
             "username" : session["user"],
@@ -223,10 +233,12 @@ def get_book(book_id):
             flash("Thank you for your feedback!")
             return redirect(url_for("get_book", book_id=book_id))
 
+        # Returns users to login page if there is no session to login first.
         else:
             flash("Please login to write a review!")
             return redirect(url_for("login"))
 
+    # Gets all the reviews of the book
     reviews = mongo.db.reviews.find({"book_title" : book_details["title"]})
     reviews_length = mongo.db.reviews.count_documents({"book_title" : book_details["title"]})
 
@@ -242,7 +254,9 @@ def get_book(book_id):
 
 @app.route("/get_categories/<category_name>")
 def get_categories(category_name):
-    
+    '''
+    Filters books based on their category.
+    '''
     categories = list(mongo.db.categories.find())
 
     category_book = mongo.db.books.find({"category_name" : category_name})
@@ -263,6 +277,9 @@ def logout():
 
 @app.route("/add_book", methods=["GET", "POST"])
 def add_book():
+    '''
+    Add books to db by user
+    '''
     add_book_form = AddBook(request.form)
 
     if request.method == "POST":
@@ -303,6 +320,9 @@ def add_book():
 
 @app.route("/edit_book/<book_id>", methods=["POST", "GET"])
 def edit_book(book_id):
+    '''
+    Edits the book added by the user.
+    '''
     book = mongo.db.books.find_one({"_id" : ObjectId(book_id)})
     categories = mongo.db.categories.find()
 
@@ -333,24 +353,25 @@ def edit_book(book_id):
 
 @app.route("/delete_book/<book_id>")
 def delete_book(book_id):
+    '''
+    Deletes books added by the user from db.
+    '''
     mongo.db.books.delete_one({"_id" : ObjectId(book_id)})
     flash("Book Successfuly Deleted")
     return redirect(url_for("profile", username=session['user']))
 
 
 
-
-
 @app.route("/delete_review/<review_id>")
 def delete_review(review_id):
+    '''
+    Deletes reviews added by user from db.
+    '''
     mongo.db.reviews.delete_one({"_id" : ObjectId(review_id)})
     flash("Review Successfuly Deleted")
     return redirect(url_for("profile", username=session['user'])) 
 
     
-
-
-
 
 # def edit():
 #     review = mongo.db.reviews.find()
@@ -362,6 +383,8 @@ def delete_review(review_id):
 
 # edit()    
 
+
+# The custome 404 page has been learned from my mentor "Richard Wills"
 @app.errorhandler(404)
 def page_not_found(e):
     """
@@ -369,6 +392,8 @@ def page_not_found(e):
     """
     return render_template('404.html'), 404
 
+
+# The custome 500 page has been learned from my mentor "Richard Wills"
 @app.errorhandler(500)
 def internal_error(err):
     """

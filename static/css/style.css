@@ -374,10 +374,14 @@ ul.collection-bar li a{
 }
 
 
-ul.collection-bar li a:hover,ul.collection-bar li a:active,ul.collection-bar li a:focus {
-    /* -webkit-transform: scale(1.1); */
-    /* transform: scale(1.1); */
+/* ul.collection-bar li a:hover,ul.collection-bar li a:active,ul.collection-bar li a:focus {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
     color: #fff;
+} */
+
+.active{
+    color:pink;
 }
 
 
