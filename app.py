@@ -1,14 +1,14 @@
-import os
-import timeago, datetime
-import flask
 from flask import (
      Flask, flash, render_template, redirect,
      request, session, url_for)
-from datetime import timedelta, datetime   
+from datetime import timedelta, datetime  
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from classes import RegisterForm, LoginForm, ReviewForm, EditProfile, AddBook
+import os
+import flask
+import timeago, datetime
 
 
 
@@ -28,7 +28,6 @@ mongo = PyMongo(app)
 
 
 # The timeago method has been learned from (https://stackoverflow.com/questions/60162353/how-to-use-python-module-timeago-with-flask)
-now = datetime.datetime.now() + datetime.timedelta(seconds = 60 * 3.4)
 
 @app.template_filter('timeago')
 def fromnow(date):
@@ -37,6 +36,7 @@ def fromnow(date):
     '''
     return timeago.format(date, datetime.datetime.now())
 
+now = datetime.datetime.now() + datetime.timedelta(seconds = 60 * 3.4)
 
 
 @app.route("/")
