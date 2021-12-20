@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+ 
   const cards = document.querySelectorAll('.book-card');
 
   cards.forEach((card) => {
@@ -27,7 +28,7 @@ $(document).ready(function () {
 
 
 
-// This method has been borrowed from (https://www.freakyjolly.com/custom-jquery-function-read-more-and-read-less/)
+  // This method has been borrowed from (https://www.freakyjolly.com/custom-jquery-function-read-more-and-read-less/)
 
   function AddReadMore() {
     //This limit you can set after how much characters you want to show Read More.
@@ -81,9 +82,32 @@ $(".loadMoreBooks").on("click", function(){
           $(".loadMoreBooks").fadeOut();
         }
 
-
 })
 
+// The history back button is learned form https://css-tricks.com/snippets/javascript/go-back-button/ and w3school 
+$(".back-btn").on("click", function(e){
+  e.preventDefault();
+  window.history.go(-1);
+  
+})
+
+
+$('.modal').modal();
+
+var date = new Date().getFullYear();
+document.getElementById("year").innerHTML = date;
+
+
+
+// Get the height of header and footer on different screen size to push 
+// the footer to the bottom of the page regardless of the size of content.
+
+
+// The method has been learned from (https://www.youtube.com/watch?v=US_3XvufMLU) and manipulated by me to make it responsive to all screen sizes.
+var header = document.querySelector("header").offsetHeight;
+var footer = document.querySelector("footer").offsetHeight;
+
+document.getElementById("main").style.minHeight = "calc( 100vh - " + header + "px" + " - " + footer + "px )";
 
 
 // This function display reviews added by user on profile page in a max number and loads more reviews on click  
@@ -104,31 +128,22 @@ $(".loadMoreReview").on("click", function(){
 })
 
 
-// The history back button is learned form https://css-tricks.com/snippets/javascript/go-back-button/ and w3school 
-$(".back-btn").on("click", function(e){
-  e.preventDefault();
-  window.history.go(-1);
-  
+
+//check if window scroll is < 100
+if($(window).scrollTop() < 100){
+$('#myBtn').hide();
+}
+
+$("body").on("scroll", function() {
+if ($(this).scrollTop() > 500) {
+  $('#myBtn').fadeIn();
+} else {
+  $('#myBtn').fadeOut();
+}
+});
+
+$("#myBtn").click(function() {
+$("html, body").animate({scrollTop: 0}, 1000);
+return false;
 })
-
-
-
-
-$('.modal').modal();
-
-var date = new Date().getFullYear();
-document.getElementById("year").innerHTML = date;
-
-
-
-// Get the height of header and footer on different screen size to push 
-// the footer to the bottom of the page regardless of the size of content.
-
-
-// The method has been learned from (https://www.youtube.com/watch?v=US_3XvufMLU) and manipulated by me to make it responsive to all screen sizes.
-var header = document.querySelector("header").offsetHeight;
-var footer = document.querySelector("footer").offsetHeight;
-
-document.getElementById("main").style.minHeight = "calc( 100vh - " + header + "px" + " - " + footer + "px )";
-
 })

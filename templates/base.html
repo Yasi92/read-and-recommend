@@ -29,6 +29,8 @@
             </div>
         </div>
 
+       
+
         <nav>
             <!-- top navbar -->
             <div class="nav-wrapper row">
@@ -67,8 +69,6 @@
             {% endif %}
         </ul>
     </header>
-
-
     <section>
         <!-- flash messages -->
         {% with messages = get_flashed_messages() %}
@@ -86,9 +86,6 @@
             {% block content%}
             {% endblock %}
     </section>
-
-
-
 
     <footer class="page-footer">
         <div class="container">
@@ -124,7 +121,9 @@
             </div>
         </div>
     </footer>
-
+    <button type="button" id="myBtn" title="Go to top">
+        <i class="fas fa-chevron-circle-up"></i>
+    </button>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
