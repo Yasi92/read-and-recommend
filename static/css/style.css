@@ -1,25 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Shippori+Antique+B1&display=swap');
-
-#myBtn {
-    position: fixed;
-    bottom: 3.5em;
-    right: 0;
-    z-index: 999;
-    font-size: 1.2em;
-    border: none;
-    outline: none;
-    background-color: #500966;
-    color: white;
-    cursor: pointer;
-    padding: 0.5em;
-    border-radius: 30%;
-  }
-  
-  #myBtn:hover {
-    background-color: rgba(80, 9, 102, 0.7);
-  }
-
-
   
 html, body {
     width: 100%;
@@ -77,6 +56,25 @@ hr {
     padding: 1rem;  
 }
 /* //////////////////////////////// buttons and badge /////////////////////////////////// */
+#myBtn {
+    position: fixed;
+    right: 1rem;
+    z-index: 999;
+    font-size: 1.2em;
+    border: none;
+    outline: none;
+    background-color: #92a27e;
+    color: white;
+    cursor: pointer;
+    padding: 0.5em;
+    
+  }
+  
+  #myBtn:hover {
+    background-color: rgba(146, 162, 126, .5);
+  }
+
+
 
 .edit-btn{
     margin-top:1rem;

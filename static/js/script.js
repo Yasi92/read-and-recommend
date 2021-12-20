@@ -146,4 +146,10 @@ $("#myBtn").click(function() {
 $("html, body").animate({scrollTop: 0}, 1000);
 return false;
 })
+
+
+
+// fixing the back-to-top button on top of the footer
+document.getElementById("myBtn").style.bottom =  footer + "px ";
+
 })
