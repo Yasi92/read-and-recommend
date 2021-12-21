@@ -154,24 +154,10 @@ $(document).ready(function () {
   })
 
 
-
   // Fixing the back-to-top button on top of the footer
   document.getElementById("myBtn").style.bottom = footer + "px ";
 
+
+
+
 })
-
-
-
-
-
-// let myStorage = window.sessionStorage;
-
-// $("a").click(function () {
-//   content = $(this).text();
-//   myStorage.setItem("linkName", content)
-//   myStorage.setItem("clickedLink", true);
-
-// })
-
-
-// const myTime = setTimeout(checkLinkVal(), 500);

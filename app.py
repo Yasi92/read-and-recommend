@@ -252,7 +252,7 @@ def get_book(book_id):
 
 
 
-@app.route("/get_categories/<category_name>")
+@app.route("/get_books/get_categories/<category_name>")
 def get_categories(category_name):
     '''
     Filters books based on their category.

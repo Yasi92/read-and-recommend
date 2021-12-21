@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Noto+Serif:wght@400;700&family=Shippori+Antique+B1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Nunito:wght@400;600&family=Shippori+Antique+B1&display=swap');
   
 html, body {
     width: 100%;
@@ -8,6 +8,9 @@ html, body {
     overflow-x: hidden; 
 }
 
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Nunito', sans-serif;
+}
 
 * {
     margin: 0;
@@ -16,10 +19,6 @@ html, body {
     font-family: 'Quicksand', sans-serif;
 }
 
-h1,h2,h3,h4,h5,h6{
-    font-family: 'Noto Serif', serif;
-    font-weight: 700;
-}
 
 
 h3 {
@@ -385,10 +384,13 @@ ul.collection-bar li a{
     color: #fff;
 } */
 
-.active{
-    border: 2px dotted red;
+.active-ctg-link{
+    border: 1px dotted #000;
 }
 
+.active-link{
+    color: #000;
+}
 
 /* //////////////////////////////// Book collection /////////////////////////////////// */
 
