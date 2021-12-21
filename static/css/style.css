@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Shippori+Antique+B1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Noto+Serif:wght@400;700&family=Shippori+Antique+B1&display=swap');
   
 html, body {
     width: 100%;
@@ -14,6 +14,11 @@ html, body {
     padding: 0;
     border: none;
     font-family: 'Quicksand', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Noto Serif', serif;
+    font-weight: 700;
 }
 
 
@@ -381,7 +386,7 @@ ul.collection-bar li a{
 } */
 
 .active{
-    color:pink;
+    border: 2px dotted red;
 }
 
 
@@ -694,6 +699,9 @@ footer.page-footer{
 
 @media screen and (max-width: 992px) {
 
+#myBtn{
+    right: 0;
+}
 
 .row.card.large.valign-wrapper{
     padding: 1.2rem;

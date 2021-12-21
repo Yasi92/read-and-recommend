@@ -2,40 +2,42 @@
 
 {% block search %}
 
-    <div class="col l7 s11">
-        <form class="row" action="{{ url_for('search') }}" method="post">
-            <div class="col s12">
-                <div class="row">
-                    <div class="input-field col s5 m6 search-form">
-                        <label for="query"><i class="fas fa-search prefix"></i></label>
-                        <input id="query" name="query" type="text" placeholder="Search by Title or Author" required>
-                        
-                    </div>
-                    <div class="col s4 m5">
-                        <button type="submit" class="btn-small btn-floating green lighten-2"><i class="fas fa-search"></i></button>
-                        <a href="{{ url_for('get_books') }}" class="btn-small btn-floating red lighten-2"><i class="fas fa-redo"></i></a>
-                        
-                    </div>
+<div class="col l7 s11">
+    <form class="row" action="{{ url_for('search') }}" method="post">
+        <div class="col s12">
+            <div class="row">
+                <div class="input-field col s5 m6 search-form">
+                    <label for="query"><i class="fas fa-search prefix"></i></label>
+                    <input id="query" name="query" type="text" placeholder="Search by Title or Author" required>
+
+                </div>
+                <div class="col s4 m5">
+                    <button type="submit" class="btn-small btn-floating green lighten-2"><i
+                            class="fas fa-search"></i></button>
+                    <a href="{{ url_for('get_books') }}" class="btn-small btn-floating red lighten-2"><i
+                            class="fas fa-redo"></i></a>
+
                 </div>
             </div>
-        </form>
-    </div>
+        </div>
+    </form>
+</div>
 
 
 {% endblock %}
 
 
 {% block content %}
-
+<!-- styling active link in flask is learned from (https://stackoverflow.com/questions/22173041/styling-active-element-menu-in-flask)  -->
 <div class="row">
     <div class="col s12">
         <ul class="collection-bar">
-            <li><a href="{{ url_for('get_books') }}">ALL</a></li>
+            <li {% if request.path == "/get_books" %}class="active"{% endif %}><a href="{{ url_for('get_books') }}">ALL</a></li>
             {% for category in categories | sort(attribute='category_name') %}
-            <li><a href="{{ url_for('get_categories', category_name=category.category_name) }}">{{ category.category_name.upper() }}</a>
+            <li {% if request.path == "/get_categories/" + category.category_name %}class="active"{% endif %}><a href="{{ url_for('get_categories', category_name=category.category_name) }}">{{ category.category_name.upper() }}</a>
             </li>
             {% endfor %}
-            <li><a href="{{ url_for('best_seller_books') }}">BEST SELLERS</a></li>
+            <li {% if request.path == "/best_seller_books" %}class="active"{% endif %}><a href="{{ url_for('best_seller_books') }}">BEST SELLERS</a></li>
         </ul>
     </div>
 </div>
@@ -113,9 +115,10 @@
 {% endblock %}
 
 {% block category %}
-        {% for category in categories | sort(attribute='category_name') %}
-        <li><a class="deep-purple-text darken-4" href="{{ url_for('get_categories', category_name=category.category_name) }}">{{ category.category_name.upper() }}</a>
-        </li>
-        {% endfor %}
-        <li><a class="deep-purple-text darken-4" href="{{ url_for('best_seller_books') }}">BEST SELLERS</a></li>
-    {% endblock %}
+{% for category in categories | sort(attribute='category_name') %}
+<li><a class="deep-purple-text darken-4"
+        href="{{ url_for('get_categories', category_name=category.category_name) }}">{{ category.category_name.upper() }}</a>
+</li>
+{% endfor %}
+<li><a class="deep-purple-text darken-4" href="{{ url_for('best_seller_books') }}">BEST SELLERS</a></li>
+{% endblock %}
