@@ -344,9 +344,10 @@ form > .row{
     border-bottom:1px solid rgba(160, 156, 156, 0.5);
 }
 
-input[type=text]:not(.browser-default){
-    margin: 0;
-}
+.search-form input[type=text]:not(.browser-default){
+    line-height: 1;
+    
+} 
 
 .input-field>label:not(.label-icon).active{
     display: none;
