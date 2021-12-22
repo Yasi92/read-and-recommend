@@ -36,8 +36,12 @@
                             <td class="right">{{ book_details.price }} €</td>
                             </tr>
                             <tr>
-                                <td>Created By:</td>
+                                <td>Added By:</td>
+                                {% if session.user|lower == book_details.added_by|lower %}
+                                <td class="right">You</td>
+                                {% else %}
                                 <td class="right">{{ book_details.added_by }}</td>
+                                {% endif %}
                             </tr>
 
                         </tbody>
