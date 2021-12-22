@@ -123,15 +123,19 @@ def register():
             flash("Username already exists")
             return redirect(url_for('register'))
 
-    
+        
+
+
         register={
-            "username" : register_form.username.data,
+            "username" : register_form.username.data.lower(),
             "password" : generate_password_hash(str(register_form.password.data)),
             "email" : register_form.email.data,
             "location" : register_form.location.data
         }    
-
+  
         mongo.db.users.insert_one(register)
+
+        
         
 
         session["user"] = register_form.username.data.lower()
@@ -150,14 +154,14 @@ def profile(username):
         {"username": username})       
 
     # Gets the books added by user.
-    books= mongo.db.books.find({"added_by" : user["username"]})
+    books= mongo.db.books.find({"added_by" : username})
 
     # Gets the reviews added by user.
-    reviews = mongo.db.reviews.find({"username": user["username"]})
-    reviews_length = mongo.db.reviews.count_documents({"username": user["username"]})
+    reviews = mongo.db.reviews.find({"username": username})
+    reviews_length = mongo.db.reviews.count_documents({"username": username})
 
     # This gets the length of the books added by user.
-    books_length = mongo.db.books.count_documents({"added_by" : user["username"]})
+    books_length = mongo.db.books.count_documents({"added_by" : username})
     num = []
     i = 0
     for i in range(books_length):
@@ -302,30 +306,29 @@ def add_book():
             flash("The Book Title Exists In Our Collection")
             return redirect(url_for("add_book"))
             
+        elif session["user"]:
+            # This gets the value(not key) of the select field and insert it to db.
+            # The trick has been learned from (https://stackoverflow.com/questions/43071278/how-to-get-value-not-key-data-from-selectfield-in-wtforms/43071533)
+            value = dict(add_book_form.category.choices).get(add_book_form.category.data)
 
-        # This gets the value(not key) of the select field and insert it to db.
-        # The trick has been learned from (https://stackoverflow.com/questions/43071278/how-to-get-value-not-key-data-from-selectfield-in-wtforms/43071533)
-        value = dict(add_book_form.category.choices).get(add_book_form.category.data)
+            new_book = {
+                "title" : add_book_form.title.data.lower(),
+                "author" : add_book_form.author.data.lower(),
+                "category_name" : value,
+                "publisher" :add_book_form.publisher.data,
+                "pages" : add_book_form.pages.data,
+                "shopping_link" : add_book_form.shopping_link.data,
+                "img_url" : add_book_form.image.data,
+                "description" :add_book_form.desc.data,
+                "best_seller" : add_book_form.best_seller.data,
+                "price" : add_book_form.price.data,
+                "added_by" : session['user']
+            }
 
-        new_book = {
-            "title" : add_book_form.title.data.lower(),
-            "author" : add_book_form.author.data.lower(),
-            "category_name" : value,
-            "publisher" :add_book_form.publisher.data,
-            "pages" : add_book_form.pages.data,
-            "shopping_link" : add_book_form.shopping_link.data,
-            "img_url" : add_book_form.image.data,
-            "description" :add_book_form.desc.data,
-            "best_seller" : add_book_form.best_seller.data,
-            "price" : add_book_form.price.data,
-            "added_by" : session['user']
-        }
-
-        mongo.db.books.insert_one(new_book)
-        
-        flash("Book Added")
-        return redirect(url_for('get_book', book_id=new_book['_id']))
-
+            mongo.db.books.insert_one(new_book)
+            
+            flash("Book Added")
+            return redirect(url_for('get_book', book_id=new_book['_id']))
     return render_template("add_book.html", add_book_form=add_book_form)
 
 
@@ -418,4 +421,4 @@ def internal_error(err):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True )    
+            debug=False )    

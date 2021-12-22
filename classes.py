@@ -4,6 +4,8 @@ from wtforms.fields.choices import SelectField
 from wtforms.widgets import TextArea
 import datetime
 
+
+
 # The authentication and registeration method has been learned from this tutorial on
 # https://www.youtube.com/watch?v=addnlzdSQs4 and wtforms documentation.
 class RegisterForm(Form):
