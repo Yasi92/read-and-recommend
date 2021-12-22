@@ -21,7 +21,7 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
-app.config['PERMANENT_SESSION_LIFETIME'] =  timedelta(days=1)
+
 
 
 mongo = PyMongo(app)
@@ -91,6 +91,8 @@ def login():
             if check_password_hash(
                 existing_user["password"], login_form.password.data):
                     session["user"] = login_form.username.data.lower()
+                    # Logs out the user after a day automatically
+                    app.permanent_session_lifetime = timedelta(days=1)
                     flash(f"Welcome {login_form.username.data}")
                     return redirect(url_for('profile', username=session["user"]))
             else:
