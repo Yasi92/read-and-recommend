@@ -349,9 +349,9 @@ form > .row{
 
 } 
 
-.input-field>label:not(.label-icon).active{
+/* .input-field>label:not(.label-icon).active{
     display: none;
-}
+} */
 
 /* //////////////////////////////// Collection-bar /////////////////////////////////// */
 
