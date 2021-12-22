@@ -188,12 +188,22 @@ def edit_profile(user_id):
     if request.method == "POST" and edit_form.validate():
         # Checks whether data has been changed or not
         no_change = edit_form.location.data == user["location"] and edit_form.email.data == user["email"] and edit_form.username.data == user["username"]
-        
+
+        # Checks if username already exists in db
+        existing_user = mongo.db.users.find_one(
+            {"username" : edit_form.username.data.lower()})   
+
         # returns to profile if data is not changed
         if  no_change:
             return redirect(url_for("profile", username=session["user"]))
 
-        # Since password is not getting updated in db, "$set" is used to update the specific records.
+        # clears the form if username exits in db
+        elif existing_user:
+            flash(f'Username "{edit_form.username.data}" already exists')
+            return redirect(url_for("edit_profile", user_id=user["_id"]))
+
+
+        # Since password is not getting updated in db, "$set" is used to update the specific records.    
         else:    
             mongo.db.users.update(
                                 {"_id" : ObjectId(user_id)}, {'$set': {"username" : edit_form.username.data, "email" : edit_form.email.data,
