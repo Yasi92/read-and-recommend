@@ -15,9 +15,9 @@ $(document).ready(function () {
   });
 
 
-  $(document).ready(function () {
-    $('select').formSelect();
-  });
+
+  $('select').formSelect();
+
 
 
 
@@ -86,12 +86,6 @@ $(document).ready(function () {
 
   })
 
-  // The history back button is learned form https://css-tricks.com/snippets/javascript/go-back-button/ and w3school 
-  $(".back-btn").on("click", function (e) {
-    e.preventDefault();
-    window.history.go(-1);
-
-  })
 
 
   $('.modal').modal();
@@ -101,10 +95,17 @@ $(document).ready(function () {
 
 
 
+  // The history back button is learned form https://css-tricks.com/snippets/javascript/go-back-button/ and w3school 
+  $(".back-btn").on("click", function (e) {
+    e.preventDefault();
+    window.history.go(-1);
+    return false;
+
+  })
+
+
   // Get the height of header and footer on different screen size to push 
   // the footer to the bottom of the page regardless of the size of content.
-
-
   // The method has been learned from (https://www.youtube.com/watch?v=US_3XvufMLU) and manipulated by me to make it responsive to all screen sizes.
   var header = document.querySelector("header").offsetHeight;
   var footer = document.querySelector("footer").offsetHeight;
@@ -132,7 +133,7 @@ $(document).ready(function () {
 
 
 
-  
+
   //check if window scroll is < 100
   if ($(window).scrollTop() < 100) {
     $('#myBtn').hide();
@@ -156,6 +157,15 @@ $(document).ready(function () {
 
   // Fixing the back-to-top button on top of the footer
   document.getElementById("myBtn").style.bottom = footer + "px ";
+
+
+
+
+  if (document.referrer.includes("add_book")) {
+    $(".back-btn").hide();
+    $(".bottom-bordered-row").css("margin-top", "3rem");
+  }
+
 
 
 

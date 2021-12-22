@@ -59,6 +59,10 @@ hr {
     margin-top: 1.5;
     padding: 1rem;  
 }
+
+.row.flashes{
+    margin: 1rem 0 1.3rem 0;
+}
 /* //////////////////////////////// buttons and badge /////////////////////////////////// */
 #myBtn {
     position: fixed;
@@ -86,6 +90,7 @@ hr {
 
 
 .back-btn{
+    
     font-size: 3rem;
     padding: 1rem 2rem;
     background-color: transparent;
@@ -409,7 +414,7 @@ ul.ul-books:not(.browser-default){
 
 
 .ul-books{
-    text-align: justify;
+    text-align: center;
     list-style: none;
     padding: 1rem;   
     width: 100%;
@@ -637,14 +642,13 @@ tr:last-child{
 }
 
 
-/* //////////////////////////////// profile section /////////////////////////////////// */
-
-.profile-info-row{
+.bottom-bordered-row{
     border-bottom: 1px solid rgba(164, 156, 156, 0.4);
     margin-bottom: 2rem;
     padding-bottom: 1.7rem;
 }
 
+/* //////////////////////////////// profile section /////////////////////////////////// */
 
 .prof-pic{
     margin-top: 1rem;
@@ -742,10 +746,6 @@ h3{
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating){
     margin-right: 0;
-}
-
-.ul-books{
-    text-align: center;
 }
 
 
