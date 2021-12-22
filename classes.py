@@ -23,8 +23,8 @@ class RegisterForm(Form):
 
 
 class LoginForm(Form):
-    username = StringField(' ')
-    password = PasswordField(' ')
+    username = StringField('Username')
+    password = PasswordField('Password')
 
 
 

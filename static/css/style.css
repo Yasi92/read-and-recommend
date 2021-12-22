@@ -264,7 +264,7 @@ input[type=text]:not(.browser-default):focus:not([readonly]),
 input[type=password]:not(.browser-default):focus:not([readonly]),
 input[type=email]:not(.browser-default):focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]){
-    border-bottom: 1px solid rgba(143, 143, 142, 0.5);
+    border-bottom: 1px solid #26a69a;;
     box-shadow: none;
 }
 
@@ -273,7 +273,12 @@ textarea.materialize-textarea:focus:not([readonly]){
 .add-book-form input[type=text]:not(.browser-default):focus:not([readonly]),
 .add-book-form input[type=password]:not(.browser-default):focus:not([readonly]),
 .add-book-form input[type=email]:not(.browser-default):focus:not([readonly]),
-.add-book-form textarea.materialize-textarea:focus:not([readonly]){
+.add-book-form textarea.materialize-textarea:focus:not([readonly]),
+.edit-profile-form input:not([type]):focus:not([readonly]),
+.edit-profile-form input[type=text]:not(.browser-default):focus:not([readonly]),
+.edit-profile-form input[type=password]:not(.browser-default):focus:not([readonly]),
+.edit-profile-form input[type=email]:not(.browser-default):focus:not([readonly]),
+.edit-profile-form textarea.materialize-textarea:focus:not([readonly]){
     border: 1px solid rgba(12, 12, 12, 0.5);
     box-shadow: none;
 }
@@ -316,6 +321,16 @@ textarea{
     padding-top: .5rem;
 }    
 
+textarea:focus{
+    border: 1px solid rgba(55, 55, 54, 0.5);
+    overflow: auto;
+    outline: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
 
 form > .row{
     margin: 1rem;
@@ -344,14 +359,21 @@ form > .row{
     border-bottom:1px solid rgba(160, 156, 156, 0.5);
 }
 
+
+.form.blue-border .input-field>label:not(.label-icon).active{
+   color: #26a69a;
+}
+
 .search-form input[type=text]:not(.browser-default){
     line-height: 1;
 
 } 
 
-/* .input-field>label:not(.label-icon).active{
+.add-book-form .input-field>label:not(.label-icon).active,
+.edit-profile-form .input-field>label:not(.label-icon).active,
+.review-box .input-field>label:not(.label-icon).active{
     display: none;
-} */
+}
 
 /* //////////////////////////////// Collection-bar /////////////////////////////////// */
 
