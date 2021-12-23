@@ -669,7 +669,7 @@ tr:last-child{
 
 .sign-in-up-row{
 
-    margin: 2rem;
+    margin: 2rem 0;
 }
 
 /* //////////////////////////////// profile section /////////////////////////////////// */
@@ -842,6 +842,11 @@ h4{
 
 #book-detail .row .col.s12{
     padding: 0 1.5rem 0 1.5rem;
+}
+
+
+.row.card.large.valign-wrapper{
+    margin-left: 0;
 }
 
 
