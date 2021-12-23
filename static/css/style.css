@@ -8,10 +8,12 @@ html, body {
     overflow-x: hidden; 
 }
 
+
 h1,h2,h3,h4,h5,h6{
     font-family: 'Nunito', sans-serif;
     font-weight: bold;
 }
+
 
 * {
     margin: 0;
@@ -19,7 +21,6 @@ h1,h2,h3,h4,h5,h6{
     border: none;
     font-family: 'Quicksand', sans-serif;
 }
-
 
 
 h3 {
@@ -34,7 +35,6 @@ h4{
 
 h6{
     margin-top:0;
-    font-weight: bold;
 }
 
 
@@ -42,9 +42,11 @@ p{
     font-size: 1rem;
 }
 
+
 a{
     color: #000;
 }
+
 
 .right{
     text-align: right;
@@ -64,9 +66,11 @@ hr {
     padding: 1rem;  
 }
 
+
 .row.flashes{
     margin: 1rem 0 1.3rem 0;
 }
+
 /* //////////////////////////////// buttons and badge /////////////////////////////////// */
 #myBtn {
     position: fixed;
@@ -79,13 +83,12 @@ hr {
     color: white;
     cursor: pointer;
     padding: 0.5em;
-    
-  }
+}
   
-  #myBtn:hover {
-    background-color: rgba(146, 162, 126, .5);
-  }
 
+#myBtn:hover {
+background-color: rgba(146, 162, 126, .5);
+}
 
 
 .edit-btn{
@@ -163,10 +166,6 @@ span.badge{
     font-size: 1.3rem;
     line-height: normal;
 }
-
-
-
-
 /* //////////////////////////////// Navbar and header box /////////////////////////////////// */
 .nav-wrapper {
     background-color: #92a27e;
@@ -208,10 +207,7 @@ nav ul a {
     height: 30vh;
     width: 100%;
 }
-
-
 /* //////////////////////////////// Search box /////////////////////////////////// */
-
 .search-form {
     border-radius: 20px;
 }
@@ -221,6 +217,7 @@ nav ul a {
     border-bottom: none;
     box-shadow: none;
 }
+
 
 .search-form > input[type=text]:not(.browser-default){
     background-color:ivory;
@@ -253,7 +250,6 @@ color: rgb(67, 67, 67);
 }
 
 /* //////////////////////////////// forms /////////////////////////////////// */
-
 input[type=text]:not(.browser-default){
     border-bottom: none;
 }
@@ -282,7 +278,6 @@ textarea.materialize-textarea:focus:not([readonly]){
     border: 1px solid rgba(12, 12, 12, 0.5);
     box-shadow: none;
 }
-
 
 
 input:-webkit-autofill,
@@ -321,11 +316,11 @@ textarea{
     padding-top: .5rem;
 }    
 
+
 textarea:focus{
     border: 1px solid rgba(55, 55, 54, 0.5);
     overflow: auto;
     outline: none;
-
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
@@ -335,6 +330,7 @@ textarea:focus{
 form > .row{
     margin: 1rem;
 }
+
 
 .form-error{
     color: tomato;
@@ -353,6 +349,7 @@ form > .row{
     margin-bottom: 0;
 }
 
+
 .form input[type=text]:not(.browser-default),
 .form input[type=password]:not(.browser-default),
 .form input[type=email]:not(.browser-default){
@@ -364,17 +361,57 @@ form > .row{
    color: #26a69a;
 }
 
+
 .search-form input[type=text]:not(.browser-default){
     line-height: 1;
-
 } 
+
 
 .add-book-form .input-field>label:not(.label-icon).active,
 .edit-profile-form .input-field>label:not(.label-icon).active,
 .review-box .input-field>label:not(.label-icon).active{
     display: none;
 }
+/* //////////////////////////////// Edit profile form /////////////////////////////////// */
 
+.edit-profile-form input[type=text]:not(.browser-default),
+.edit-profile-form input[type=email]:not(.browser-default),
+.edit-profile-form input[type=password]:not(.browser-default),
+.add-book-form input[type=email]:not(.browser-default),
+.add-book-form input[type=text]:not(.browser-default),
+.add-book-form input[type=checkbox]:not(.browser-default)
+{
+    border: 1px solid rgba(143, 143, 142, 0.5);
+    border-radius: 10px;
+    height: 3rem;
+    padding-left: .7rem;
+}
+
+
+.col img.circle{
+    margin-top: 1rem;
+}
+
+
+.edit-profile-form{
+    margin: 2rem 0;
+}
+
+
+.edit-profile-form .input-field .prefix ~ label{
+    margin-left: 2.4rem;
+    padding-left: .7rem;
+    padding-top: .5rem;
+}
+
+
+.edit-profile-form .input-field .prefix ~ input{
+     width: calc(100% - 4.8rem);
+}
+
+.edit-profile-form .btn-large{
+    width: 90%;
+}
 /* //////////////////////////////// Collection-bar /////////////////////////////////// */
 
 ul.collection-bar li{
@@ -418,14 +455,15 @@ ul.collection-bar li a:hover,ul.collection-bar li a:active,ul.collection-bar li 
     transform: scale(1.1);
 }
 
+
 .active-ctg-link{
     border: 1px dotted #000;
 }
 
+
 .active-link{
     color: #000;
 }
-
 /* //////////////////////////////// Book collection /////////////////////////////////// */
 
 ul:not(.browser-default).collection{
@@ -457,7 +495,6 @@ ul.ul-books:not(.browser-default){
     margin: 10px 5px 0 5px;
     vertical-align: top;
 }
-
 /* //////////////////////////////// Book cards /////////////////////////////////// */
 
 .card .card-content{
@@ -465,12 +502,12 @@ ul.ul-books:not(.browser-default){
 }
 
 
-
 .card.small {
 width: 14.2rem;
 height: 29rem;
 margin: .7rem auto;
 }
+
 
 .card .card-image > img{
     max-height: 19rem;
@@ -509,10 +546,10 @@ border-top: 1px solid rgba(143, 143, 142, 0.4);
     display: inline-block;
 }
   
+
 .book-card.show {
     opacity: 1;
 }
-
 /* //////////////////////////////// register/login forms /////////////////////////////////// */
 
 .card.large .card-image.register-bg{
@@ -526,50 +563,7 @@ border-top: 1px solid rgba(143, 143, 142, 0.4);
     background-image: url(../images/cacb57af3c6b8be1e5d206d203cee7b1.jpg);
     background-size:cover;
 }
-
-
-/* //////////////////////////////// Edit profile form /////////////////////////////////// */
-
-.edit-profile-form input[type=text]:not(.browser-default),
-.edit-profile-form input[type=email]:not(.browser-default),
-.edit-profile-form input[type=password]:not(.browser-default),
-.add-book-form input[type=email]:not(.browser-default),
-.add-book-form input[type=text]:not(.browser-default),
-.add-book-form input[type=checkbox]:not(.browser-default)
-{
-    border: 1px solid rgba(143, 143, 142, 0.5);
-    border-radius: 10px;
-    height: 3rem;
-    padding-left: .7rem;
-}
-
-
-.col img.circle{
-    margin-top: 1rem;
-}
-
-
-.edit-profile-form{
-    margin: 2rem 0;
-}
-
-
-.edit-profile-form .input-field .prefix ~ label{
-    margin-left: 2.4rem;
-    padding-left: .7rem;
-    padding-top: .5rem;
-}
-
-
-.edit-profile-form .input-field .prefix ~ input{
-     width: calc(100% - 4.8rem);
-}
-
-.edit-profile-form .btn-large{
-    width: 90%;
-}
 /* //////////////////////////////// add book form /////////////////////////////////// */
-
 .add-book-form{
     margin: 2rem;
 }
@@ -577,7 +571,6 @@ border-top: 1px solid rgba(143, 143, 142, 0.4);
 .add-book-form .col{
     padding: 0;
 }
-
 /* //////////////////////////////// book details /////////////////////////////////// */
 
 .book_title_div{
@@ -633,10 +626,6 @@ tr:last-child{
     padding-bottom: 0;
 }
 
- /* .collection .collection-item{
-    padding: .7rem 1.2rem;
-}  */
-
 
 .collection .collection-item-review{
     padding: .7rem 1.9rem;
@@ -651,8 +640,6 @@ tr:last-child{
     min-height: 84px;
     position: relative;
 }
-
-
 /* //////////////////////////////// containers / rows /cols /////////////////////////////////// */
 
 .row .col{
@@ -663,6 +650,7 @@ tr:last-child{
 .row{
     margin-bottom: 0;
 }
+
 
 .bordered-box{
     border: 1px solid rgba(143, 143, 142, 0.4);
@@ -677,6 +665,7 @@ tr:last-child{
     margin-bottom: 2rem;
     padding-bottom: 1.7rem;
 }
+
 
 .sign-in-up-row{
 
@@ -698,8 +687,6 @@ tr:last-child{
 .loadMoreReview{
     display: none;
 }
-
-
 /* //////////////////////////////// book description field /////////////////////////////////// */
 
 /* Read more / Read less method is learned from ("https://stackoverflow.com/questions/25341429/jquery-read-more-read-less-how-to-replace-text") */
@@ -743,11 +730,13 @@ footer.page-footer{
     right: 0;
 }
 
+
 .row.card.large.valign-wrapper{
     padding: 1.2rem;
     margin-left: .3rem;
     margin-bottom: 3rem;
 }
+
 
 h3{
     padding: 0 5rem;
@@ -787,9 +776,7 @@ h3{
 .header-box > div{
     background-color: rgba(250, 250, 240, .4);
 }
-
 }
-
 /* //////////////////////////////// Mobile size devices /////////////////////////////////// */
 
 @media screen and (max-width: 568px) {
@@ -832,10 +819,10 @@ h4{
 }
 
 
-
 .btn-large{
     min-width: 9.5rem;
 }
+
 
 .row .col .search-form {
     margin-left: 2rem;
@@ -851,6 +838,7 @@ h4{
 .book-img-div{
     text-align: center;
 }
+
 
 #book-detail .row .col.s12{
     padding: 0 1.5rem 0 1.5rem;
@@ -869,17 +857,16 @@ h4{
     width: 90%;
 } 
 
+
 p.addReadMore {
     text-align: justify;
     padding: 0 1.1rem;
 }
 
 
-
 ul.collection-bar li a{
     font-size: 1rem;
 }
-
 
 
 .edit-profile-form .input-field .prefix ~ input{
@@ -932,6 +919,7 @@ small.blue-text{
     text-align: center;
 }
 
+
 .bordered-box{
     padding: 1rem
     !important;
@@ -971,9 +959,6 @@ small.blue-text{
 .review-box .input-field>label{
     position: unset;
 }
-
-
-
 
 } 
 
