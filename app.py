@@ -11,7 +11,6 @@ import flask
 import timeago, datetime
 
 
-
 if os.path.exists("env.py"):
     import env
 
@@ -23,18 +22,17 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
 
-
 mongo = PyMongo(app)
 
 
 # The timeago method has been learned from (https://stackoverflow.com/questions/60162353/how-to-use-python-module-timeago-with-flask)
-
 @app.template_filter('timeago')
 def fromnow(date):
     '''
-    Return passed time to a format of timeago
+    Return passed time as arg to a format of timeago
     '''
     return timeago.format(date, datetime.datetime.now())
+
 
 now = datetime.datetime.now() + datetime.timedelta(seconds = 60 * 3.4)
 
@@ -48,7 +46,9 @@ def get_books():
     books = mongo.db.books.find()
     books_length = mongo.db.books.count_documents({})
     categories = list(mongo.db.categories.find())
-    return render_template("home.html", books=books, categories=categories, books_length=books_length)
+
+    return render_template("home.html", books=books,
+                            categories=categories, books_length=books_length)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -60,7 +60,9 @@ def search():
     books = mongo.db.books.find({"$text" : {"$search" : query}})
     books_length = mongo.db.books.count_documents({"$text" : {"$search" : query}})
     categories = mongo.db.categories.find()
-    return render_template("home.html", books=books, categories=categories, books_length=books_length)
+
+    return render_template("home.html", books=books,
+                             categories=categories, books_length=books_length)
 
 
 
@@ -72,6 +74,7 @@ def best_seller_books():
     categories = list(mongo.db.categories.find())
     best_sellers = mongo.db.books.find({"best_seller" : True})
     books_length = mongo.db.books.count_documents({"best_seller" : True})
+
     return render_template("home.html", best_sellers=best_sellers,
     categories=categories, books_length=books_length)
 
@@ -105,13 +108,14 @@ def login():
             flash(f"Incorrect Username and/or Password")
             redirect(url_for("login"))
 
-
     return render_template("login.html", login_form=login_form)
 
 
 
 @app.route("/register", methods=["GET", "POST"])   
 def register():
+
+    # Passing RegisterForm class to the request form
     register_form = RegisterForm(request.form)
 
     if request.method == "POST" and register_form.validate():
@@ -123,9 +127,6 @@ def register():
             flash("Username already exists")
             return redirect(url_for('register'))
 
-        
-
-
         register={
             "username" : register_form.username.data.lower(),
             "password" : generate_password_hash(str(register_form.password.data)),
@@ -134,31 +135,28 @@ def register():
         }    
   
         mongo.db.users.insert_one(register)
-
-        
-        
-
         session["user"] = register_form.username.data.lower()
         flash("Registeration Successful!")
+
         return redirect(url_for('profile', username=session["user"]))
 
-    
     return render_template("register.html", register_form=register_form) 
 
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])   
 def profile(username):
+
     # get the session user's username from db
-    user = mongo.db.users.find_one(
-        {"username": username})       
+    user = mongo.db.users.find_one({"username": username})       
 
     # Gets the books added by user.
     books= mongo.db.books.find({"added_by" : username})
 
     # Gets the reviews added by user.
     reviews = mongo.db.reviews.find({"username": username})
-    reviews_length = mongo.db.reviews.count_documents({"username": username})
+    reviews_length = mongo.db.reviews.count_documents(
+                                {"username": username})
 
     # This gets the length of the books added by user.
     books_length = mongo.db.books.count_documents({"added_by" : username})
@@ -177,21 +175,21 @@ def profile(username):
     return redirect(url_for("login"))
 
 
-
-
-
 @app.route("/edit_profile/<user_id>", methods=["GET", "POST"])   
 def edit_profile(user_id):
     '''
     Edits user's profile
     '''
     user = mongo.db.users.find_one({"_id" : ObjectId(user_id)})
+    # Passing EditProfile class to the request form
     edit_form = EditProfile(request.form)
          
-        
     if request.method == "POST" and edit_form.validate():
+
         # Checks whether data has been changed or not
-        no_change = edit_form.location.data == user["location"] and edit_form.email.data == user["email"] and edit_form.username.data == user["username"]
+        no_change = (edit_form.location.data == user["location"] and
+                     edit_form.email.data == user["email"] and 
+                     edit_form.username.data.lower() == user["username"])
 
         # Checks if username already exists in db
         existing_user = mongo.db.users.find_one(
@@ -199,7 +197,8 @@ def edit_profile(user_id):
 
         # returns to profile if data is not changed
         if  no_change:
-            return redirect(url_for("profile", username=session["user"]))
+            return redirect(url_for("profile", username=user["username"]))
+
 
         # clears the form if username exits in db
         elif existing_user:
@@ -208,20 +207,23 @@ def edit_profile(user_id):
 
 
         # Since password is not getting updated in db, "$set" is used to update the specific records.    
-        else:    
+        else:
             mongo.db.users.update(
-                                {"_id" : ObjectId(user_id)}, {'$set': {"username" : edit_form.username.data, "email" : edit_form.email.data,
-                                 "location": edit_form.location.data}} )
+                                {"_id" : ObjectId(user_id)}, {'$set': {"username" : edit_form.username.data.lower(),
+                                "email" : edit_form.email.data,
+                                "location": edit_form.location.data}})
+
             # updates the username in books collection added by the user
-            mongo.db.books.update_many({"added_by" : session['user']}, {'$set' : {"added_by" : edit_form.username.data.lower()}})
+            mongo.db.books.update_many({"added_by" : user["username"]},
+                                         {'$set' : {"added_by" : edit_form.username.data.lower()}})
 
             # updates the username in reviews collection added by the user
-            mongo.db.reviews.update_many({"username" : session['user']}, {'$set' : {"username" : edit_form.username.data.lower()}})      
-            session["user"] = edit_form.username.data.lower()         
+            mongo.db.reviews.update_many({"username" : user['username']},
+                                         {'$set' : {"username" : edit_form.username.data.lower()}}) 
+
+            session["user"] = edit_form.username.data.lower()  
             flash("Profile Updated")
             return redirect(url_for('profile', username=session['user']))
-
-        
 
     return render_template('edit_profile.html', edit_form=edit_form,
                             user=user)
@@ -233,7 +235,9 @@ def get_book(book_id):
     '''
     Gets book details 
     '''
-    book_details = mongo.db.books.find_one({"_id": ObjectId(book_id)})    
+    book_details = mongo.db.books.find_one({"_id": ObjectId(book_id)})  
+
+    # Passing ReviewForm class to the request form
     review_form = ReviewForm(request.form)
 
     if request.method == "POST":
@@ -243,7 +247,8 @@ def get_book(book_id):
             "username" : session["user"],
             "review" : review_form.review.data,
             "date_created" : datetime.datetime.now(),
-            "book_title" : book_details["title"]}
+            "book_title" : book_details["title"]
+            }
             
             mongo.db.reviews.insert_one(review_details)
             flash("Thank you for your feedback!")
@@ -256,16 +261,12 @@ def get_book(book_id):
 
     # Gets all the reviews of the book
     reviews = mongo.db.reviews.find({"book_title" : book_details["title"]})
-    reviews_length = mongo.db.reviews.count_documents({"book_title" : book_details["title"]})
+    reviews_length = mongo.db.reviews.count_documents(
+                                    {"book_title" : book_details["title"]})
 
     return render_template("books.html",book_details=book_details,
                             review_form=review_form,
                             reviews=reviews, reviews_length=reviews_length)    
-
-
-
-
-
 
 
 @app.route("/get_books/get_categories/<category_name>")
@@ -279,7 +280,9 @@ def get_categories(category_name):
     books_length = mongo.db.books.count_documents({"category_name" : category_name})
 
     return render_template("home.html", categories=categories,
-    category_name= category_name, category_book=category_book , books_length=books_length)
+                        category_name= category_name,
+                        category_book=category_book ,
+                        books_length=books_length)
 
 
 
@@ -288,6 +291,7 @@ def logout():
     #removes user from session cookies
     flash("You have been loged out")
     session.pop("user")
+
     return redirect(url_for('login'))
 
 
@@ -296,6 +300,7 @@ def add_book():
     '''
     Add books to db by user
     '''
+    # Passing AddBook class to the request form
     add_book_form = AddBook(request.form)
 
     if request.method == "POST":
@@ -308,7 +313,8 @@ def add_book():
             
         elif session["user"]:
             # This gets the value(not key) of the select field and insert it to db.
-            # The trick has been learned from (https://stackoverflow.com/questions/43071278/how-to-get-value-not-key-data-from-selectfield-in-wtforms/43071533)
+            ''' The trick has been learned from 
+            (https://stackoverflow.com/questions/43071278/how-to-get-value-not-key-data-from-selectfield-in-wtforms/43071533)'''
             value = dict(add_book_form.category.choices).get(add_book_form.category.data)
 
             new_book = {
@@ -326,11 +332,10 @@ def add_book():
             }
 
             mongo.db.books.insert_one(new_book)
-            
             flash("Book Added")
             return redirect(url_for('get_book', book_id=new_book['_id']))
-    return render_template("add_book.html", add_book_form=add_book_form)
 
+    return render_template("add_book.html", add_book_form=add_book_form)
 
 
 @app.route("/edit_book/<book_id>", methods=["POST", "GET"])
@@ -341,6 +346,7 @@ def edit_book(book_id):
     book = mongo.db.books.find_one({"_id" : ObjectId(book_id)})
     categories = mongo.db.categories.find()
 
+    # Passing AddBook class to the request form
     edit_book_form = AddBook(request.form)
    
     if request.method == "POST":
@@ -363,7 +369,9 @@ def edit_book(book_id):
         flash("Book Edited")
         return redirect(url_for('get_book', book_id=book["_id"]))
 
-    return render_template("edit_book.html", book=book, edit_book_form=edit_book_form, categories=categories)
+    return render_template("edit_book.html", book=book,
+                        edit_book_form=edit_book_form,
+                        categories=categories)
 
 
 @app.route("/delete_book/<book_id>")
@@ -376,7 +384,6 @@ def delete_book(book_id):
     return redirect(url_for("profile", username=session['user']))
 
 
-
 @app.route("/delete_review/<review_id>")
 def delete_review(review_id):
     '''
@@ -385,19 +392,7 @@ def delete_review(review_id):
     mongo.db.reviews.delete_one({"_id" : ObjectId(review_id)})
     flash("Review Successfuly Deleted")
     return redirect(url_for("profile", username=session['user'])) 
-
-    
-
-# def edit():
-#     review = mongo.db.reviews.find()
-#     for i in review:
-        
-        
-#         mongo.db.reviews.update_one(i, {"$set" : {"book_title" : i["book_title"].lower()}})
-        
-
-# edit()    
-
+      
 
 # The custome 404 page has been learned from my mentor "Richard Wills"
 @app.errorhandler(404)
@@ -415,7 +410,6 @@ def internal_error(err):
     On 500 error passes user to custom 500 page
     """
     return render_template('500.html'), 500
-
 
 
 if __name__ == "__main__":
