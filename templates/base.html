@@ -40,7 +40,7 @@
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                     <ul class="nav-links hide-on-med-and-down right">
 
-                        <li><a {% if (request.path == "/get_books") or ("/get_books" is in request.path) %}class="active-link"
+                        <li><a {% if (request.path == "/") or ("/get_books" is in request.path) %}class="active-link"
                                 {% endif %} href="{{ url_for('get_books') }}">Home</a></li>
                         {% if session.user %}
                         <li><a {% if request.path == "/profile/" + session['user'] %}class="active-link" {% endif %}
