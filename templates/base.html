@@ -35,11 +35,10 @@
         <nav>
             <!-- top navbar -->
             <div class="nav-wrapper row">
-                <!-- <a href="{{ url_for('get_books') }}" class="brand-logo">Logo</a> -->
                 <div class="col l5 s1 right">
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                     <ul class="nav-links hide-on-med-and-down right">
-
+                        <!-- styling active element menu in flask has been learned from (https://stackoverflow.com/questions/22173041/styling-active-element-menu-in-flask) -->
                         <li><a {% if (request.path == "/") or ("/get_books" is in request.path) %}class="active-link"
                                 {% endif %} href="{{ url_for('get_books') }}">Home</a></li>
                         {% if session.user %}
@@ -65,18 +64,14 @@
 
         <!-- moile sidenav -->
         <ul class="sidenav" id="mobile-demo">
-            <li><a {% if request.path == "/get_books" %}class="active-link" {% endif %}
-                    href="{{ url_for('get_books') }}">Home</a></li>
+            <li><a href="{{ url_for('get_books') }}">Home</a></li>
             {% if session.user %}
-            <li><a {% if request.path == "/profile/" + session['user'] %}class="active-link" {% endif %}
-                    href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-            <li><a {% if request.path == "/add_book" %}class="active-link" {% endif %}
-                    href="{{ url_for('add_book') }}">Add A Book</a></li>
+            <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+            <li><a href="{{ url_for('add_book') }}">Add A Book</a></li>
             <li><a href="{{ url_for('logout') }}">Sign Out</a></li>
             {% else %}
-            <li><a {% if request.path == "/register" %}class="active-link" {% endif %}
-                    href="{{ url_for('register') }}">Sign Up</a></li>
-            <li><a {% if request.path == "/login" %}class="active-link" {% endif %} href="{{ url_for('login') }}">Sign
+            <li><a href="{{ url_for('register') }}">Sign Up</a></li>
+            <li><a href="{{ url_for('login') }}">Sign
                     In</a></li>
             {% endif %}
         </ul>
