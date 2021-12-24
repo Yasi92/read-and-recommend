@@ -543,6 +543,9 @@ border-top: 1px solid rgba(143, 143, 142, 0.4);
 .book-card {
     opacity: 0;
     transition: opacity 0.35s ease-in;
+    -webkit-transition: opacity 0.35s ease-in;
+    -moz-transition: opacity 0.35s ease-in;
+    -o-transition: opacity 0.35s ease-in;
     display: inline-block;
 }
   
