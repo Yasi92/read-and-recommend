@@ -46,25 +46,25 @@ The effort has been put for this website to be as intuitive as possible.
 ### Wireframe Mockups:                              
                           
 Home page:                  
-[Desktop wireframes PDF](static/readme-assets/wireframes/home.pdf)        
+[Home page wireframes PDF](static/readme-assets/wireframes/home.pdf)        
 
 Profile Page:             
-[iPad wireframes PDF](static/readme-assets/wireframes/profile.pdf)     
+[Profile Page wireframes PDF](static/readme-assets/wireframes/profile.pdf)     
 
 Edit Profile Page:            
-[Mobile wireframes PDF](static/readme-assets/wireframes/edit-profile.pdf) 
+[Edit Profile wireframes PDF](static/readme-assets/wireframes/edit-profile.pdf) 
 
 Login Page:            
-[Mobile wireframes PDF](static/readme-assets/wireframes/login.pdf)           
+[Login Page wireframes PDF](static/readme-assets/wireframes/login.pdf)           
 
 Sign Up Page:            
-[Mobile wireframes PDF](static/readme-assets/wireframes/sign-up.pdf) 
+[Sign Up Page wireframes PDF](static/readme-assets/wireframes/sign-up.pdf) 
 
 Book Detail Page:            
-[Mobile wireframes PDF](static/readme-assets/wireframes/books.pdf) 
+[Book Detail Page wireframes PDF](static/readme-assets/wireframes/books.pdf) 
 
 Add a Book Page:            
-[Mobile wireframes PDF](static/readme-assets/wireframes/add-a-book.pdf) 
+[MobAdd a Book Pageile wireframes PDF](static/readme-assets/wireframes/add-a-book.pdf) 
 
 
 
@@ -73,30 +73,67 @@ Add a Book Page:
 
 
 * #### Design in Depth
-     * 
-     ![color theme]()
+     * The main colors used for the design are taken from the header image and an effort has been put to keep the colors as relevant as possible.
+     ![color theme](static/readme-assets/readme-img/color-theme.png)
 
 
 
      * The font families used in this project are:
           * 'Quicksand' for the body text and other elements.
-          * '#' for the headlines and navigation links.
-          * Sans-serif for the fallback font.
+          * 'Nunito' for the headlines and navigation links.
+          *  Sans-serif for the fallback font.
 
 
-![navigation bar](Readme-assets/img/)
+![navigation bar](static/readme-assets/readme-img/navbar.png)
+![navigation bar](static/readme-assets/readme-img/expanded-navbar.png)
+
 *   #### Navigation Bar     
-    * Featured on home page to allow for easy navigation.
-    * This section will allow the user to easily navigate from page to page across all devices without having to revert back to the previous page via the back button.
+    * Featured on all pages to allow for easy navigation.
+    * This section will allow user to easily navigate from page to page across all devices without having to revert back to the previous page via the back button.
+    * The navigation bar displays different links such as "Profile", "Add a Book" and "Sign Out" if the user is logged in and, "Sign In" and "Sign Up" if the user has not logged in.
     * The navigation bar collapses from medium screen sizes to a hamburger icon, which unfolds to a navigation drawer when clicked.
+    * The search box is embeded in the navigation bar on home page, where all books are displayed for a quick search by title or author. 
 
 
 
-![landing page](Readme-assets/img/)
+![landing page](static/readme-assets/readme-img/home-pg-out.png)
 *  #### Landing page provides:
-    * A search box which in user can search for their favorite books by title.
-    * Category classification bar which display different categories.
-    * Each link on the category bar filters the display of the books based on thier category on the page.
+    * A search box in which users can search for their favorite books by title or author.
+    * Category collection bar which filters books by their category.
+    * Small book cards with image, title and author name, which on click navigates users to a page with full information of each book.            
+
+
+![Book Detail](static/readme-assets/readme-img/book-detail.png)
+![Book Description](static/readme-assets/readme-img/book-desc.png)
+*  #### Book Detail page provides:
+    * A full image of the book cover.
+    * Full information of the book such as title, author, publisher, price, pages and, name of the user who added the book.
+    * A "Go get it" button that navigates users to the online store in a new tab.
+    * A best seller badge is embedded in the title box if the book falls in the best seller collection.
+    * Short description of the book which expands on "Read More" click.
+
+
+![Review Form](static/readme-assets/readme-img/review-form.png)
+*  #### Review Form provides:
+  * With the review form users can compose a review which will be inserted in the database and displayed in the review section in detail.
+
+
+![Review Section](static/readme-assets/readme-img/review-section.png)
+*  #### Reviews Section provides:  
+    * In this section all corresponding reviews of the book are displayed in a list which are visible in slices of 4 and can be expanded to more reviews by clicking on the "Load More" button.
+    * The creation date of the review is shown underneath the review text in a format of time ago. 
+    * In case the review is added by the username stored in the session, the delete button will be displayed next to the review which enables users to remove it.
+
+
+
+
+
+
+
+
+
+
+
 
 
 

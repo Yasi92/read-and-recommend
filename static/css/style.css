@@ -48,6 +48,11 @@ a{
 }
 
 
+.nav-links li a{
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+}
+
 .right{
     text-align: right;
 }
