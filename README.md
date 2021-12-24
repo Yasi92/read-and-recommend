@@ -2,8 +2,8 @@
 
 
 ## Read And Recommend
-![Responsive Design]()       
-[The Website In Action]()
+![Responsive Design](static/readme-assets/readme-img/responsive-design.png)       
+[The Website In Action](https://read-and-recommend.herokuapp.com/)
 
 This is a book recommendation website that provides a shopping link for all books on the website as well as the book's detail and description.
 On this website, users can find a summary of their favorite book, refer to the online store, become a member and write a review about books, and most importantly, add their favorite books to the website.
@@ -45,28 +45,26 @@ The effort has been put for this website to be as intuitive as possible.
 
 ### Wireframe Mockups:                              
                           
-Desktop:                  
-[Desktop wireframes PDF](Readme-assets/wireframes/)        
+Home page:                  
+[Desktop wireframes PDF](static/readme-assets/wireframes/home.pdf)        
 
-iPad:             
-[iPad wireframes PDF](Readme-assets/wireframes/)               
+Profile Page:             
+[iPad wireframes PDF](static/readme-assets/wireframes/profile.pdf)     
 
-Mobile:            
-[Mobile wireframes PDF](Readme-assets/wireframes/)           
+Edit Profile Page:            
+[Mobile wireframes PDF](static/readme-assets/wireframes/edit-profile.pdf) 
 
+Login Page:            
+[Mobile wireframes PDF](static/readme-assets/wireframes/login.pdf)           
 
+Sign Up Page:            
+[Mobile wireframes PDF](static/readme-assets/wireframes/sign-up.pdf) 
 
-1. Desktop
-![Desktop Mockups](Readme-assets/wireframes/)
+Book Detail Page:            
+[Mobile wireframes PDF](static/readme-assets/wireframes/books.pdf) 
 
-
-2. Ipad
-![Ipad Mockups](Readme-assets/wireframes/)
-
- 
-
-3. Mobile 
-![Mobile Mockups](Readme-assets/wireframes/)
+Add a Book Page:            
+[Mobile wireframes PDF](static/readme-assets/wireframes/add-a-book.pdf) 
 
 
 
