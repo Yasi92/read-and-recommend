@@ -151,15 +151,15 @@ def profile(username):
     user = mongo.db.users.find_one({"username": username})       
 
     # Gets the books added by user.
-    books= mongo.db.books.find({"added_by" : username})
+    books= mongo.db.books.find({"added_by" : user["username"]})
 
     # Gets the reviews added by user.
-    reviews = mongo.db.reviews.find({"username": username})
+    reviews = mongo.db.reviews.find({"username": user["username"]})
     reviews_length = mongo.db.reviews.count_documents(
-                                {"username": username})
+                                {"username": user["username"]})
 
     # This gets the length of the books added by user.
-    books_length = mongo.db.books.count_documents({"added_by" : username})
+    books_length = mongo.db.books.count_documents({"added_by" : user["username"]})
     num = []
     i = 0
     for i in range(books_length):
@@ -416,4 +416,4 @@ def internal_error(err):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=False )    
+            debug=False)    
