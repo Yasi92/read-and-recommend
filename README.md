@@ -103,40 +103,91 @@ Add a Book Page:
     * Small book cards with image, title and author name, which on click navigates users to a page with full information of each book.            
 
 
-![Book Detail](static/readme-assets/readme-img/book-detail.png)
-![Book Description](static/readme-assets/readme-img/book-desc.png)
+![Book Detail](static/readme-assets/readme-img/added-book.png)
 *  #### Book Detail page provides:
     * A full image of the book cover.
     * Full information of the book such as title, author, publisher, price, pages and, name of the user who added the book.
     * A "Go get it" button that navigates users to the online store in a new tab.
+    * A back button which redirects to the previous page.
     * A best seller badge is embedded in the title box if the book falls in the best seller collection.
+    * If the book is added by the user, the "Delete" and "Edit" buttons will be shown underneath the book details to enable the user to delete or edit the added book.
+    ![Delete Confirmation Modal](static/readme-assets/readme-img/book-del-conf.png)
+    * The "Delete" button opens to a modal for delete confirmation and removes the book from the database if confirmed by the user and returns to the same page with book details if ignored.
+    ![Edit Book Form](static/readme-assets/readme-img/edit-book.png)
+    * The "Edit" button redirects to the edit book page with a form where all the inputs are pre-filled with the book details and the user is able to make any change to the book and submit it.
+    ![Book Description](static/readme-assets/readme-img/book-desc.png)
     * Short description of the book which expands on "Read More" click.
-
-
-![Review Form](static/readme-assets/readme-img/review-form.png)
-*  #### Review Form provides:
-  * With the review form users can compose a review which will be inserted in the database and displayed in the review section in detail.
-
-
-![Review Section](static/readme-assets/readme-img/review-section.png)
-*  #### Reviews Section provides:  
+    ![Review Form](static/readme-assets/readme-img/review-form.png)
+    * With the review form users can compose a review which will be inserted in the database and displayed in the review section in detail.
+    ![Review Section](static/readme-assets/readme-img/review-section.png)
+    * Display reviews
     * In this section all corresponding reviews of the book are displayed in a list which are visible in slices of 4 and can be expanded to more reviews by clicking on the "Load More" button.
     * The creation date of the review is shown underneath the review text in a format of time ago. 
     * In case the review is added by the username stored in the session, the delete button will be displayed next to the review which enables users to remove it.
 
 
 
+![Profile Page](static/readme-assets/readme-img/landing-profile.png)
+*  #### Profile Page provides:  
+    * Users account details such as username, location, and email address.
+    * An "Edit Profile" button that navigates to the edit profile page where users can change their profile.
+    ![Edit Profile Page](static/readme-assets/readme-img/edit-profile-pg.png)
+    * The "Edit Profile" button navigates to a page with a form where the inputs are pre-filled with the users' detail and the user is able to change their profile.
+    * If the user enters a username that already exists in the database a message will pop up on the page alerting the user that the username already exists and returns to the page.
+    * If the form after validation is successfully updated the user will be navigated to the profile page with the updated data and a message that confirms that the profile is updated.
+    * If there is no change in the form, the user will be redirected to the profile page with the existing data.
+    * The "Cancel" button works in the same way as if there is no change in the form and it redirects to the profile page with the existing data.
+    * An "Add a Book" button that redirects to the add a book page.
+    ![Added Books](static/readme-assets/readme-img/added-books.png)
+    * In this section, all the books that are added by the user are displayed in a list featured with "Edit" and "Delete" buttons which enables the user to modify the book.
+    * The list items are wrapped in a link that navigates to the book detail page.
+    ![Added Reviews](static/readme-assets/readme-img/added-reviews.png)
+    * In this section, all the reviews composed by the user are displayed in a list featured with a "Delete" button which enables users to remove the review.
+    ![Added Reviews](static/readme-assets/readme-img/delete-rev-conf.png)
+    * The "Delete" button opens to a modal to confirm the review deletion.
+
+
+![Add a Book Page](static/readme-assets/readme-img/add-book-pg.png)
+*  #### Add a Book Page provides:  
+    * A form with which users can add a book to the webite.
+    * There is a label for each input that guides users to the type of the expected information for each field and, the form will not be submitted unless all the fields are validated.
+    * In the event that the book title already exists in the database, a message will be shown to the user informing them about the issue.
+    * A check box is featured in the form to mark the best seller books.
 
 
 
+![Sign Up Page](static/readme-assets/readme-img/sign-up-pg.png)
+*  #### Sign-Up Page provides:  
+    * A registration form with which users can register and make an account.
+    * The form checks if the username already exists in the database and shows a message to the user in that case.
+    * The form will not be submitted unless are the fields are validated and correctly filled.
+    * After the submission, the user will be navigated to the profile page with their account detail.
+    * There is a shortcut link to the login page if the user already has an account.
 
 
 
+![Sign In Page](static/readme-assets/readme-img/sign-in-pg.png)
+*  #### Sign-In Page provides:  
+    * A login form with which users can sign-in to their account.
+    * In case the username and/if the password is incorrect, a message will be shown to the user informing them about the issue.
+    * In this form the account data in the database are checked with the user's input and log into the account if they match. 
+    * There is a shortcut link to the sign-up page for users who have not registered yet.
 
 
 
+![Back To Top Button](static/readme-assets/readme-img/back-to-top-btn.png)
+*  #### Back To Top Button: 
+    * A back-to-top button is featured on all pages to enable users to jump to the top of the page quickly without the need to scroll all the way up to the page.
 
 
+
+![Footer](static/readme-assets/readme-img/footer-base.png)
+*  #### Footer:
+    * The footer is identical on all pages and it provides a brief description of the website as well as some quick access links that differ on every stage of the website.
+    ![Expanded Footer](static/readme-assets/readme-img/expanded-footer.png)
+    * The footer contains links to all book categories on the home page and excludes them on all other pages.
+    ![Logged In Footer](static/readme-assets/readme-img/logged-in-footer.png)
+    * The quick access links in the footer alters according to the navigation bar links on different pages.
 
 
 ### Yet to be implemented
