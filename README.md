@@ -68,6 +68,9 @@ Add a Book / Edit Book Page:
 [MobAdd a Book Pageile wireframes PDF](static/readme-assets/wireframes/add-a-book.pdf) 
 
 
+### Flowchart:
+[Registeration and sign-in flowchart](static/readme-assets/readme-img/Login-sign-up.drawio.png) 
+
 
 ## Features-
 ### Existing Features
@@ -204,7 +207,10 @@ Add a Book / Edit Book Page:
 
 
 ### Yet to be implemented
+   1. Enable users to upload images to the website instead of an image URl.
+   2. On Create Account Page, add ability to see the password that was typed in, to avoid accidental typos.
    
+
 
 
 ## Technologies Used
@@ -270,6 +276,29 @@ Add a Book / Edit Book Page:
 16. [favicon.io](https://favicon.io/)       
 - This was used to create and insert a favicon.      
 
+17. [draw.io](https://app.diagrams.net/)
+- This was used to create the flowchart for register and login functions.
+
+18. [Mongodb](https://cloud.mongodb.com/)
+- Mongodb Atlas was used as a cloud database in this project.
+
+19. [PyMongo](https://pymongo.readthedocs.io/en/stable/)
+- This was used to make communication between Python and MongoDB possible.
+
+20. [Flask](https://pymongo.readthedocs.io/en/stable/)
+- This was used to construct and render pages.
+
+21. [Jinja](https://jinja.palletsprojects.com/en/3.0.x/)
+- This was used to simplify displaying data from the backend of this project smoothly and effectively in html.
+
+22. [Wtforms](https://wtforms.readthedocs.io/en/2.3.x/)
+- This was used to construct forms in this project.
+
+23. [Werkzeug](https://werkzeug.palletsprojects.com/en/2.0.x/)
+- This was used to generate and check hashing passwords in the sign In/Up functions. 
+
+24. [Heroku](https://dashboard.heroku.com/login)
+- This was used as the deployment platform.
 
 
 

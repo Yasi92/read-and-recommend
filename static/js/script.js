@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
   // It toggles the book cards and fade them into the window on page load.
-  const cards = document.querySelectorAll('.book-card');
+  var cards = document.querySelectorAll('.book-card');
 
   cards.forEach((card) => {
 
