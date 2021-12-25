@@ -551,10 +551,10 @@ border-top: 1px solid rgba(143, 143, 142, 0.4);
 /* The fadeIn effect is learned from this article (https://stackoverflow.com/questions/54384218/fade-in-effect-for-div-without-id) */
 .book-card {
     opacity: 0;
-    transition: opacity 0.35s ease-in;
     -webkit-transition: opacity 0.35s ease-in;
     -moz-transition: opacity 0.35s ease-in;
     -o-transition: opacity 0.35s ease-in;
+    transition: opacity 0.35s ease-in;
     display: inline-block;
 }
   
