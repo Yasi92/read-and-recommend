@@ -1,0 +1,7 @@
+{
+    "_id":{"$oid":"619e63cb1acfc57c5575092e"},
+    "username":"monica",
+    "password":"pbkdf2:sha256:260000$pl371uwtuSmofm2m$e68e128e25576eda364b4324e913afe8f0a35a464a6c6b2fed824dfbb552410d",
+    "email":"monica@gmail.com",
+    "location":"Amsterdam"
+}

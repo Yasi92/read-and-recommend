@@ -44,7 +44,8 @@ All pages on this website are responsive to desktop, iPad and, mobile screens.
 
 
 
-### Wireframe Mockups:                              
+### Wireframe Mockups:      
+                   
                           
 Home page:                  
 [Home page wireframes PDF](static/readme-assets/wireframes/home.pdf)        
@@ -72,7 +73,8 @@ Add a Book / Edit Book Page:
 [Registeration and sign-in flowchart](static/readme-assets/readme-img/Login-sign-up.drawio.png) 
 
 
-## Features-
+## Features
+---
 ### Existing Features
 
 
@@ -212,8 +214,35 @@ Add a Book / Edit Book Page:
    
 
 
+## Information Architecture                 
+---
+
+### Database Choice
+* My personal preference for the database for this project would be SQL as it would suit this project better however, as one of the requirements for this milestone project was using a relational database as Mongodb, this was chosen as my database.
+
+
+### Data Storage Types
+* The types of data stored in the database are:
+    * ObjectId
+    * String
+    * Boolean
+    * DateTime 
+
+
+### Collections JSON format
+- [Review collection](static/readme-assets/review-example.json)                       
+- [User collection](static/readme-assets/user-example.json)                       
+- [Book collection](static/readme-assets/book-example.json)                     
+- [Category collection](static/readme-assets/category-example.json)               
+* The "username" is added to all collections except the category, to match the user who added books and reviews.
+* I am aware of the fact that here I could have also get this done without creating an additional collection for "category", however, I have decided to do it in this way in order to be able to add extra categories to the collection bar in the future without the need of adding the relevant books first.
+
+
+
 
 ## Technologies Used
+---
+
 
 ### Languages
 - HTML5
@@ -303,8 +332,10 @@ Add a Book / Edit Book Page:
 
 
 ## Testing
+---
 Testing information can be found in a separate [TESTING.md file](TESTING.md)
 ## Deployment
+---
 
 ### Github
 1. Log into Github and locate the relevant repository.
@@ -342,6 +373,7 @@ This is used to make changes to the project code.
 
 
 ## Credits
+---
 
 
 - [Stackoverflow](https://stackoverflow.com/)
@@ -350,9 +382,7 @@ This is used to make changes to the project code.
 
 
 ## Content
-                   
-         
-
+---
 
 ## Media
  The photots throughout the website were taken from:
@@ -363,6 +393,7 @@ This is used to make changes to the project code.
 
 
 ## Acknowledgements
+---
 
 - Tutors at Code Institute for their continued support.
 - Code Institute's Slack community was a great help every step of the way during the project.
