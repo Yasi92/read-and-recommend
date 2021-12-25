@@ -6,11 +6,12 @@
 [The Website In Action](https://read-and-recommend.herokuapp.com/)
 
 This is a book recommendation website that provides a shopping link for all books on the website as well as the book's detail and description.
-On this website, users can find a summary of their favorite book, refer to the online store, become a member and write a review about books, and most importantly, add their favorite books to the website.
+On this website, users can find a summary of their favorite book, refer to the online store, become a member and write a review about books, and most importantly, add their favorite books to the website.          
 
 ## UX
 ---
-The effort has been put for this website to be as intuitive as possible. 
+The effort has been put into this website to be as intuitive as possible. 
+All pages on this website are responsive to desktop, iPad and, mobile screens.
 
 ### The business objectives of this website are:
 
@@ -54,16 +55,16 @@ Profile Page:
 Edit Profile Page:            
 [Edit Profile wireframes PDF](static/readme-assets/wireframes/edit-profile.pdf) 
 
-Login Page:            
+sign-In Page:            
 [Login Page wireframes PDF](static/readme-assets/wireframes/login.pdf)           
 
-Sign Up Page:            
+Sign-Up Page:            
 [Sign Up Page wireframes PDF](static/readme-assets/wireframes/sign-up.pdf) 
 
 Book Detail Page:            
 [Book Detail Page wireframes PDF](static/readme-assets/wireframes/books.pdf) 
 
-Add a Book Page:            
+Add a Book / Edit Book Page:            
 [MobAdd a Book Pageile wireframes PDF](static/readme-assets/wireframes/add-a-book.pdf) 
 
 
@@ -172,6 +173,18 @@ Add a Book Page:
     * In case the username and/if the password is incorrect, a message will be shown to the user informing them about the issue.
     * In this form the account data in the database are checked with the user's input and log into the account if they match. 
     * There is a shortcut link to the sign-up page for users who have not registered yet.
+
+
+
+![Custom 404 Page](static/readme-assets/readme-img/404-page.png)
+*  #### Custom 404 Page:
+    * The custom 404 page prevents users from confusion and redirects them to the home page if the URL is unavailable or does not exist.
+
+
+
+![Custom 500 Page](static/readme-assets/readme-img/500-page.png)
+*  #### Custom 500 Page:
+    * The custom 500 page prevents users from confusion and redirects them to the home page when an error occurs.
 
 
 
