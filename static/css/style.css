@@ -67,7 +67,7 @@ hr {
 .flashes h4{
     line-height: 1;
     margin-bottom: 0;
-    margin-top: 1.5;
+    margin-top: 1.5rem;
     padding: 1rem;  
 }
 
@@ -101,7 +101,7 @@ background-color: rgba(146, 162, 126, .5);
 }
 
 
-.back-btn{
+.back-btn,.edit-back-btn{
     
     font-size: 3rem;
     padding: 1rem 2rem;
@@ -116,6 +116,14 @@ background-color: rgba(146, 162, 126, .5);
     color: #000;
 }
 
+
+
+.back-btn:focus, .back-btn:hover,
+.edit-back-btn:focus, .edit-back-btn:hover{
+    background-color: transparent;
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
 
 .btn-groups{
     margin-bottom: 1rem;
@@ -135,13 +143,6 @@ button.loadMoreReview{
 
 .btn-floating.btn-small{
     margin-left:.5rem;
-}
-
-
-.back-btn:focus, .back-btn:hover{
-    background-color: transparent;
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2);
 }
 
 
@@ -544,7 +545,7 @@ border-top: 1px solid rgba(143, 143, 142, 0.4);
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
     color: blue;
     -webkit-transition: color .4s ease;
-    transition: color .3 ease;
+    transition: color .3s ease;
 }
 
 

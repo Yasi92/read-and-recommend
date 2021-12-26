@@ -121,24 +121,28 @@ $(document).ready(function () {
     return false;
   })
 
+  $(".edit-back-btn").on("click", function () {
+    window.history.go(-1);
+    return false;
+  })
+
 
   /* The method has been learned from this tutorial (https://www.youtube.com/watch?v=US_3XvufMLU) and
    manipulated by me to make it responsive to all screen sizes.*/
 
   /* Get the height of header and footer on different screen size to push 
     the footer to the bottom of the page regardless of the size of content.*/
-  var header = document.querySelector("header").offsetHeight;
-  var footer = document.querySelector("footer").offsetHeight;
+  setInterval(function(){
+    var header = document.querySelector("header").offsetHeight;
+    var footer = document.querySelector("footer").offsetHeight;
+    document.getElementById("main").style.minHeight = "calc( 100vh - " + header + "px" + " - " + footer + "px )";
 
-  document.getElementById("main").style.minHeight = "calc( 100vh - " + header + "px" + " - " + footer + "px )";
 
-
-  // This fixes the position of the back-to-top button on top of the footer
-  document.getElementById("myBtn").style.bottom = footer + "px ";
-
+    // This fixes the position of the back-to-top button on top of the footer
+    document.getElementById("myBtn").style.bottom = footer + "px ";
+  }, 500);  
 
   
-
   /* The back to top button is learned from this thread on stackoverflow
    (https://stackoverflow.com/questions/14249998/jquery-back-to-top)*/
 
@@ -146,6 +150,7 @@ $(document).ready(function () {
   if ($(window).scrollTop() < 100) {
     $('#myBtn').hide();
   }
+
 
   // Checks if the window scroll is more than 500 and then displays the button
   $("body").on("scroll", function () {

@@ -4,14 +4,14 @@
 <section id="book-detail">
     <div class="row bottom-bordered-row">
         <div class="col s12">
-            
+
             <a href="#" class="back-btn"><i class="fas fa-arrow-alt-circle-left"></i></a>
             <div class="row">
                 <div class="col m4 s12 offset-m1 book-img-div">
                     <img src="{{ book_details.img_url  }}" alt="cover image" class="responsive-img book-img">
                 </div>
                 <div class="col m6 s12">
-                   
+
                     <div class="book_title_div center-align row">
                         {% if book_details.best_seller  %}
                         <span class="badge left orange lighten-1 col s12"><i class="fas fa-tag"></i> Best Seller</span>
@@ -32,18 +32,18 @@
                                 <td>Pages:</td>
                                 <td class="right">{{ book_details.pages }}</td>
                             </tr>
-                            <td>Price:</td>
-                            <td class="right">{{ book_details.price }} €</td>
+                            <tr>
+                                <td>Price:</td>
+                                <td class="right">{{ book_details.price }} €</td>
                             </tr>
                             <tr>
                                 <td>Added By:</td>
-                                {% if session.user|lower == book_details.added_by|lower %}
-                                <td class="right">You</td>
-                                {% else %}
-                                <td class="right">{{ book_details.added_by }}</td>
-                                {% endif %}
+                                <td class="right">
+                                    {% if session.user|lower == book_details.added_by|lower %} You
+                                    {% else %} {{ book_details.added_by }}
+                                    {% endif %}
+                                </td>
                             </tr>
-
                         </tbody>
                     </table>
                     <div class="center">
@@ -66,8 +66,7 @@
                                 <a class="btn-small green"
                                     href="{{ url_for('delete_book', book_id=book_details._id) }}">Yes</a> </div>
                         </div>
-                        <a class="btn light-blue"
-                            href="{{ url_for('edit_book', book_id=book_details._id) }}">Edit</a>
+                        <a class="btn light-blue" href="{{ url_for('edit_book', book_id=book_details._id) }}">Edit</a>
                     </div>
 
 
@@ -75,8 +74,6 @@
                 {% endif %}
             </div>
         </div>
-
-    </div>
     </div>
 
     <div class="row">
@@ -148,6 +145,7 @@
                             </div>
                             {% endif %}
                         </div>
+                    </div>
                 </li>
                 {% endfor %}
 

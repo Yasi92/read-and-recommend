@@ -211,6 +211,8 @@ Add a Book / Edit Book Page:
 ### Yet to be implemented
    1. Enable users to upload images to the website instead of an image URl.
    2. On Create Account Page, add ability to see the password that was typed in, to avoid accidental typos.
+   3. Enable users to update their password.
+   4. Enable users to recover their password if it is forgotten.
    
 
 

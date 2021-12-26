@@ -113,10 +113,12 @@
 {% endblock %}
 
 {% block category %}
+<ul>
 {% for category in categories | sort(attribute='category_name') %}
 <li><a class="deep-purple-text darken-4"
         href="{{ url_for('get_categories', category_name=category.category_name) }}">{{ category.category_name.upper() }}</a>
 </li>
 {% endfor %}
+</ul>
 <li><a class="deep-purple-text darken-4" href="{{ url_for('best_seller_books') }}">BEST SELLERS</a></li>
 {% endblock %}
