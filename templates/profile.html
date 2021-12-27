@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-
-
 <div class="row bottom-bordered-row">
     <div class="col s10 offset-s1 m5 offset-m3">
         <div class="row valign-wrapper">
@@ -14,25 +12,27 @@
                 <h4>{{ user.username }}</h4>
                 <p>{{ user.location }}</p>
                 <p>{{ user.email }}</p>
+                <!-- edit profile button -->
                 <a href="{{ url_for('edit_profile', user_id=user._id) }}"
                     class="edit-btn light-blue darken-1 waves-effect waves-light btn"><i
-                        class="fas fa-user-edit left"></i>Edit Profile</a>
+                        class="fas fa-user-edit left"></i>Edit Profile
+                </a>
             </div>
         </div>
     </div>
 </div>
 
-
-
 <div class="container">
     <div class="row">
         <div class="col s12 add-book-btn">
-            <a href="{{ url_for('add_book') }}" class="btn-large grey lighten-2 black-text"><i class="fas fa-plus"></i>
-                Add a Book</a>
+            <!-- add a book button -->
+            <a href="{{ url_for('add_book') }}" class="btn-large grey lighten-2 black-text">
+                <i class="fas fa-plus"></i> Add a Book
+            </a>
         </div>
     </div>
 
-
+    <!-- added books by the user -->
     {% if books_length > 0 %}
     <div class="lighten-5">
         <h3 class="center">Your Added books</h3>
@@ -72,8 +72,6 @@
                             <a class="btn-small green" href="{{ url_for('delete_book', book_id=bookId) }}">Yes</a>
                         </div>
                     </div>
-
-
                     <a class="btn-small light-blue right" href="{{ url_for('edit_book', book_id=book._id) }}"> Edit
                     </a>
                 </div>
@@ -81,7 +79,6 @@
             </div>
         </li>
         {% endfor %}
-
     </ul>
     <div class="center">
         <button class="btn-large center red loadMoreBooks">Load More</button>
@@ -92,13 +89,11 @@
     </div>
     {% endif %}
 
-
-
+    <!-- added reviews by the user -->
     {% if reviews_length > 0 %}
     <div class="lighten-5">
         <h3 class="center">Your Reviews</h3>
     </div>
-
     <div class="row">
         <div class="col s12">
             <ul class="collection">
@@ -115,9 +110,7 @@
                             <blockquote>{{ review.review }}</blockquote>
                             <small class="blue-text">{{ review.date_created|timeago }}</small>
                         </div>
-
                         {% if session.user|lower == review.username|lower %}
-
                         <div class="col s12 m1 offset-m2">
                             <button data-target="modal-{{ review_id }}"
                                 class="red btn-small modal-trigger right">Delete</button>
@@ -134,10 +127,9 @@
                                         class="btn-small green">Delete</a>
                                 </div>
                             </div>
-
-
-                            {% endif %}
                         </div>
+                        {% endif %}
+                    </div>
                 </li>
                 {% endfor %}
             </ul>
@@ -151,8 +143,6 @@
         <h4 class="center red-text">No Reviews</h4>
     </div>
     {% endif %}
-
 </div>
-
 
 {% endblock %}

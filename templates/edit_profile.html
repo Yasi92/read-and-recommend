@@ -1,21 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 {% from "_formhelpers.html" import render_field %}
-
-
-
 <div class="row">
     <div class="col s12 m4">
         <div class="row">
+            <!-- profile image -->
             <div class="col s6 offset-s3 offset-m6 valign-wrapper">
                 <img src="{{ url_for('static',filename='images/images.jpeg') }}" alt="Profile Picture" class="responsive-img circle">
             </div>
         </div>
     </div>
-
-
-
-
     <form class="col s9 offset-s1 m5 offset-m1 form edit-profile-form" method="POST"
         action="{{ url_for('edit_profile', user_id=user._id) }}">
          <!-- username -->
@@ -26,13 +20,11 @@
 
             </div>
         </div>
-
         <!-- email -->
         <div class="row">
             <div class="input-field col s12">
                 <i class="far fa-envelope prefix small-icon grey-text"></i>
                 {{ render_field(edit_form.email, value= user.email  ) }}
-
             </div>
         </div>
         <!-- location -->
@@ -40,7 +32,6 @@
             <div class="input-field col s12">
                 <i class="fas fa-location-arrow prefix small-icon grey-text"></i>
                 {{ render_field(edit_form.location, value= user.location  ) }}
-
             </div>
         </div>
         <!-- submit btn -->
@@ -56,11 +47,6 @@
                 </button>
             </div>
         </div>
-
     </form>
 </div>
-
-
-
-
 {% endblock %}

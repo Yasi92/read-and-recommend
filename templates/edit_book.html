@@ -1,10 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 {% from "_formhelpers.html" import render_field %}
-
-
-
-
 <div class="container">
     <div class="row">
         <a href="#" class="edit-back-btn"><i class="fas fa-arrow-alt-circle-left"></i></a>
@@ -12,25 +8,19 @@
         <div class="col s12 bordered-box">
             <form class="col s10 offset-m1 form add-book-form center" method="POST"
                 action="{{ url_for('edit_book', book_id=book._id) }}">
-
                 <!-- title -->
                 <div class="row">
                     <div class="input-field col s5">
                         {{ render_field(edit_book_form.title, value=book.title) }}
-
                     </div>
-
                     <!-- author -->
-
                     <div class="input-field col s5 offset-m2">
                         {{ render_field(edit_book_form.author, value=book.author) }}
-
                     </div>
                 </div>
                 <!-- category -->
                 <div class="row">
                     <div class="input-field col s5">
-
                         <select id="category_name" name="category_name" class="validate" required>
                             <option value="" disabled>Choose Category</option>
                             {% for category in categories %}
@@ -41,40 +31,30 @@
                             {% endif %}
                             {% endfor %}
                         </select>
-
                     </div>
-
                     <!-- publisher -->
-
                     <div class="input-field col s5 offset-m2">
                         {{ render_field(edit_book_form.publisher, value=book.publisher) }}
-
                     </div>
                 </div>
                 <!-- pages -->
                 <div class="row">
                     <div class="input-field col s5">
                         {{ render_field(edit_book_form.pages, value=book.pages) }}
-
                     </div>
                     <!-- image-url -->
                     <div class="input-field col s5 offset-m2">
                         {{ render_field(edit_book_form.image, value=book.img_url) }}
-
                     </div>
                 </div>
                 <!-- price -->
                 <div class="row">
                     <div class="input-field col s5">
                         {{ render_field(edit_book_form.price, value=book.price) }}
-
                     </div>
-
                     <!-- shopping link -->
-
                     <div class="input-field col s5 offset-m2">
                         {{ render_field(edit_book_form.shopping_link, value=book.shopping_link) }}
-
                     </div>
                 </div>
                 <!-- description -->
@@ -113,5 +93,4 @@
         </div>
     </div>
 </div>
-
 {% endblock %}

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block search %}
-
+<!-- search box -->
 <div class="col l7 s11">
     <form class="row" action="{{ url_for('search') }}" method="post">
         <div class="col s12">
@@ -14,16 +14,12 @@
                             class="fas fa-search"></i></button>
                     <a href="{{ url_for('get_books') }}" class="btn-small btn-floating red lighten-2"><i
                             class="fas fa-redo"></i></a>
-
                 </div>
             </div>
         </div>
     </form>
 </div>
-
-
 {% endblock %}
-
 
 {% block content %}
 <!-- styling active link in flask is learned from (https://stackoverflow.com/questions/22173041/styling-active-element-menu-in-flask)  -->
@@ -39,7 +35,7 @@
         </ul>
     </div>
 </div>
-
+<!-- books from get_category view -->
 {% if category_book %}
 <ul class="ul-books">
     {% for book in category_book %}
@@ -59,9 +55,9 @@
     </li>
     {% endfor %}
 </ul>
-
 {% endif %}
 
+<!-- books from bestseller view -->
 {% if best_sellers %}
 <ul class="ul-books">
     {% for book in best_sellers %}
@@ -83,8 +79,7 @@
 </ul>
 {% endif %}
 
-
-
+<!-- books from get_books view -->
 {% if books_length > 0 %}
 <ul class="ul-books">
     {% for book in books %}
@@ -107,11 +102,9 @@
 {% else %}
 <h3 class="center red-text">No Results Found</h3>
 {% endif %}
-
-
-
 {% endblock %}
 
+<!-- category links in the footer -->
 {% block category %}
 <ul>
 {% for category in categories | sort(attribute='category_name') %}

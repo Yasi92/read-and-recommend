@@ -2,15 +2,12 @@
 {% block content %}
 {% from "_formhelpers.html" import render_field %}
 <h3 class="center-align">Welcome Back To Read And Recommend!</h3>
-
-
 <div class="row sign-in-up-row">
     <div class="col s12 m5 offset-m1 hide-on-small-only">
         <div class="card large">
             <div class="card-image register-bg"></div>
         </div>
     </div>
-
     <div class="col s10 offset-s1 m5">
         <div class="row card large valign-wrapper grey lighten-4">
             <form class="col s10 offset-s1 form blue-border" method="POST" action="{{ url_for('login') }}">
@@ -21,13 +18,11 @@
                         {{ render_field(login_form.username) }}
                     </div>
                 </div>
-                
                 <!-- password -->
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fas fa-user-lock prefix small-icon grey-text"></i>
-                        {{ render_field(login_form.password) }}
-                        
+                        {{ render_field(login_form.password) }}             
                     </div>
                 </div>
                 <!-- submit btn -->

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,9 +14,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     <title>Read And Recommend</title>
 </head>
-
 <body>
-
     <header>
         <div class="header-box center">
             <div class="header-content center">
@@ -26,9 +23,6 @@
                     and recommend it to others if you liked it!</h5>
             </div>
         </div>
-
-
-
         <nav>
             <!-- top navbar -->
             <div class="nav-wrapper row">
@@ -55,10 +49,7 @@
                 {% block search %}
                 {% endblock %}
             </div>
-
         </nav>
-
-
         <!-- moile sidenav -->
         <ul class="sidenav" id="mobile-demo">
             <li><a href="{{ url_for('get_books') }}">Home</a></li>
@@ -134,8 +125,6 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-
-
 </body>
 
 </html>
