@@ -7,7 +7,6 @@
 This is a book recommendation website that provides a shopping link for all books on the website as well as the books' detail and description.
 On this website, users can find a summary of their favorite book, refer to the online store, become a member and write a review about books, and most importantly, add their favorite books to the website.          
 
-
 ## Table of Contents
 1. [UX](#ux)
     * [Goals](#goals)
@@ -45,7 +44,6 @@ On this website, users can find a summary of their favorite book, refer to the o
     * [Acknowledgement](#ackn)
    
 
-
 ## UX   <a id="ux"></a>
 
 The effort has been put into this website to be as intuitive as possible. 
@@ -56,20 +54,16 @@ All pages on this website are responsive to desktop, iPad and, mobile screens.
 - Refer users to Amazon online bookstore and make revenue from each purchase.
 - Classify the books on the database based on their category and present them on the website so that they are easy to find and learn about.
 
-
 ###  The customer objectives of this website are:
 
 - Find a worth reading book and head over to the online store to buy it.
 - Find out about other readers' reviews and opinions about their favorite book.
 - Be able to share their own opinion about a book.
 
-
-
 ### The Ideal customer for this website:
 - Is a book lover and is into reading.
 - Is a fan of online shopping.
 - Is an English speaker.
-
 
 ### User Stories: <a id="user-stories"></a>
 
@@ -83,8 +77,6 @@ All pages on this website are responsive to desktop, iPad and, mobile screens.
 8. As a returning visitor, I would like to edit a book I added to the website.
 9. As a returning visitor, I would like to Remove a book I added to the website.
 10. As a visitor, I would like to filter the books by the category I am looking for.
-
-
 
 ### Wireframe Mockups: <a id="wireframes"></a>      
                    
@@ -110,13 +102,9 @@ Book Detail Page:
 Add a Book / Edit Book Page:            
 [Add a Book Page wireframes PDF](static/readme-assets/wireframes/add-a-book.pdf) 
 
-
-
 ### Flowchart: <a id="flowchart"></a>
 [Registeration and sign-in flowchart](static/readme-assets/readme-img/Login-sign-up.drawio.png) 
 - The register and log In flowchart has been created with [drawio](https://app.diagrams.net/)
-
-
 
 ## Features <a id="features"></a>
 
@@ -144,7 +132,6 @@ Add a Book / Edit Book Page:
     * The navigation bar displays different links such as "Profile", "Add a Book" and "Sign Out" if the user is logged in and, "Sign In" and "Sign Up" if the user has not logged in.
     * The navigation bar collapses from medium screen sizes to a hamburger icon, which unfolds to a navigation drawer when clicked.
     * The search box is embedded in the navigation bar on the home page, where all books are displayed for a quick search by title or author. 
-
 
 
 ![landing page](static/readme-assets/readme-img/home-pg-out.png)
@@ -216,7 +203,6 @@ Add a Book / Edit Book Page:
     * There is a shortcut link to the login page if the user already has an account.
 
 
-
 ![Sign In Page](static/readme-assets/readme-img/sign-in-pg.png)
 *  ### Sign-In Page provides: <a id="sign-in"></a>  
     * A login form with which users can sign in to their account.
@@ -225,11 +211,9 @@ Add a Book / Edit Book Page:
     * There is a shortcut link to the sign-up page for users who have not registered yet.
 
 
-
 ![Custom 404 Page](static/readme-assets/readme-img/404-page.png)
 *  ### Custom 404 Page: <a id="404"></a>
     * The custom 404 page prevents users from confusion and redirects them to the home page if the URL is unavailable or does not exist.
-
 
 
 ![Custom 500 Page](static/readme-assets/readme-img/500-page.png)
@@ -237,11 +221,9 @@ Add a Book / Edit Book Page:
     * The custom 500 page prevents users from confusion and redirects them to the home page when an error occurs.
 
 
-
 ![Back To Top Button](static/readme-assets/readme-img/back-to-top-btn.png)
 *  ### Back To Top Button: <a id="back-btn"></a> 
     * A back-to-top button is featured on all pages to enable users to jump to the top of the page quickly without the need to scroll all the way up to the page.
-
 
 
 ![Footer](static/readme-assets/readme-img/footer-base.png)
@@ -252,7 +234,6 @@ Add a Book / Edit Book Page:
     ![Logged In Footer](static/readme-assets/readme-img/logged-in-footer.png)
     * The quick access links in the footer alters according to the navigation bar links on different pages.
 
-
 ### Yet to be implemented <a id="yet-to-be-implemented"></a>
    1. Enable users to upload images to the website instead of an image URL.
    2. On Create Account Page, add the ability to see the password that was typed in, to avoid accidental typos.
@@ -262,7 +243,6 @@ Add a Book / Edit Book Page:
 
 
 ## Information Architecture <a id="data-info"></a>                 
-
 
 ### Database Choice <a id="db"></a>
 * My personal preference for the database for this project would be SQL as it would suit this project better however, as one of the requirements for this milestone project was using a relational database as Mongodb, this was chosen as my database.
@@ -275,7 +255,6 @@ Add a Book / Edit Book Page:
     * Boolean
     * DateTime 
 
-
 ### Collections JSON format <a id="json-format"></a>
 - [Review collection](static/readme-assets/review-example.json)                       
 - [User collection](static/readme-assets/user-example.json)                       
@@ -284,12 +263,7 @@ Add a Book / Edit Book Page:
 * The "username" is added to all collections except the category, to match the user who added books and reviews.
 * I am aware of the fact that here I could have also gotten this done without creating an additional collection for "category", however, I have decided to do it in this way in order to be able to add extra categories to the collection bar in the future without the need of adding the relevant books first.
 
-
-
-
 ## Technologies Used <a id="tech"></a>
-
-
 ### Languages <a id="langs"></a>
 - HTML5
 - CSS
@@ -375,13 +349,9 @@ Add a Book / Edit Book Page:
 24. [Heroku](https://dashboard.heroku.com/login)
 - This was used as the deployment platform.
 
-
-
 ## Testing <a id="test"></a>
 Testing information can be found in a separate [TESTING.md file](TESTING.md)
 ## Deployment <a id="deploy"></a>
-
-
 ### Local Clone <a id="local-run"></a>
 This is used to make changes to the project code.
 
@@ -393,8 +363,6 @@ This is used to make changes to the project code.
 6. Type git clone, and then paste the URL you copied from the remote repository.
 
 `$ git clone https://github.com/Yasi92/read-and-recommend.git`
-
-
 
 ### How to run this project locally
 
@@ -422,8 +390,6 @@ Ensure you have the following tools and packages installed on your machine:
 7. You can now run the application with the command
 `python app.py`
 
-
-
 ### Heroku Deployement <a id="heroku"></a>
 1. Create a requirements.txt file using the terminal command `pip freeze > requirements.txt.`
 2. Create a Procfile with the terminal command `echo web: python app.py > Procfile.`
@@ -441,18 +407,11 @@ Ensure you have the following tools and packages installed on your machine:
 | PORT | 8000 |
 | SECRET_KEY | 	<your_secret_key> |
 
-
 9. In the heroku dashboard, click "Deploy".
 10. In the "Manual Deployment" section of this page, made sure the master branch is selected and then click "Deploy Branch".
 11. The site is now successfully deployed.
 
-
-
-
-
-
 ## Credits <a id="credits"></a>
-
 ### Content <a id="content"></a>
 
 All the books in this website are taken from [Amazon Book Store](https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Dstripbooks-intl-ship&field-keywords=&ref=nb_sb_noss_1&crid=JQUXS5J7BQOJ&sprefix=biography%2Cstripbooks-intl-ship%2C332)
@@ -460,8 +419,6 @@ All the books in this website are taken from [Amazon Book Store](https://www.ama
 ### Media <a id="media"></a>
 The heading image in the website is taken from: 
 - [Pinterest](https://nl.pinterest.com/)
-
-
 
 ### Code <a id="code"></a>
 - The template and functions for 404 and 500 pages were provided by my mentor **Richard Wells**.
@@ -473,12 +430,7 @@ The heading image in the website is taken from:
 - The back to top button is learned from this thread on stackoverflow [here](https://stackoverflow.com/questions/14249998/jquery-back-to-top)
 - The hover effect on the links is borrowed from [here](http://ianlunn.github.io/Hover/)
 - The fadeIn effect on the book cards is learned from [here](https://stackoverflow.com/questions/54384218/fade-in-effect-for-div-without-id) 
-
-
-
-
 ## Acknowledgements <a id="ackn"></a>
-
 
 - Special thanks to my mentor **Richard Wells** for his constant valuable feedback and ideas throughout the project. 
 - Tutors at Code Institute for their continued support.
@@ -486,6 +438,3 @@ The heading image in the website is taken from:
 - Stack Overflow.
 - My mentor Richard Wells.
 - I have learned more in detail about how to complete my README from **Anna Gilhespy**'s project, provided in the Code Institute's Slack community as a README template.
-
-
-

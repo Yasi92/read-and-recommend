@@ -16,15 +16,12 @@
 - Lighthouse was also used to check the overall performance of the website and as a way to improve the website performance.
                                   
 
-
 | Bugs | Solutions |            
 | ----------- | ----------- |   
 | The back to top button did not always land on top of the footer as it intended when resizing the window without reloading the page. | This was solved by wrapping the variable that defines the footer's height in setInterval() function which runs every 500 milliseconds. |
 | One of the challenges I faced in this project was styling the active links that point to a python view. The issue was originated from the fact that every time a link was clicked the whole page is refreshed and as a result, the applied style to the active links would disappear in a blink. | The issue was solved by using a built-in flask request.path attribute which was used to achieve this. |
 | When testing the edit_book function, noticed that it does not check if the book title already exists in the database before updating the book and as a result, there was a high chance of duplicated books on the website. | I fixed this by adding a line of code before updating the book collection in the database which queries all the books with the same title and resets the form if there is one. |
 | When testing the "edit_profile" and "edit_book" function in app.py, noticed that there is a bug in the code when I try to update any other fields than the title and username fields in the form. This happened since I was trying to avoid a duplicate username and title in those functions and as such, I would have reset the form if the title and username had already existed in the database. The main issue was that all the fields in the form were pre-filled and given a value from the database and, consequently the if statement would consider an untouched title and username as new data which already existed in the database. | I got around this issue by adding extra "elif" statements that check if the username and title from the database are equal to the value from the form and in that case, they won't be considered as "exsisting_user" and "exsisting_book" and this will allow to update the other fields. | 
-
-
 
 
 | Known Issues | Causes |            
@@ -34,7 +31,6 @@
 | The back to top button does not always land on top of the footer as intended when resizing the window without reloading the page. | This happens because the bottom position of the button is defined with javascript on ready document state. |
 | The python code in some functions such as "edit_form" and "edit_profile" may be quite verbose and I believe it could have been more "DRY". | This has not been fixed as I believe it requires more experience and time to debug. |
      
-  
 
 ## Client stories testing:
 
@@ -78,9 +74,6 @@ Each of these possible paths has been tested repeatedly.
 10. As a visitor, I would like to filter the books by the category I am looking for.
 - I navigate to the home page (whether I am logged in or not), select the category from the collection bar, and then I can see all the books with the category I am interested in.
 
-   
-
-
 ## Manual (logical) testing of all elements and functionality on every page.      
 
 ###  Navigation Bar
@@ -96,7 +89,6 @@ Each of these possible paths has been tested repeatedly.
 - Type an author name and make sure it displays all the books from that author.
 - Type a title or an author name that exists in the database and make sure the "No Results found" text displays on the screen.
 - Click on the reset button and make sure it resets the searches and displays all books.
-
 
 ### Home page
 - Click on every collection bar link and make sure they display the books from the right category.
@@ -133,8 +125,6 @@ Each of these possible paths has been tested repeatedly.
 - Check a book with less than 4 reviews and make sure all the reviews are displayed and the "Load More" button does not show.
 - Resize the window in the iPad and mobile screen size to make sure all sections are responsive and the layout changes on different screen sizes.
 
-
-
 ### Edit Book Page
 - Check the page URL and make sure it shows the right path name as expected and that the book is triggered by its ObjectId to be edited. For instance(http://192.168.1.13:8000/edit_book/61b10198aed1435538424f4e)
 - Make sure the form is already pre-filled with the book details.
@@ -143,9 +133,6 @@ Each of these possible paths has been tested repeatedly.
 - Try to uncheck the best seller check box and make sure that after the submission the best seller badge is removed from the title. 
 - Try to modify any field on the form except the title and make sure it updates the form accordingly.
 - Resize the window in the iPad and mobile screen size to make sure all sections are responsive and the layout changes on different screen sizes.
-
-
-
 
 ### Profile Page
 - Make sure your account details are displayed correctly on the profile page.
@@ -173,7 +160,6 @@ Each of these possible paths has been tested repeatedly.
 - Submit the deletion and make sure the feedback message pops up on the page informing the review was deleted.
 - Resize the window in the iPad and mobile screen size to make sure all sections are responsive and the layout changes on different screen sizes.
 
-
 ### Edit Profile Page
 - Check the page URL and make sure the user is triggered to be edited by its ObjectId. For instance (http://192.168.1.13:8000/edit_profile/61c331f5cd6335d6a47fcc2f)
 - Make sure all fields on the edit profile page are pre-filled with the user's account info.
@@ -187,14 +173,11 @@ Each of these possible paths has been tested repeatedly.
 - Resize the window in the iPad and mobile screen size to make sure all sections are responsive and the layout changes on different screen sizes.
 
 
-
 ### Add a Book Page
 - Click on every single field and make sure they have the applied active style.
 - Try to submit the form with every field empty at a time and make sure it shows the validation error message.
 - Fill out the form accordingly and submit it. Next check if the book is successfully added with the correct detail and a feedback message pops up informing the book has been added.
 - Resize the window in the iPad and mobile screen size to make sure all sections are responsive and the layout changes on different screen sizes.
-
-
 
 ### Sign In page
 - Sign Out of the account and make sure the feedback message pops up on the window informing that you have been logged out.
@@ -204,7 +187,6 @@ Each of these possible paths has been tested repeatedly.
 - Check the "Register Account" link underneath the "Log In" button and make sure it navigates to the Sign Up page.
 - Try to log in with an incorrect username and/or password and make sure you won't be logged in and that a feedback message pops up on the window informing that the "Username/Password is incorrect".
 - Resize the window in the iPad and mobile screen size to make sure all sections are responsive and the layout changes on different screen sizes and that the image card won't be displayed on the mobile screens.
-
 
 ### Sign Up page
 - Click on every field to assure that the active style is applied to the fields and that the labels jump up and make space for the input value.
@@ -223,7 +205,6 @@ Each of these possible paths has been tested repeatedly.
 - Click on the button and make sure that the animation effect works properly and the page scrolls to the top smoothly.
 
 
-
 ### Footer
 - Confirm that footer code is identical on all HTML pages.
 - Try to log in and check the footer on every single page to make sure that the links embedded in the footer updates accordingly.
@@ -231,19 +212,14 @@ Each of these possible paths has been tested repeatedly.
 - Resize the window in the iPad and mobile screen size to make sure all sections are responsive and the layout changes on different screen sizes.
 - From the home page, check if all the book collection links are accessible from the footer as well, and check every link separately.
 
-
-
 ### Custom 404 Page
 - Try to change the pathname in the URL manually to a random name and make sure that the custom 404 page appears on the screen informing you that the page is not found.
 - Click on the "Let's Go Home" button and make sure it returns you to the home page.
-
-
 
 ### Custom 500 Page
 - From the home page click on a book card and then from the URL try to change the book id in the URL path to something random. Make sure that the custom 500 page appears on the screen informing you that something went wrong.
 - Click on the "Let's Go Back" button and make sure it returns you to the home page.
 - **Note** that this is something that you can examine only if the Debugger is False in your flask app.
-
 
 ## Further Testing
 I have tested the live website on the following browsers and devices with [BrowserStack](https://live.browserstack.com/)            
@@ -274,10 +250,9 @@ I have tested the live website on the following browsers and devices with [Brows
 | Edge | The window.history(-1) does not always return to the same scroll position. |
 | Opera | The window.history(-1) does not always return to the same scroll position. |                                 
 
-
-                                                                          
-  - All the links and buttons on the website were checked repeatedly.
-  - The website has been manually tested and evaluated by my mentor "Richard Wells" and I was provided with valuable feedback and ideas.
-  - Friends and acquaintances were asked to review the website, its content, and the user experience overall.
+                                                                         
+- All the links and buttons on the website were checked repeatedly.
+- The website has been manually tested and evaluated by my mentor "Richard Wells" and I was provided with valuable feedback and ideas.
+- Friends and acquaintances were asked to review the website, its content, and the user experience overall.
     
  
