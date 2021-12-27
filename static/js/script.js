@@ -4,9 +4,7 @@ $(document).ready(function () {
   var cards = document.querySelectorAll('.book-card');
 
   cards.forEach((card) => {
-
     card.classList.add('show');
-
   });
 
 

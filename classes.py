@@ -27,14 +27,11 @@ class LoginForm(Form):
     username = StringField('Username')
     password = PasswordField('Password')
 
-
-
 class ReviewForm(Form):
     review =  TextAreaField('Write Here',
                             [validators.Length(min=3, max=8000),
                             validators.DataRequired()], default=None)
     
-
 class EditProfile(Form):
     location = StringField('Your Location',
                         [validators.Length(min=3, max=50),
@@ -44,8 +41,6 @@ class EditProfile(Form):
     username = StringField('Username', [validators.Length(min=4, max=25),
                             validators.DataRequired(), validators.Regexp('^\w+$',
                             message="Username must contain only letters numbers or underscore")])
-
-
 
 class AddBook(Form):
     categories= [('1', 'literature'), ('2', 'romance'),

@@ -30,6 +30,7 @@
 | The back button on books.html does not return to the same scroll position on the previous page on Chrome, Edge, and Opera but perfectly works on Safari and Firefox.| According to my inquiry about this issue, this is a browser issue that has been reported by many users but has not been fixed yet.|
 | The back to top button does not always land on top of the footer as intended when resizing the window without reloading the page. | This happens because the bottom position of the button is defined with javascript on ready document state. |
 | The python code in some functions such as "edit_form" and "edit_profile" may be quite verbose and I believe it could have been more "DRY". | This has not been fixed as I believe it requires more experience and time to debug. |
+| When testing the add a book form, noticed that I could have used IntegerField and DecimalField instead of the Stringfield for the price and pages field. | This was not achieved because of the time limit I had since the issue was known and will be later improved. |
      
 
 ## Client stories testing:
