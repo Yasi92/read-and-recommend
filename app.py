@@ -306,7 +306,8 @@ def add_book():
 
     if request.method == "POST":
         # Checks if the book exists in db
-        existing_book = mongo.db.books.find_one({"title" : add_book_form.title.data.lower()})
+        existing_book = mongo.db.books.find_one(
+                                {"title" : add_book_form.title.data.lower()})
 
         if existing_book:
             flash("The Book Title Exists In Our Collection")
@@ -351,30 +352,34 @@ def edit_book(book_id):
     edit_book_form = AddBook(request.form)
    
     if request.method == "POST":
+        # Checks if the book title already exists in db.
         existing_book = mongo.db.books.find_one(
                 {"title" : edit_book_form.title.data.lower()})
 
-        if existing_book:
-            flash("The book title already exists.")
-            return redirect(url_for("edit_book", book_id=book["_id"]))
-       
-        new_book = {
-            "title" : edit_book_form.title.data.lower(),
-            "author" : edit_book_form.author.data,
-            "category_name" : request.form.get("category_name"),
-            "publisher" :edit_book_form.publisher.data,
-            "pages" : edit_book_form.pages.data,
-            "shopping_link" : edit_book_form.shopping_link.data,
-            "img_url" : edit_book_form.image.data,
-            "description" :request.form.get("desc"),
-            "best_seller" : edit_book_form.best_seller.data,
-            "price" : edit_book_form.price.data,
-            "added_by" : session['user']
-        }
+        # If the title is not being updated but the other fields are, it updates the other fields.
+        if book["title"] == edit_book_form.title.data.lower():
+            new_book = {
+                "title" : book["title"],
+                "author" : edit_book_form.author.data,
+                "category_name" : request.form.get("category_name"),
+                "publisher" :edit_book_form.publisher.data,
+                "pages" : edit_book_form.pages.data,
+                "shopping_link" : edit_book_form.shopping_link.data,
+                "img_url" : edit_book_form.image.data,
+                "description" :request.form.get("desc"),
+                "best_seller" : edit_book_form.best_seller.data,
+                "price" : edit_book_form.price.data,
+                "added_by" : session['user']
+            }
 
-        mongo.db.books.update_one({"_id" : ObjectId(book_id)}, {'$set' : new_book})
-        flash("Book Edited")
-        return redirect(url_for('get_book', book_id=book["_id"]))
+            mongo.db.books.update_one({"_id" : ObjectId(book_id)}, {'$set' : new_book})
+            flash("Book Edited")
+            return redirect(url_for('get_book', book_id=book["_id"]))
+
+        # If the title is being updated to an exsisting title in db
+        elif existing_book["title"] == edit_book_form.title.data.lower():
+            flash("Book title already exists.")
+            return redirect(url_for('edit_book', book_id=book["_id"]))
 
     return render_template("edit_book.html", book=book,
                         edit_book_form=edit_book_form,

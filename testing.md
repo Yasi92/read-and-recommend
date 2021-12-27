@@ -21,6 +21,7 @@
 | ----------- | ----------- |   
 | The back to top button did not always land on top of the footer as it intended when resizing the window without reloading the page. | This was solved by wrapping the variable that defines the footer's height in setInterval() function which runs every 500 miliseconds. |
 | One of the challenges I faced in this project was styling the active links that point to a python view. The issue was originated from the fact that every time a link was clicked the whole page is refreshed and as a result, the applied style to the active links would disappear in a blink. | The issue was solved by using a built-in flask request.path attribute which was used to achieve this. |
+| When testing the edit_book function, noticed that it does not check if the book title already exists in the database before updating the book and as a result, there was a high chance of duplicated books on the website. | I fixed this by adding a line of code before updating the book collection in the database which queries all the books with the same title and resets the form if there is one. |
 
 
 
@@ -134,8 +135,9 @@ Each of these possible paths has been tested repeatedly.
 ### Edit Book Page
 - Check the page URL and make sure it shows the right path name as expected and that the book is triggered by its ObjectId to be edited. For instance(http://192.168.1.13:8000/edit_book/61b10198aed1435538424f4e)
 - Make sure the form is already pre-filled by the book details.
-- 
-
+- Try to change the book title to an already existing title and make sure it displays a feedback message informing that the book title already exists, without updating the book.
+- Try To change any field from the form and submit the form. Make sure the book is updated as expected and it redirects to the book detail page with the corresponding book.
+- Try to uncheck the best seller check box and make sure that after the submission the best seller badge is removed from the title. 
 
 
 ### Profile Page
