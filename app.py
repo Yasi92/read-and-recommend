@@ -201,13 +201,7 @@ def edit_profile(user_id):
 
 
         # clears the form if username exits in db
-        elif existing_user:
-            flash(f'Username "{edit_form.username.data}" already exists.')
-            return redirect(url_for("edit_profile", user_id=user["_id"]))
-
-
-        # Since password is not getting updated in db, "$set" is used to update the specific records.    
-        else:
+        elif user["username"] == edit_form.username.data.lower():
             mongo.db.users.update(
                                 {"_id" : ObjectId(user_id)},
                                 {'$set': {"username" : edit_form.username.data.lower(),
@@ -225,6 +219,13 @@ def edit_profile(user_id):
             session["user"] = edit_form.username.data.lower()  
             flash("Profile Updated")
             return redirect(url_for('profile', username=session['user']))
+
+
+        # Since password is not getting updated in db, "$set" is used to update the specific records.    
+        elif existing_user["username"] == edit_form.username.data.lower():
+            flash(f'Username "{edit_form.username.data}" already exists.')
+            return redirect(url_for("edit_profile", user_id=user["_id"]))
+
 
     return render_template('edit_profile.html', 
                         edit_form=edit_form,
