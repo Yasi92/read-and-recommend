@@ -47,7 +47,7 @@ On this website, users can find a summary of their favorite book, refer to the o
 
 
 ## UX   <a id="ux"></a>
----
+
 The effort has been put into this website to be as intuitive as possible. 
 All pages on this website are responsive to desktop, iPad and, mobile screens.
 
@@ -116,7 +116,7 @@ Add a Book / Edit Book Page:
 
 
 ## Features <a id="features"></a>
----
+
 ### Existing Features
 
 
@@ -259,7 +259,7 @@ Add a Book / Edit Book Page:
 
 
 ## Information Architecture <a id="data-info"></a>                 
----
+
 
 ### Database Choice <a id="db"></a>
 * My personal preference for the database for this project would be SQL as it would suit this project better however, as one of the requirements for this milestone project was using a relational database as Mongodb, this was chosen as my database.
@@ -285,7 +285,7 @@ Add a Book / Edit Book Page:
 
 
 ## Technologies Used <a id="tech"></a>
----
+
 
 
 ### Languages <a id="langs"></a>
@@ -376,10 +376,9 @@ Add a Book / Edit Book Page:
 
 
 ## Testing <a id="test"></a>
----
 Testing information can be found in a separate [TESTING.md file](TESTING.md)
 ## Deployment <a id="deploy"></a>
----
+
 
 ### Local Clone <a id="local-run"></a>
 This is used to make changes to the project code.
@@ -451,7 +450,7 @@ Ensure you have the following tools and packages installed on your machine:
 
 
 ## Credits <a id="credits"></a>
----
+
 
 - [Stackoverflow](https://stackoverflow.com/)
 - [w3schools](https://www.w3schools/howto/tryit.asp?filename=tryhow_js_scroll_to_top)
@@ -459,7 +458,7 @@ Ensure you have the following tools and packages installed on your machine:
 
 
 ## Content <a id="content"></a>
----
+
 All the books in this website are taken from [Amazon Book Store](https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Dstripbooks-intl-ship&field-keywords=&ref=nb_sb_noss_1&crid=JQUXS5J7BQOJ&sprefix=biography%2Cstripbooks-intl-ship%2C332)
 
 ## Media <a id="media"></a>
@@ -483,7 +482,7 @@ The heading image in the website is taken from:
 
 
 ## Acknowledgements <a id="ackn"></a>
----
+
 
 - Special thanks to my mentor **Richard Wells** for his constant valuable feedback and ideas throughout the project. 
 - Tutors at Code Institute for their continued support.
