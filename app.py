@@ -200,13 +200,14 @@ def edit_profile(user_id):
             return redirect(url_for("profile", username=user["username"]))
 
 
-        # clears the form if username exits in db
+        # Checks if the username is not being considered to be updated to an already existing username
+        # Since password is not getting updated in db, "$set" is used to update the specific records.  
         elif user["username"] == edit_form.username.data.lower():
             mongo.db.users.update(
-                                {"_id" : ObjectId(user_id)},
-                                {'$set': {"username" : edit_form.username.data.lower(),
-                                "email" : edit_form.email.data,
-                                "location": edit_form.location.data}})
+                            {"_id" : ObjectId(user_id)},
+                            {'$set': {"username" : edit_form.username.data.lower(),
+                            "email" : edit_form.email.data,
+                            "location": edit_form.location.data}})
 
             # updates the username in books collection added by the user
             mongo.db.books.update_many({"added_by" : user["username"]},
@@ -221,10 +222,30 @@ def edit_profile(user_id):
             return redirect(url_for('profile', username=session['user']))
 
 
-        # Since password is not getting updated in db, "$set" is used to update the specific records.    
-        elif existing_user["username"] == edit_form.username.data.lower():
+        # clears the form if username exits in db 
+        elif existing_user and existing_user["username"] == edit_form.username.data.lower():
             flash(f'Username "{edit_form.username.data}" already exists.')
             return redirect(url_for("edit_profile", user_id=user["_id"]))
+
+
+        else:
+            mongo.db.users.update(
+                            {"_id" : ObjectId(user_id)},
+                            {'$set': {"username" : edit_form.username.data.lower(),
+                            "email" : edit_form.email.data,
+                            "location": edit_form.location.data}})
+
+            # updates the username in books collection added by the user
+            mongo.db.books.update_many({"added_by" : user["username"]},
+                                         {'$set' : {"added_by" : edit_form.username.data.lower()}})
+
+            # updates the username in reviews collection added by the user
+            mongo.db.reviews.update_many({"username" : user['username']},
+                                         {'$set' : {"username" : edit_form.username.data.lower()}}) 
+
+            session["user"] = edit_form.username.data.lower()  
+            flash("Profile Updated")
+            return redirect(url_for('profile', username=session['user']))
 
 
     return render_template('edit_profile.html', 
@@ -356,11 +377,12 @@ def edit_book(book_id):
         # Checks if the book title already exists in db.
         existing_book = mongo.db.books.find_one(
                 {"title" : edit_book_form.title.data.lower()})
+          
 
         # If the title is not being updated but the other fields are, it updates the other fields.
         if book["title"] == edit_book_form.title.data.lower():
             new_book = {
-                "title" : book["title"],
+                "title" : edit_book_form.title.data.lower(),
                 "author" : edit_book_form.author.data,
                 "category_name" : request.form.get("category_name"),
                 "publisher" :edit_book_form.publisher.data,
@@ -377,10 +399,35 @@ def edit_book(book_id):
             flash("Book Edited")
             return redirect(url_for('get_book', book_id=book["_id"]))
 
+
+
         # If the title is being updated to an exsisting title in db
-        elif existing_book["title"] == edit_book_form.title.data.lower():
+        elif existing_book and existing_book["title"] == edit_book_form.title.data.lower():
             flash("Book title already exists.")
             return redirect(url_for('edit_book', book_id=book["_id"]))
+
+
+        else:
+            new_book = {
+                "title" : edit_book_form.title.data.lower(),
+                "author" : edit_book_form.author.data,
+                "category_name" : request.form.get("category_name"),
+                "publisher" :edit_book_form.publisher.data,
+                "pages" : edit_book_form.pages.data,
+                "shopping_link" : edit_book_form.shopping_link.data,
+                "img_url" : edit_book_form.image.data,
+                "description" :request.form.get("desc"),
+                "best_seller" : edit_book_form.best_seller.data,
+                "price" : edit_book_form.price.data,
+                "added_by" : session['user']
+            }
+
+            mongo.db.books.update_one({"_id" : ObjectId(book_id)}, {'$set' : new_book})
+            flash("Book Edited")
+            return redirect(url_for('get_book', book_id=book["_id"]))
+
+
+
 
     return render_template("edit_book.html", book=book,
                         edit_book_form=edit_book_form,
