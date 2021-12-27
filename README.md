@@ -290,7 +290,6 @@ Add a Book / Edit Book Page:
 ## Technologies Used <a id="tech"></a>
 
 
-
 ### Languages <a id="langs"></a>
 - HTML5
 - CSS
@@ -409,7 +408,7 @@ Ensure you have the following tools and packages installed on your machine:
  - An account at MongoDB Atlas or MongoDB.
 
 
-##### Instructions
+#### Instructions
 1. Clone the repository with the following command.
 `$ git clone https://github.com/Yasi92/read-and-recommend.git`
 2. cd to the correct repository location.
@@ -418,7 +417,7 @@ Ensure you have the following tools and packages installed on your machine:
 4. Install all required modules with the command
 `pip -r requirements.txt`
 5. In your local IDE create a file called .env.py 
-6. Inside the .env.py file, create a SECRET_KEY variable and a MONGO_URI to link to your own database.
+6. Inside the .env.py file, create a SECRET_KEY variable and a MONGO_URI to link to your own database.             
 **Note** that the data in the .env.py are confidential and as a result it won't be provided here.
 7. You can now run the application with the command
 `python app.py`
@@ -454,23 +453,17 @@ Ensure you have the following tools and packages installed on your machine:
 
 ## Credits <a id="credits"></a>
 
-
-- [Stackoverflow](https://stackoverflow.com/)
-- [w3schools](https://www.w3schools/howto/tryit.asp?filename=tryhow_js_scroll_to_top)
-
-
-
-## Content <a id="content"></a>
+### Content <a id="content"></a>
 
 All the books in this website are taken from [Amazon Book Store](https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Dstripbooks-intl-ship&field-keywords=&ref=nb_sb_noss_1&crid=JQUXS5J7BQOJ&sprefix=biography%2Cstripbooks-intl-ship%2C332)
 
-## Media <a id="media"></a>
+### Media <a id="media"></a>
 The heading image in the website is taken from: 
 - [Pinterest](https://nl.pinterest.com/)
 
 
 
-## Code <a id="code"></a>
+### Code <a id="code"></a>
 - The template and functions for 404 and 500 pages were provided by my mentor **Richard Wells**.
 - Styling active element menu in flask has been learned from [here](https://stackoverflow.com/questions/22173041/styling-active-element-menu-in-flask)
 - The dynamic copyright year is learned form [here](https://stackoverflow.com/questions/43714006/how-can-one-create-a-dynamic-copyright-date-without-document-write-in-javascri)
@@ -492,7 +485,7 @@ The heading image in the website is taken from:
 - Code Institute's Slack community was a great help every step of the way during the project.
 - Stack Overflow.
 - My mentor Richard Wells.
-
+- I have learned more in detail about how to complete my README from **Anna Gilhespy**'s project, provided in the Code Institute's Slack community as a README template.
 
 
 
