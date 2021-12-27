@@ -80,6 +80,103 @@ Each of these possible paths has been tested repeatedly.
 ## Manual (logical) testing of all elements and functionality on every page.      
 
 ###  Navigation Bar
+- Click on every single link on the navigation bar to assure they are all properly wired up.
+- Check the page URL and make sure it shows the right path name. (http://read-and-recommend.herokuapp.com/get_books)
+- Check the accessibility to the links that are supposed to be visible on the two different states of logged In/Out.
+- Hover over every single link to make sure they have the proper style.
+- Click on the links and make sure the active style is applied to them until another link is clicked.
+- Change the screen size from desktop to tablet to verify that the navigation bar is responsive and switches from the inline menu to the burger icon dropdown menu at the appropriate place.
+- Click on the burger icon to make sure the menu opens from the right side of the screen.
+- Check the search box size and function on the home page.
+- Type a book title that is known it exists and make sure it will be displayed.
+- Type an author name and make sure it displays all the books from that author.
+- Type a title or an author name which is known it does not exist in the database and make sure the "No Results found" text displays on the screen.
+- Click on the reset button and make sure it resets the searches and displays all books.
+
+
+### Home page
+- Click on every collection bar link and make sure they display the books from the right category.
+- Check the page URL and make sure it shows the right path name as expected. (http://read-and-recommend.herokuapp.com/get_books/get_categories/history)
+- Make sure the active style is applied to the links on click.
+- Resize the window size and make sure that the links have proper position and padding on the iPad and mobile screen.
+- Scroll down the page and check the layout of the book cards on the home page.
+- Click on the book cards and make sure they navigate to the corresponding book detail page.
+- Hover over the book cards and make sure they have the applied style.
+- Resize the window in the iPad and mobile screen size to make sure all sections are responsive and the layout changes on different screen sizes.
+
+
+### Book Detail page
+- Click on the back button and make sure it returns to the previous home page on the same scroll position.
+(As explained above, this does not always work properly on Chrome and Edge browsers and it is considered as a browser incompatibility)
+- Check the page URL and make sure it shows the right path name as expected and that the book is triggered by its ObjectId. (http://read-and-recommend.herokuapp.com/get_book/61b89fed83b47941f2028fbd)
+- Click on a book from the best seller category and make sure the best seller badge displays on top of the book title.
+- Click on a book from non best seller category and make sure the best seller badge does not display.
+- Click on the "Go Get It" button and make sure it navigates to the store in a new tab.
+- Find a book that was added by the user and make sure the "Delete" and "Edit" buttons are displayed in the section.
+- Click on the "Edit" button and make sure it navigates to the edit book page.
+- Click on the "Delete" button on the added books and make sure before the deletion it opens a delete confirmation modal. 
+- Make sure the modal triggers the right book to delete.
+- Ignore the deletion and make sure it returns safely to the profile page.
+- Submit the deletion and make sure the feedback message displays on the page informing the book was deleted.
+- Find another book that was not added by the user and make sure the "Delete" and "Edit" buttons are not accessible.
+- Click on the "Read More" text on the book description and make sure it expands the description text.
+- Try to write a review in the review form and submit it when the user is not logged in and make sure it returns to the login page with a feedback message asking the user to login first.
+- Try to submit a review when the user is logged in and make sure that the review is submitted successfully and the user is provided with a feedback message thanking them for their feedback.
+- After submitting a review, scroll down the page and make sure your review is displayed in the review section with correct data.
+- Check if the time for the added review is shown in a format of time ago properly.
+- Check a book with more than 4 reviews and make sure the reviews are displayed in slices of 4 and the "Load More" button is shown underneath the reviews.
+- Click on the "Load More" button and make sure more reviews in slices of 4 will be displayed and that the button fades out once there are no more reviews to display..
+- Check a book with less than 4 reviews and make sure all the reviews are displayed and the "Load More" button does not show.
+- Resize the window in the iPad and mobile screen size to make sure all sections are responsive and the layout changes on different screen sizes.
+
+
+
+### Edit Book Page
+- Check the page URL and make sure it shows the right path name as expected and that the book is triggered by its ObjectId to be edited. For instance(http://192.168.1.13:8000/edit_book/61b10198aed1435538424f4e)
+- Make sure the form is already pre-filled by the book details.
+- 
+
+
+
+### Profile Page
+- Make sure your account details are displayed correctly on the profile page.
+- Check the page URL and make sure the username is displayed after the profile path. For instance (http://read-and-recommend.herokuapp.com/profile/zahra)
+- Click on the "Edit Profile" button and make sure it navigates to the edit profile page with a pre-filled form with the user's account info.
+- Click on the "Add a Book" button and make sure it navigates to the Add a book page.
+- Scroll down the page and check the list of the books added by the user.
+- Click on any part of the added book such as its image, title, or author, and make sure it navigates to the book detail page.
+- Click on the "Edit" button on the added books and make sure it works.
+- Click on the "Delete" button on the added books and make sure before the deletion it opens a delete confirmation modal. 
+- Make sure the modal triggers the right book to delete.
+- Ignore the deletion and make sure it returns safely to the profile page.
+- Submit the deletion and make sure the feedback message displays on the page informing the book was deleted.
+- Login with a user account with more than 6 added books and make sure the added book list on the profile page displays in slices of 6 and that the "Load More" button is visible.
+- Click on the "Load more" button and make sure it displays more added books in slices of 6 and that the button fades out once there are no more books to display.
+- Login with a user account with less than 6 added books and make sure that all the added books are displayed and the "Load More" button is not visible.
+- Login with a user account with more than 4 added reviews and make sure the review list on the profile page displays in slices of 4 and that the "Load More" button is visible.
+- Click on the "Load more" button and make sure it displays more reviews from the user in slices of 4 and that the button fades out once there are no more reviews to display.
+- Login with a user account with less than 4 added reviews and make sure that all the reviews are displayed and the "Load More" button is not visible.
+- Make sure a "Delete" button is featured on every review added by the user.
+- Check the time of the added review is correctly shown in a format of time ago.
+- Click on the "Delete" button on the review section and make sure before the deletion it opens a delete confirmation modal. 
+- Make sure the modal triggers the right review to delete.
+- Ignore the deletion and make sure it returns safely to the profile page.
+- Submit the deletion and make sure the feedback message displays on the page informing the review was deleted.
+- Resize the window in the iPad and mobile screen size to make sure all sections are responsive and the layout changes on different screen sizes.
+
+
+### Edit Profile Page
+- Check the page URL and make sure the user is triggered to be edited by its ObjectId. For instance (http://192.168.1.13:8000/edit_profile/61c331f5cd6335d6a47fcc2f)
+- Make sure all fields on the edit profile page are pre-filled with the user's account info.
+- Change the username to an already existing username and make sure it returns a feedback message informing that the username already exists in the database and that nothing will be changed in that case.
+- Change the username to a new username and make sure the feedback message is displayed informing that the profile has been updated. 
+- Check if after updating the username, it redirects to the profile page with the updated username and that the profile name updates correspondingly in the URL path.
+- Check if after updating the username, all the books and reviews added by the user are updated accordingly in the review and book collections.
+- Try to click on the "Save" button without making any change to the profile info and make sure it returns to the profile page without any feedback message.
+- Click on the "Cancel" button and make sure it returns to the profile page without any changes to the account info.
+- Try to change other fields in the form such as location and/or email address and check if the feedback message is displayed and the data has been updated on the profile page.
+- Resize the window in the iPad and mobile screen size to make sure all sections are responsive and the layout changes on different screen sizes.
+
 
 
 

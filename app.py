@@ -351,9 +351,15 @@ def edit_book(book_id):
     edit_book_form = AddBook(request.form)
    
     if request.method == "POST":
+        existing_book = mongo.db.books.find_one(
+                {"title" : edit_book_form.title.data.lower()})
+
+        if existing_book:
+            flash("The book title already exists.")
+            return redirect(url_for("edit_book", book_id=book["_id"]))
        
         new_book = {
-            "title" : edit_book_form.title.data,
+            "title" : edit_book_form.title.data.lower(),
             "author" : edit_book_form.author.data,
             "category_name" : request.form.get("category_name"),
             "publisher" :edit_book_form.publisher.data,
@@ -416,4 +422,4 @@ def internal_error(err):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=False)    
+            debug=True)    

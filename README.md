@@ -103,14 +103,14 @@ Add a Book / Edit Book Page:
 
 
 ![landing page](static/readme-assets/readme-img/home-pg-out.png)
-*  #### Landing page provides:
+*  #### Home page provides:
     * A search box in which users can search for their favorite books by title or author.
     * Category collection bar which filters books by their category.
     * Small book cards with image, title and author name, which on click navigates users to a page with full information of each book.            
 
 
 ![Book Detail](static/readme-assets/readme-img/added-book.png)
-*  #### Book Detail page provides:
+*  #### Book Detail Page Provides:
     * A full image of the book cover.
     * Full information of the book such as title, author, publisher, price, pages and, name of the user who added the book.
     * A "Go get it" button that navigates users to the online store in a new tab.
