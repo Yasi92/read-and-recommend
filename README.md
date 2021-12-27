@@ -1,5 +1,13 @@
 # Maryam Abdolbeigi
 
+## Read And Recommend
+![Responsive Design](static/readme-assets/readme-img/responsive-design.png)       
+[The Website In Action](https://read-and-recommend.herokuapp.com/)
+
+This is a book recommendation website that provides a shopping link for all books on the website as well as the book's detail and description.
+On this website, users can find a summary of their favorite book, refer to the online store, become a member and write a review about books, and most importantly, add their favorite books to the website.          
+
+
 ## Table of Contents
 1. [UX](#ux)
     * [Goals](#goals)
@@ -37,16 +45,6 @@
     * [Acknowledgement](#ackn)
    
 
-
-
-
-
-## Read And Recommend
-![Responsive Design](static/readme-assets/readme-img/responsive-design.png)       
-[The Website In Action](https://read-and-recommend.herokuapp.com/)
-
-This is a book recommendation website that provides a shopping link for all books on the website as well as the book's detail and description.
-On this website, users can find a summary of their favorite book, refer to the online store, become a member and write a review about books, and most importantly, add their favorite books to the website.          
 
 ## UX   <a id="ux"></a>
 ---
