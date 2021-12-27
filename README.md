@@ -1,5 +1,45 @@
 # Maryam Abdolbeigi
 
+## Table of Contents
+1. [UX](#ux)
+    * [Goals](#goals)
+    * [User Stories](#user-stories)
+    * [Wireframes](#wireframes)
+    * [Flowchart](#flowchart)           
+2. [Features](#features)  
+    * [Design In Depth](#des-in-depth)
+    * [Navigation Bar](#nav)
+    * [Home Page](#home)
+    * [Book Page](#book)
+    * [Profile Page](#profile)
+    * [Sign Up Page](#sign-up)
+    * [Sign In Page](#sign-in)
+    * [Custom 404 Page](#404)
+    * [Custom 500 PAge](#500)
+    * [Footer](#footer)
+    * [Yet to be implemented](#yet-to-be-implemented)
+3. [Data Architecture](#data-info)
+    * [Database Choice](#db)
+    * [Data Type](#data-type)
+    * [Examples of database collections in JSON format](#json-format)
+4. [Technologies](#tech)
+5. [Languages](#langs)
+6. [IDE](#ide)
+7. [Libraries and CDNs](#libs)
+8. [Testing](TESTING.md)
+9. [Deployement](#deploy)
+    * [Heroku Deployement](#heroku)
+    * [Local Clone](#local-run)
+10. [Credits](#credits)
+    * [Content](#content)
+    * [Media](#media)
+    * [Code](#code)
+    * [Acknowledgement](#ackn)
+   
+
+
+
+
 
 ## Read And Recommend
 ![Responsive Design](static/readme-assets/readme-img/responsive-design.png)       
@@ -8,12 +48,12 @@
 This is a book recommendation website that provides a shopping link for all books on the website as well as the book's detail and description.
 On this website, users can find a summary of their favorite book, refer to the online store, become a member and write a review about books, and most importantly, add their favorite books to the website.          
 
-## UX
+## UX   <a id="ux"></a>
 ---
 The effort has been put into this website to be as intuitive as possible. 
 All pages on this website are responsive to desktop, iPad and, mobile screens.
 
-### The business objectives of this website are:
+### The business objectives of this website are: <a id="goals"></a>
 
 - Refer users to Amazon online bookstore and make revenue from each purchase.
 - Classify the books on the database based on their category and present them on the website so that they are easy to find and learn about.
@@ -30,21 +70,25 @@ All pages on this website are responsive to desktop, iPad and, mobile screens.
 ### The Ideal customer for this website:
 - Is a book lover and is into reading.
 - Is a fan of online shopping.
+- Is an English speaker.
 
 
-### User Stories:
+### User Stories: <a id="user-stories"></a>
 
-1. As a first time visitor, I would like to find a worth reading book.
-2. As a first time visitor, I would like to find out more about my favorite book and read other readers' reviews.
-3. As a first time visitor, I would like to become a member of the community to be able to add my favorite book to the website.
+1. As a first-time visitor, I would like to find a worth reading book.
+2. As a first-time visitor, I would like to find out more about my favorite book and read other readers' reviews.
+3. As a first-time visitor, I would like to become a member of the community to be able to add my favorite book to the website.
 4. As a returning visitor, I would like to edit my profile and info.
-5. As a returning visitor, I would like to write a review about a book I have recently read / purchased from the online store.
-6. As a returning visitor, I would like to find an interesting book to read.
+5. As a returning visitor, I would like to write a review about a book I have recently read/purchased from the online store.
+6. As a returning visitor, I would like to check out all the best seller books on the website and find out more about them.
+7. As a returning visitor, I would like to delete a review I left on a book.
+8. As a returning visitor, I would like to edit a book I added to the website.
+9. As a returning visitor, I would like to Remove a book I added to the website.
+10. As a visitor, I would like to filter the books by the category I am looking for.
 
 
 
-
-### Wireframe Mockups:      
+### Wireframe Mockups: <a id="wireframes"></a>      
                    
                           
 Home page:                  
@@ -69,16 +113,16 @@ Add a Book / Edit Book Page:
 [MobAdd a Book Pageile wireframes PDF](static/readme-assets/wireframes/add-a-book.pdf) 
 
 
-### Flowchart:
+### Flowchart: <a id="flowchart"></a>
 [Registeration and sign-in flowchart](static/readme-assets/readme-img/Login-sign-up.drawio.png) 
 
 
-## Features
+## Features <a id="features"></a>
 ---
 ### Existing Features
 
 
-* #### Design in Depth
+* #### Design in Depth <a id="des-in-depth"></a>
      * The main colors used for the design are taken from the header image and an effort has been put to keep the colors as relevant as possible.
      ![color theme](static/readme-assets/readme-img/color-theme.png)
 
@@ -93,7 +137,7 @@ Add a Book / Edit Book Page:
 ![navigation bar](static/readme-assets/readme-img/navbar.png)
 ![navigation bar](static/readme-assets/readme-img/expanded-navbar.png)
 
-*   #### Navigation Bar     
+*   #### Navigation Bar <a id="nav"></a>     
     * Featured on all pages to allow for easy navigation.
     * This section will allow user to easily navigate from page to page across all devices without having to revert back to the previous page via the back button.
     * The navigation bar displays different links such as "Profile", "Add a Book" and "Sign Out" if the user is logged in and, "Sign In" and "Sign Up" if the user has not logged in.
@@ -103,14 +147,14 @@ Add a Book / Edit Book Page:
 
 
 ![landing page](static/readme-assets/readme-img/home-pg-out.png)
-*  #### Home page provides:
+*  #### Home page provides: <a id="home"></a>
     * A search box in which users can search for their favorite books by title or author.
     * Category collection bar which filters books by their category.
     * Small book cards with image, title and author name, which on click navigates users to a page with full information of each book.            
 
 
 ![Book Detail](static/readme-assets/readme-img/added-book.png)
-*  #### Book Detail Page Provides:
+*  #### Book Detail Page Provides: <a id="book"></a>
     * A full image of the book cover.
     * Full information of the book such as title, author, publisher, price, pages and, name of the user who added the book.
     * A "Go get it" button that navigates users to the online store in a new tab.
@@ -134,7 +178,7 @@ Add a Book / Edit Book Page:
 
 
 ![Profile Page](static/readme-assets/readme-img/landing-profile.png)
-*  #### Profile Page provides:  
+*  #### Profile Page provides: <a id="profile"></a>  
     * Users account details such as username, location, and email address.
     * An "Edit Profile" button that navigates to the edit profile page where users can change their profile.
     ![Edit Profile Page](static/readme-assets/readme-img/edit-profile-pg.png)
@@ -154,7 +198,7 @@ Add a Book / Edit Book Page:
 
 
 ![Add a Book Page](static/readme-assets/readme-img/add-book-pg.png)
-*  #### Add a Book Page provides:  
+*  #### Add a Book Page provides: <a id="add-book"></a>  
     * A form with which users can add a book to the webite.
     * There is a label for each input that guides users to the type of the expected information for each field and, the form will not be submitted unless all the fields are validated.
     * In the event that the book title already exists in the database, a message will be shown to the user informing them about the issue.
@@ -163,7 +207,7 @@ Add a Book / Edit Book Page:
 
 
 ![Sign Up Page](static/readme-assets/readme-img/sign-up-pg.png)
-*  #### Sign-Up Page provides:  
+*  #### Sign-Up Page provides: <a id="sign-up"></a>  
     * A registration form with which users can register and make an account.
     * The form checks if the username already exists in the database and shows a message to the user in that case.
     * The form will not be submitted unless are the fields are validated and correctly filled.
@@ -173,7 +217,7 @@ Add a Book / Edit Book Page:
 
 
 ![Sign In Page](static/readme-assets/readme-img/sign-in-pg.png)
-*  #### Sign-In Page provides:  
+*  #### Sign-In Page provides: <a id="sign-in"></a>  
     * A login form with which users can sign-in to their account.
     * In case the username and/if the password is incorrect, a message will be shown to the user informing them about the issue.
     * In this form the account data in the database are checked with the user's input and log into the account if they match. 
@@ -182,25 +226,25 @@ Add a Book / Edit Book Page:
 
 
 ![Custom 404 Page](static/readme-assets/readme-img/404-page.png)
-*  #### Custom 404 Page:
+*  #### Custom 404 Page: <a id="404"></a>
     * The custom 404 page prevents users from confusion and redirects them to the home page if the URL is unavailable or does not exist.
 
 
 
 ![Custom 500 Page](static/readme-assets/readme-img/500-page.png)
-*  #### Custom 500 Page:
+*  #### Custom 500 Page: <a id="500"></a>
     * The custom 500 page prevents users from confusion and redirects them to the home page when an error occurs.
 
 
 
 ![Back To Top Button](static/readme-assets/readme-img/back-to-top-btn.png)
-*  #### Back To Top Button: 
+*  #### Back To Top Button: <a id="back-btn"></a> 
     * A back-to-top button is featured on all pages to enable users to jump to the top of the page quickly without the need to scroll all the way up to the page.
 
 
 
 ![Footer](static/readme-assets/readme-img/footer-base.png)
-*  #### Footer:
+*  #### Footer: <a id="footer"></a>
     * The footer is identical on all pages and it provides a brief description of the website as well as some quick access links that differ on every stage of the website.
     ![Expanded Footer](static/readme-assets/readme-img/expanded-footer.png)
     * The footer contains links to all book categories on the home page and excludes them on all other pages.
@@ -208,7 +252,7 @@ Add a Book / Edit Book Page:
     * The quick access links in the footer alters according to the navigation bar links on different pages.
 
 
-### Yet to be implemented
+### Yet to be implemented <a id="yet-to-be-implemented"></a>
    1. Enable users to upload images to the website instead of an image URl.
    2. On Create Account Page, add ability to see the password that was typed in, to avoid accidental typos.
    3. Enable users to update their password.
@@ -216,14 +260,14 @@ Add a Book / Edit Book Page:
    
 
 
-## Information Architecture                 
+## Information Architecture <a id="data-info"></a>                 
 ---
 
-### Database Choice
+### Database Choice <a id="db"></a>
 * My personal preference for the database for this project would be SQL as it would suit this project better however, as one of the requirements for this milestone project was using a relational database as Mongodb, this was chosen as my database.
 
 
-### Data Storage Types
+### Data Storage Types <a id="data-type"></a>
 * The types of data stored in the database are:
     * ObjectId
     * String
@@ -231,7 +275,7 @@ Add a Book / Edit Book Page:
     * DateTime 
 
 
-### Collections JSON format
+### Collections JSON format <a id="json-format"></a>
 - [Review collection](static/readme-assets/review-example.json)                       
 - [User collection](static/readme-assets/user-example.json)                       
 - [Book collection](static/readme-assets/book-example.json)                     
@@ -242,21 +286,21 @@ Add a Book / Edit Book Page:
 
 
 
-## Technologies Used
+## Technologies Used <a id="tech"></a>
 ---
 
 
-### Languages
+### Languages <a id="langs"></a>
 - HTML5
 - CSS
 - JavaScript
 - Python3
 - Dockerfile
 
-### IDE
+### IDE <a id="ide"></a>
 - VScode
 
-### Frameworks, Libraries, CDN's, resources:
+### Frameworks, Libraries, CDN's, resources: <a id="libs"></a>
 
 
 1. [Materialize]()       
@@ -333,32 +377,13 @@ Add a Book / Edit Book Page:
 
 
 
-## Testing
+## Testing <a id="test"></a>
 ---
 Testing information can be found in a separate [TESTING.md file](TESTING.md)
-## Deployment
+## Deployment <a id="deploy"></a>
 ---
 
-### Github
-1. Log into Github and locate the relevant repository.
-2. Click on the settings buttons on the menu.
-3. Scroll down to the "Github pages".
-4. Click on the link "Check it out here".
-5. Change the branch from "none" to "main/master".
-6. Click on the "save" button.
-7. It might take a couple of minutes to retrieve the link to the published website in a green box.
-8. Add the link of the website to the "About" section of the repository and include a short description of the project.
-9. Click "Save Changes" and the link will be available in the About section of the repository.
-
-
-
-### Forking the GitHub Repository
-1. Sign in to GitHub and locate the GitHub Repository.
-2. Go to the top right side of the screen and below the navigation bar is the "Fork" button.
-3. After clicking this, you will now have a copy of the original Repository in your GitHub account.
-
-
-### Local Clone
+### Local Clone <a id="local-run"></a>
 This is used to make changes to the project code.
 
 1. log in to Github and locate the intended repository.
@@ -370,38 +395,104 @@ This is used to make changes to the project code.
 
 `$ git clone https://github.com/Yasi92/read-and-recommend.git`
 
-### Author 
+
+
+### How to run this project locally
+
+To run this project on your own IDE follow the instructions below:
+Ensure you have the following tools and packages installed on your machine:
+
+ - An IDE such as [Visual Studio Code](https://code.visualstudio.com/)
+ - PIP
+ - Python3 
+ - Git
+ - An account at MongoDB Atlas or MongoDB.
+
+
+##### Instructions
+1. Clone the repository with the following command.
+`$ git clone https://github.com/Yasi92/read-and-recommend.git`
+2. cd to the correct repository location.
+3. If needed, Upgrade pip locally with
+`pip install --upgrade pip`
+4. Install all required modules with the command
+`pip -r requirements.txt`
+5. In your local IDE create a file called .env.py 
+6. Inside the .env.py file, create a SECRET_KEY variable and a MONGO_URI to link to your own database.
+**Note** that the data in the .env.py are confidential and as a result it won't be provided here.
+7. You can now run the application with the command
+`python app.py`
 
 
 
-## Credits
+### Heroku Deployement <a id="heroku"></a>
+1. Create a requirements.txt file using the terminal command `pip freeze > requirements.txt.`
+2. Create a Procfile with the terminal command `echo web: python app.py > Procfile.`
+3. git add and git commit the new requirements and Procfile and then git push the project to GitHub.
+4. Create a new app on the Heroku website by clicking the "New" button in your dashboard. Give it a name and set the region to Europe.
+5. From the heroku dashboard of your newly created application, click on "Deploy" > "Deployment method" and select GitHub.
+6. Confirm the linking of the heroku app to the correct GitHub repository.
+7. In the heroku dashboard for the application, click on "Settings" > "Reveal Config Vars".
+8. Set the following config vars:
+
+| Key | Value |
+| ----------- | ----------- |
+| IP | 0.0.0.0 |
+| MONGO_URI	 | mongodb+srv://<username>:<password>@<cluster_name>-qtxun.mongodb.net/<database_name>?retryWrites=true&w=majority |
+| PORT | 8000 |
+| SECRET_KEY | 	<your_secret_key> |
+
+
+9. In the heroku dashboard, click "Deploy".
+10. In the "Manual Deployment" section of this page, made sure the master branch is selected and then click "Deploy Branch".
+11. The site is now successfully deployed.
+
+
+
+
+
+
+## Credits <a id="credits"></a>
 ---
-
 
 - [Stackoverflow](https://stackoverflow.com/)
 - [w3schools](https://www.w3schools/howto/tryit.asp?filename=tryhow_js_scroll_to_top)
 
 
 
-## Content
+## Content <a id="content"></a>
 ---
+All the books in this website are taken from [Amazon Book Store](https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Dstripbooks-intl-ship&field-keywords=&ref=nb_sb_noss_1&crid=JQUXS5J7BQOJ&sprefix=biography%2Cstripbooks-intl-ship%2C332)
 
-## Media
- The photots throughout the website were taken from:
-- [Pexels](https://www.pexels.com/)  
+## Media <a id="media"></a>
+The heading image in the website is taken from: 
 - [Pinterest](https://nl.pinterest.com/)
 
 
 
+## Code <a id="code"></a>
+- The template and functions for 404 and 500 pages were provided by my mentor **Richard Wells**.
+- Styling active element menu in flask has been learned from [here](https://stackoverflow.com/questions/22173041/styling-active-element-menu-in-flask)
+- The dynamic copyright year is learned form [here](https://stackoverflow.com/questions/43714006/how-can-one-create-a-dynamic-copyright-date-without-document-write-in-javascri)
+- The "Read More" method on the book description section has been borrowed from [here](https://www.freakyjolly.com/custom-jquery-function-read-more-and-read-less/)
+- The back to previouse page button is learned from [here](https://css-tricks.com/snippets/javascript/go-back-button/)
+- The load More button and slicing items on the profile page and books.html is learned from [here](https://www.youtube.com/watch?v=XFXDZrjimrY)
+- The back to top button is learned from this thread on stackoverflow [here](https://stackoverflow.com/questions/14249998/jquery-back-to-top)
+- The hover effect on the links is borrowed from [here](http://ianlunn.github.io/Hover/)
+- The fadeIn effect on the book cards is learned from [here](https://stackoverflow.com/questions/54384218/fade-in-effect-for-div-without-id) 
 
-## Acknowledgements
+
+
+
+## Acknowledgements <a id="ackn"></a>
 ---
 
+- Special thanks to my mentor **Richard Wells** for his constant valuable feedback and ideas throughout the project. 
 - Tutors at Code Institute for their continued support.
 - Code Institute's Slack community was a great help every step of the way during the project.
 - Stack Overflow.
-- My mentor Richard Will.
-- Code Institute's Slack community was a great help every step of the way during the project.
+- My mentor Richard Wells.
+
 
 
 

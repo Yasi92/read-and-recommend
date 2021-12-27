@@ -246,24 +246,38 @@ Each of these possible paths has been tested repeatedly.
 
 
 ## Further Testing
- - I have tested the website on the following internet browsers and no serious issue was found:
+I have tested the live website on the following browsers and devices with [BrowserStack](https://live.browserstack.com/)            
 
-  - Google Chrome
-  - Safari
-  - Firefox
-  - IE
-  - Edge
-  - Opera
+- Google Chrome
+- Safari
+- Firefox
+- IE
+- Edge
+- Opera             
+
+### Devices
+  - iPhone X/12/12 pro (Chrome Developer Tools, On physical devices)
+  - Galaxy S21 (Chrome Developer Tools, On physical device)
+  - iPad (Chrome Developer Tools, On physical devices)
+  - iPad Pro (Chrome Developer Tools, BrowserStack)
+  - iPad mini (Chrome Developer Tools, BrowserStack)
+  - Galaxy Note 3 (Chrome Developer Tools, BrowserStack)
+  - Galaxy S III (Chrome Developer Tools, BrowserStack)
+  - Macbook   
+
+| Browser | Issues |
+| ----------- | ----------- |
+| Google Chrome | The window.history(-1) does not always return to the same scroll position. |
+| Safari | No issues found |
+| Firefox | No issues found |
+| IE | The javascript does not run on IE 10 and earlier versions and as a result, the application does not run properly. |
+| Edge | The window.history(-1) does not always return to the same scroll position. |
+| Opera | The window.history(-1) does not always return to the same scroll position. |                                 
 
 
-- I have tested the website on the following devices:
-
-     - iPhone X/12/12 pro (On physical devices)
-     - Galaxy S21 (On physical device)
-     - iPad (On physical devices)
-     - iPad Pro (Chrome Developer Tools)
-     - iPad mini (Chrome Developer Tools)
-     - Galaxy Note 3 (Chrome Developer Tools)
-     - Galaxy S III (Chrome Developer Tools)
-     - Laptops
+                                                                          
+  - All the links and buttons on the website were checked repeatedlly.
+  - The website has been manually tested and evaluated by my mentor "Richard Wells" and I was provided with valuable feedback and ideas.
+  - Friends and aquaintaces were asked to review the website, its content and the user experience overall.
+    
  

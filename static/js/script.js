@@ -67,6 +67,7 @@ $(document).ready(function () {
   });
 
 
+  // The load More button and slicing items on the profile page and books.html is learned from [here](https://www.youtube.com/watch?v=XFXDZrjimrY)
   // This function display books added by user on profile page in limited numbers and loads more books on click  
   // It slices the books added by the user on the profile page
   $(".collection-item").slice(0, 6).show();
