@@ -1,17 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 {% from "_formhelpers.html" import render_field %}
-<section id="book-detail">
+<div id="book-detail">
     <div class="row bottom-bordered-row">
         <div class="col s12">
-
             <a href="#" class="back-btn"><i class="fas fa-arrow-alt-circle-left"></i></a>
             <div class="row">
                 <div class="col m4 s12 offset-m1 book-img-div">
                     <img src="{{ book_details.img_url  }}" alt="cover image" class="responsive-img book-img">
                 </div>
                 <div class="col m6 s12">
-
                     <div class="book_title_div center-align row">
                         {% if book_details.best_seller  %}
                         <span class="badge left orange lighten-1 col s12"><i class="fas fa-tag"></i> Best Seller</span>
@@ -53,7 +51,6 @@
                     {% if session.user|lower == book_details.added_by|lower %}
                     <div class="book-btn">
                         <a class="red btn modal-trigger" href="#modal1">Delete</a>
-
                         <!-- Modal Structure -->
                         <div id="modal1" class="modal">
                             <div class="modal-content">
@@ -64,14 +61,13 @@
                                 <a class="btn-small red"
                                     href="{{ url_for('get_book', book_id=book_details._id) }}">Cancel</a>
                                 <a class="btn-small green"
-                                    href="{{ url_for('delete_book', book_id=book_details._id) }}">Yes</a> </div>
+                                    href="{{ url_for('delete_book', book_id=book_details._id) }}">Yes</a>
+                            </div>
                         </div>
                         <a class="btn light-blue" href="{{ url_for('edit_book', book_id=book_details._id) }}">Edit</a>
                     </div>
-
-
+                    {% endif %}
                 </div>
-                {% endif %}
             </div>
         </div>
     </div>
@@ -85,8 +81,6 @@
 
 
     <div class="row">
-
-
         <div class="col s10 offset-s1 review-box teal lighten-5">
             <div class="heading-div">
                 <h4 class="center-align">Tell Us About This Book</h4>
@@ -143,22 +137,18 @@
                                         class="btn-small green">Delete</a>
                                 </div>
                             </div>
-                            {% endif %}
                         </div>
+                        {% endif %}
                     </div>
                 </li>
                 {% endfor %}
-
             </ul>
             <div class="center">
                 <button class="btn-large center red loadMoreReview">Load More</button>
             </div>
         </div>
     </div>
-</section>
-
-{% endif %}
-
-
+    {% endif %}
+</div>
 
 {% endblock %}

@@ -22,6 +22,8 @@
 | The back to top button did not always land on top of the footer as it intended when resizing the window without reloading the page. | This was solved by wrapping the variable that defines the footer's height in setInterval() function which runs every 500 miliseconds. |
 | One of the challenges I faced in this project was styling the active links that point to a python view. The issue was originated from the fact that every time a link was clicked the whole page is refreshed and as a result, the applied style to the active links would disappear in a blink. | The issue was solved by using a built-in flask request.path attribute which was used to achieve this. |
 | When testing the edit_book function, noticed that it does not check if the book title already exists in the database before updating the book and as a result, there was a high chance of duplicated books on the website. | I fixed this by adding a line of code before updating the book collection in the database which queries all the books with the same title and resets the form if there is one. |
+| When testing the "edit_profile" and "edit_book" function in app.py, noticed that there is a bug in the code when I try to update any other fields than the title and username fields in the form. This happened since I was trying to avoid a duplicate username and title in those functions and as such I would have reset the form if the title and username had already existed in the database. The main issue was that all the fields in the form were pre-filled and given a value from the database and, consequensntly the if statement would consider an untouched title and username as new data which already existed in the database. | I got around this issue by adding extra "elif" statements that check if the username and title from the database are equal to the value from the form and in that case, they won't be considered as "exsisting_user" and "exsisting_book" and this will allow to update the other fields. | 
+
 
 
 
@@ -30,6 +32,7 @@
 | The javascript does not run on IE 10 and earlier versions and as such the application does not run properly. | This is a browser issue on old versions of IE that do not have scripting enabled by default. |
 | The back button on books.html does not return to the same scroll position on the previous page on Chrome, Edge and Opera but perfectly works on Safari and Firefox.| According to my inquiry about this issue, this is a browser issue which has been reported by many users but have not been fixed yet.|
 | The back to top button does not always land on top of the footer as intended when resizing the window without reloading the page. | This happens because the bottom position of the button is defined with javascript on ready document state. |
+| The python code in some functions such as "edit_form" and "edit_profile" may be quite verbose and I believe it could have been more "DRY". | This has not been fixed as I believe it requires more experience and time to debug. |
      
   
 
@@ -118,7 +121,7 @@ Each of these possible paths has been tested repeatedly.
 - Click on the "Delete" button on the added books and make sure before the deletion it opens a delete confirmation modal. 
 - Make sure the modal triggers the right book to delete.
 - Ignore the deletion and make sure it returns safely to the profile page.
-- Submit the deletion and make sure the feedback message displays on the page informing the book was deleted.
+- Submit the deletion and make sure the feedback message pops up on the page informing the book was deleted.
 - Find another book that was not added by the user and make sure the "Delete" and "Edit" buttons are not accessible.
 - Click on the "Read More" text on the book description and make sure it expands the description text.
 - Try to write a review in the review form and submit it when the user is not logged in and make sure it returns to the login page with a feedback message asking the user to login first.
@@ -136,8 +139,12 @@ Each of these possible paths has been tested repeatedly.
 - Check the page URL and make sure it shows the right path name as expected and that the book is triggered by its ObjectId to be edited. For instance(http://192.168.1.13:8000/edit_book/61b10198aed1435538424f4e)
 - Make sure the form is already pre-filled by the book details.
 - Try to change the book title to an already existing title and make sure it displays a feedback message informing that the book title already exists, without updating the book.
-- Try To change any field from the form and submit the form. Make sure the book is updated as expected and it redirects to the book detail page with the corresponding book.
+- Try To change any field from the form and submit the form. Make sure the book is updated as expected and it redirects to the book detail page with the updated data.
 - Try to uncheck the best seller check box and make sure that after the submission the best seller badge is removed from the title. 
+- Try to modify any field on the form except the title and make sure it updates the form accordingly.
+- Resize the window in the iPad and mobile screen size to make sure all sections are responsive and the layout changes on different screen sizes.
+
+
 
 
 ### Profile Page
@@ -151,7 +158,7 @@ Each of these possible paths has been tested repeatedly.
 - Click on the "Delete" button on the added books and make sure before the deletion it opens a delete confirmation modal. 
 - Make sure the modal triggers the right book to delete.
 - Ignore the deletion and make sure it returns safely to the profile page.
-- Submit the deletion and make sure the feedback message displays on the page informing the book was deleted.
+- Submit the deletion and make sure the feedback message pops up on the page informing the book was deleted.
 - Login with a user account with more than 6 added books and make sure the added book list on the profile page displays in slices of 6 and that the "Load More" button is visible.
 - Click on the "Load more" button and make sure it displays more added books in slices of 6 and that the button fades out once there are no more books to display.
 - Login with a user account with less than 6 added books and make sure that all the added books are displayed and the "Load More" button is not visible.
@@ -163,7 +170,7 @@ Each of these possible paths has been tested repeatedly.
 - Click on the "Delete" button on the review section and make sure before the deletion it opens a delete confirmation modal. 
 - Make sure the modal triggers the right review to delete.
 - Ignore the deletion and make sure it returns safely to the profile page.
-- Submit the deletion and make sure the feedback message displays on the page informing the review was deleted.
+- Submit the deletion and make sure the feedback message pops up on the page informing the review was deleted.
 - Resize the window in the iPad and mobile screen size to make sure all sections are responsive and the layout changes on different screen sizes.
 
 
@@ -171,39 +178,82 @@ Each of these possible paths has been tested repeatedly.
 - Check the page URL and make sure the user is triggered to be edited by its ObjectId. For instance (http://192.168.1.13:8000/edit_profile/61c331f5cd6335d6a47fcc2f)
 - Make sure all fields on the edit profile page are pre-filled with the user's account info.
 - Change the username to an already existing username and make sure it returns a feedback message informing that the username already exists in the database and that nothing will be changed in that case.
-- Change the username to a new username and make sure the feedback message is displayed informing that the profile has been updated. 
+- Change the username to a new username and make sure the feedback message pops up on the page informing that the profile has been updated. 
 - Check if after updating the username, it redirects to the profile page with the updated username and that the profile name updates correspondingly in the URL path.
 - Check if after updating the username, all the books and reviews added by the user are updated accordingly in the review and book collections.
 - Try to click on the "Save" button without making any change to the profile info and make sure it returns to the profile page without any feedback message.
 - Click on the "Cancel" button and make sure it returns to the profile page without any changes to the account info.
-- Try to change other fields in the form such as location and/or email address and check if the feedback message is displayed and the data has been updated on the profile page.
+- Try to change other fields in the form such as location and/or email address and check if the feedback message pops up and the data has been updated on the profile page.
 - Resize the window in the iPad and mobile screen size to make sure all sections are responsive and the layout changes on different screen sizes.
 
 
 
+### Add a Book Page
+- Click on every single field and make sure they have the applied active style.
+- Try to submit the form with every field empty at a time and make sure it shows the validation error message.
+- Fill out the form accordingly and submit it. Next check if the book is successfully added with the correct detail and a feedback message pops up informing the book has been added.
+- Resize the window in the iPad and mobile screen size to make sure all sections are responsive and the layout changes on different screen sizes.
 
+
+
+### Sign In page
+- Sign Out the account and make sure the feedback message pops up on the window informing that you have been logged out.
+- Sig out the account and make sure you are navigated to the login page.
+- Click on every field to assure that the active style is applied to the fields and that the labels jump up and make space for the input value.
+- Click on the "log In" button and make sure you are navigated to your profile page.
+- Check the "Register Account" link underneath the "Log In" button and make sure it navigates to the Sign Up page.
+- Try to log in with an incorrect username and/or password and make sure you won't be logged in and that a feedback message pops up on the window informing that the "Username/Password is incorrect".
+- Resize the window in the iPad and mobile screen size to make sure all sections are responsive and the layout changes on different screen sizes and that the image card won't be displayed on mobile screen.
+
+
+### Sign Up page
+- Click on every field to assure that the active style is applied to the fields and that the labels jump up and make space for the input value.
+- Try to create an account and leave a field blank to check if the validation error messages pop up.
+- Try to create a username that already exists in the database and make sure a message pops up on the page informing that the username already exists.
+- Try to fill out the form correctly and click on the "Register" button and make sure you are navigated to your profile page with a feedback message informing that you have registered successfully.
+- Try to create a password and then add a non-matching password in the confirm password field and make sure the error message pops up.
+- Check the "Log In" link underneath the "Register" button and make sure it navigates to the Sign In page.
+- Resize the window in the iPad and mobile screen size to make sure all sections are responsive and the layout changes on different screen sizes and that the image card won't be displayed on the mobile screen.
 
 
 ###  Sticky back-to-top button
- - Verify that the button shows up in the right position on every page.
- - Click on the button to confirm that the button works.
- - Open the page in the "Developer Tool", choose a mobile device and ensure that the size and spacing of the button change properly-
+- Verify that the button shows up in the right position on every page.
+- Click on the button to confirm that the button works.
+- Open the page in the "Developer Tool", choose a mobile device and ensure that the size and spacing of the button change properly.
+- Click on the button and make sure that the animation effect works properly and the page scrolls to the top smoothly.
 
 
 
 ### Footer
- - Confirm that footer code is identical on all HTML pages.
+- Confirm that footer code is identical on all HTML pages.
+- Try to log in and check the footer on every single page to make sure that the links embedded in the footer updates accordingly.
+- Try to log out and check the quick access links in the footer alters according to the navigation bar links on different pages.
+- Resize the window in the iPad and mobile screen size to make sure all sections are responsive and the layout changes on different screen sizes.
+- From the home page, check if all the book collection links are accessible from the footer as well, and check every link separately.
+
+
+
+### Custom 404 Page
+- Try to change the path name in the URL manually to a random name and make sure that the custom 404 page appears on the screen informing you that the page is not found.
+- Click on the "Let's Go Home" button and make sure it returns you to the home page.
+
+
+
+### Custom 500 Page
+- From the home page click on a book card and then from the URL try to change the book id in the URL path to something random. Make sure that the custom 500 page appears on the screen informing you that something went wrong.
+- Click on the "Let's Go Back" button and make sure it returns you to the home page.
+- **Note** that this is something that you can examine only if the Debugger is False in your flask app.
 
 
 ## Further Testing
  - I have tested the website on the following internet browsers and no serious issue was found:
 
-     - Google Chrome
-     - Safari
-     - Firefox
-     - IE
-     - Edge
-     - Opera
+  - Google Chrome
+  - Safari
+  - Firefox
+  - IE
+  - Edge
+  - Opera
 
 
 - I have tested the website on the following devices:
