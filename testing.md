@@ -6,11 +6,11 @@
 ## Validation
 
 - [HTML Validation](https://validator.w3.org/)    was used to validate all the HTML files.
-  * **Important Note** on the pages with jinja template, the W3c validator throws many errors in regards to the syntax and variable names inserted by jinja template.          
+  * **Important Note** on the pages with the jinja template, the W3c validator throws many errors in regards to the syntax and variable names inserted by the jinja template.          
   For instance:
-    - It does not allow curly craces in "href", "src" and "action" attributes and it considers it as an error.
+    - It does not allow curly braces in "href", "src" and "action" attributes and it considers it as an error.
     - It does not accept variable names inserted in for loops in the "ul" elements.
-    - It does not allow the code wrapped in curly braces to be palced in an element such as "a" and it considers it as "bad value".      
+    - It does not allow the code wrapped in curly braces to be placed in an element such as "a" and it considers it as "bad value".      
 - [W3C CSS Validation](https://jigsaw.w3.org/css-validator/) was used to validate the code in my style.css file.        
 - The website has been tested with the Lighthouse for each page separately and on both desktop and mobile devices and, required actions have been taken to improve the functionality of the website as much as possible.
 - Lighthouse was also used to check the overall performance of the website and as a way to improve the website performance.
@@ -19,10 +19,10 @@
 
 | Bugs | Solutions |            
 | ----------- | ----------- |   
-| The back to top button did not always land on top of the footer as it intended when resizing the window without reloading the page. | This was solved by wrapping the variable that defines the footer's height in setInterval() function which runs every 500 miliseconds. |
+| The back to top button did not always land on top of the footer as it intended when resizing the window without reloading the page. | This was solved by wrapping the variable that defines the footer's height in setInterval() function which runs every 500 milliseconds. |
 | One of the challenges I faced in this project was styling the active links that point to a python view. The issue was originated from the fact that every time a link was clicked the whole page is refreshed and as a result, the applied style to the active links would disappear in a blink. | The issue was solved by using a built-in flask request.path attribute which was used to achieve this. |
 | When testing the edit_book function, noticed that it does not check if the book title already exists in the database before updating the book and as a result, there was a high chance of duplicated books on the website. | I fixed this by adding a line of code before updating the book collection in the database which queries all the books with the same title and resets the form if there is one. |
-| When testing the "edit_profile" and "edit_book" function in app.py, noticed that there is a bug in the code when I try to update any other fields than the title and username fields in the form. This happened since I was trying to avoid a duplicate username and title in those functions and as such I would have reset the form if the title and username had already existed in the database. The main issue was that all the fields in the form were pre-filled and given a value from the database and, consequensntly the if statement would consider an untouched title and username as new data which already existed in the database. | I got around this issue by adding extra "elif" statements that check if the username and title from the database are equal to the value from the form and in that case, they won't be considered as "exsisting_user" and "exsisting_book" and this will allow to update the other fields. | 
+| When testing the "edit_profile" and "edit_book" function in app.py, noticed that there is a bug in the code when I try to update any other fields than the title and username fields in the form. This happened since I was trying to avoid a duplicate username and title in those functions and as such, I would have reset the form if the title and username had already existed in the database. The main issue was that all the fields in the form were pre-filled and given a value from the database and, consequently the if statement would consider an untouched title and username as new data which already existed in the database. | I got around this issue by adding extra "elif" statements that check if the username and title from the database are equal to the value from the form and in that case, they won't be considered as "exsisting_user" and "exsisting_book" and this will allow to update the other fields. | 
 
 
 
@@ -30,7 +30,7 @@
 | Known Issues | Causes |            
 | ----------- | ----------- |
 | The javascript does not run on IE 10 and earlier versions and as such the application does not run properly. | This is a browser issue on old versions of IE that do not have scripting enabled by default. |
-| The back button on books.html does not return to the same scroll position on the previous page on Chrome, Edge and Opera but perfectly works on Safari and Firefox.| According to my inquiry about this issue, this is a browser issue which has been reported by many users but have not been fixed yet.|
+| The back button on books.html does not return to the same scroll position on the previous page on Chrome, Edge, and Opera but perfectly works on Safari and Firefox.| According to my inquiry about this issue, this is a browser issue that has been reported by many users but has not been fixed yet.|
 | The back to top button does not always land on top of the footer as intended when resizing the window without reloading the page. | This happens because the bottom position of the button is defined with javascript on ready document state. |
 | The python code in some functions such as "edit_form" and "edit_profile" may be quite verbose and I believe it could have been more "DRY". | This has not been fixed as I believe it requires more experience and time to debug. |
      
@@ -74,7 +74,7 @@ Each of these possible paths has been tested repeatedly.
 - I log in to my account, type the book title I want to edit in the search box, click on the book, from the book detail page I can see an "Edit" button, I click on that, and next I will be navigated to a page with a pre-filled form with the book details and from there I will be able to modify any field I want and finally click on the "Submit button". I will be provided with a feedback message confirming that I Edited the book.
 9. As a returning visitor, I would like to Remove a book I added to the website.
 - I log in to my account, navigate to the profile page, scroll down the page until I find the intended book, click on the "Delete" button which opens to modal confirming if I am sure I want to delete the book, I click on "Yes" button and the book will be removed. I will be provided with a feedback message confirming that I deleted the book.
-- I log in to my account, type the book title I want to edit in the search box, click on the book, from the book detail page I can see an "Delete" button, I click on that, and next I will be navigated to a page with a pre-filled form with the book details and from there I will be able to modify any field I want and finally click on the "Submit button".
+- I log in to my account, type the book title I want to edit in the search box, click on the book, from the book detail page I can see a "Delete" button, I click on that, and next I will be navigated to a page with a pre-filled form with the book details and from there I will be able to modify any field I want and finally click on the "Submit button".
 10. As a visitor, I would like to filter the books by the category I am looking for.
 - I navigate to the home page (whether I am logged in or not), select the category from the collection bar, and then I can see all the books with the category I am interested in.
 
@@ -85,7 +85,7 @@ Each of these possible paths has been tested repeatedly.
 
 ###  Navigation Bar
 - Click on every single link on the navigation bar to assure they are all properly wired up.
-- Check the page URL and make sure it shows the right path name. (http://read-and-recommend.herokuapp.com/get_books)
+- Check the page URL and make sure it shows the right pathname. (http://read-and-recommend.herokuapp.com/get_books)
 - Check the accessibility to the links that are supposed to be visible on the two different states of logged In/Out.
 - Hover over every single link to make sure they have the proper style.
 - Click on the links and make sure the active style is applied to them until another link is clicked.
@@ -94,7 +94,7 @@ Each of these possible paths has been tested repeatedly.
 - Check the search box size and function on the home page.
 - Type a book title that is known it exists and make sure it will be displayed.
 - Type an author name and make sure it displays all the books from that author.
-- Type a title or an author name which is known it does not exist in the database and make sure the "No Results found" text displays on the screen.
+- Type a title or an author name that exists in the database and make sure the "No Results found" text displays on the screen.
 - Click on the reset button and make sure it resets the searches and displays all books.
 
 
@@ -129,7 +129,7 @@ Each of these possible paths has been tested repeatedly.
 - After submitting a review, scroll down the page and make sure your review is displayed in the review section with correct data.
 - Check if the time for the added review is shown in a format of time ago properly.
 - Check a book with more than 4 reviews and make sure the reviews are displayed in slices of 4 and the "Load More" button is shown underneath the reviews.
-- Click on the "Load More" button and make sure more reviews in slices of 4 will be displayed and that the button fades out once there are no more reviews to display..
+- Click on the "Load More" button and make sure more reviews in slices of 4 will be displayed and that the button fades out once there are no more reviews to display.
 - Check a book with less than 4 reviews and make sure all the reviews are displayed and the "Load More" button does not show.
 - Resize the window in the iPad and mobile screen size to make sure all sections are responsive and the layout changes on different screen sizes.
 
@@ -137,7 +137,7 @@ Each of these possible paths has been tested repeatedly.
 
 ### Edit Book Page
 - Check the page URL and make sure it shows the right path name as expected and that the book is triggered by its ObjectId to be edited. For instance(http://192.168.1.13:8000/edit_book/61b10198aed1435538424f4e)
-- Make sure the form is already pre-filled by the book details.
+- Make sure the form is already pre-filled with the book details.
 - Try to change the book title to an already existing title and make sure it displays a feedback message informing that the book title already exists, without updating the book.
 - Try To change any field from the form and submit the form. Make sure the book is updated as expected and it redirects to the book detail page with the updated data.
 - Try to uncheck the best seller check box and make sure that after the submission the best seller badge is removed from the title. 
@@ -197,13 +197,13 @@ Each of these possible paths has been tested repeatedly.
 
 
 ### Sign In page
-- Sign Out the account and make sure the feedback message pops up on the window informing that you have been logged out.
+- Sign Out of the account and make sure the feedback message pops up on the window informing that you have been logged out.
 - Sig out the account and make sure you are navigated to the login page.
 - Click on every field to assure that the active style is applied to the fields and that the labels jump up and make space for the input value.
-- Click on the "log In" button and make sure you are navigated to your profile page.
+- Click on the "Log In" button and make sure you are navigated to your profile page.
 - Check the "Register Account" link underneath the "Log In" button and make sure it navigates to the Sign Up page.
 - Try to log in with an incorrect username and/or password and make sure you won't be logged in and that a feedback message pops up on the window informing that the "Username/Password is incorrect".
-- Resize the window in the iPad and mobile screen size to make sure all sections are responsive and the layout changes on different screen sizes and that the image card won't be displayed on mobile screen.
+- Resize the window in the iPad and mobile screen size to make sure all sections are responsive and the layout changes on different screen sizes and that the image card won't be displayed on the mobile screens.
 
 
 ### Sign Up page
@@ -234,7 +234,7 @@ Each of these possible paths has been tested repeatedly.
 
 
 ### Custom 404 Page
-- Try to change the path name in the URL manually to a random name and make sure that the custom 404 page appears on the screen informing you that the page is not found.
+- Try to change the pathname in the URL manually to a random name and make sure that the custom 404 page appears on the screen informing you that the page is not found.
 - Click on the "Let's Go Home" button and make sure it returns you to the home page.
 
 
@@ -276,8 +276,8 @@ I have tested the live website on the following browsers and devices with [Brows
 
 
                                                                           
-  - All the links and buttons on the website were checked repeatedlly.
+  - All the links and buttons on the website were checked repeatedly.
   - The website has been manually tested and evaluated by my mentor "Richard Wells" and I was provided with valuable feedback and ideas.
-  - Friends and aquaintaces were asked to review the website, its content and the user experience overall.
+  - Friends and acquaintances were asked to review the website, its content, and the user experience overall.
     
  

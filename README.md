@@ -4,7 +4,7 @@
 ![Responsive Design](static/readme-assets/readme-img/responsive-design.png)       
 [The Website In Action](https://read-and-recommend.herokuapp.com/)
 
-This is a book recommendation website that provides a shopping link for all books on the website as well as the book's detail and description.
+This is a book recommendation website that provides a shopping link for all books on the website as well as the books' detail and description.
 On this website, users can find a summary of their favorite book, refer to the online store, become a member and write a review about books, and most importantly, add their favorite books to the website.          
 
 
@@ -108,12 +108,13 @@ Book Detail Page:
 [Book Detail Page wireframes PDF](static/readme-assets/wireframes/books.pdf) 
 
 Add a Book / Edit Book Page:            
-[MobAdd a Book Pageile wireframes PDF](static/readme-assets/wireframes/add-a-book.pdf) 
+[Add a Book Page wireframes PDF](static/readme-assets/wireframes/add-a-book.pdf) 
 
 
 
 ### Flowchart: <a id="flowchart"></a>
 [Registeration and sign-in flowchart](static/readme-assets/readme-img/Login-sign-up.drawio.png) 
+- The register and log In flowchart has been created with [drawio](https://app.diagrams.net/)
 
 
 
@@ -122,7 +123,7 @@ Add a Book / Edit Book Page:
 ### Existing Features
 
 
-* #### Design in Depth <a id="des-in-depth"></a>
+* ### Design in Depth <a id="des-in-depth"></a>
      * The main colors used for the design are taken from the header image and an effort has been put to keep the colors as relevant as possible.
      ![color theme](static/readme-assets/readme-img/color-theme.png)
 
@@ -137,29 +138,29 @@ Add a Book / Edit Book Page:
 ![navigation bar](static/readme-assets/readme-img/navbar.png)
 ![navigation bar](static/readme-assets/readme-img/expanded-navbar.png)
 
-*   #### Navigation Bar <a id="nav"></a>     
+*   ### Navigation Bar <a id="nav"></a>     
     * Featured on all pages to allow for easy navigation.
-    * This section will allow user to easily navigate from page to page across all devices without having to revert back to the previous page via the back button.
+    * This section will allow users to easily navigate from page to page across all devices without having to revert back to the previous page via the back button.
     * The navigation bar displays different links such as "Profile", "Add a Book" and "Sign Out" if the user is logged in and, "Sign In" and "Sign Up" if the user has not logged in.
     * The navigation bar collapses from medium screen sizes to a hamburger icon, which unfolds to a navigation drawer when clicked.
-    * The search box is embeded in the navigation bar on home page, where all books are displayed for a quick search by title or author. 
+    * The search box is embedded in the navigation bar on the home page, where all books are displayed for a quick search by title or author. 
 
 
 
 ![landing page](static/readme-assets/readme-img/home-pg-out.png)
-*  #### Home page provides: <a id="home"></a>
+*  ### Home page provides: <a id="home"></a>
     * A search box in which users can search for their favorite books by title or author.
     * Category collection bar which filters books by their category.
-    * Small book cards with image, title and author name, which on click navigates users to a page with full information of each book.            
+    * Small book cards with image, title, and author name, which on click navigates users to a page with full information of each book.            
 
 
 ![Book Detail](static/readme-assets/readme-img/added-book.png)
-*  #### Book Detail Page Provides: <a id="book"></a>
+*  ### Book Detail Page Provides: <a id="book"></a>
     * A full image of the book cover.
     * Full information of the book such as title, author, publisher, price, pages and, name of the user who added the book.
     * A "Go get it" button that navigates users to the online store in a new tab.
-    * A back button which redirects to the previous page.
-    * A best seller badge is embedded in the title box if the book falls in the best seller collection.
+    * A back button that redirects to the previous page.
+    * A best seller badge is embedded in the title box if the book falls in the bestseller collection.
     * If the book is added by the user, the "Delete" and "Edit" buttons will be shown underneath the book details to enable the user to delete or edit the added book.
     ![Delete Confirmation Modal](static/readme-assets/readme-img/book-del-conf.png)
     * The "Delete" button opens to a modal for delete confirmation and removes the book from the database if confirmed by the user and returns to the same page with book details if ignored.
@@ -171,14 +172,14 @@ Add a Book / Edit Book Page:
     * With the review form users can compose a review which will be inserted in the database and displayed in the review section in detail.
     ![Review Section](static/readme-assets/readme-img/review-section.png)
     * Display reviews
-    * In this section all corresponding reviews of the book are displayed in a list which are visible in slices of 4 and can be expanded to more reviews by clicking on the "Load More" button.
+    * In this section all corresponding reviews of the book are displayed in a list which is visible in slices of 4 and can be expanded to more reviews by clicking on the "Load More" button.
     * The creation date of the review is shown underneath the review text in a format of time ago. 
     * In case the review is added by the username stored in the session, the delete button will be displayed next to the review which enables users to remove it.
 
 
 
 ![Profile Page](static/readme-assets/readme-img/landing-profile.png)
-*  #### Profile Page provides: <a id="profile"></a>  
+*  ### Profile Page provides: <a id="profile"></a>  
     * Users account details such as username, location, and email address.
     * An "Edit Profile" button that navigates to the edit profile page where users can change their profile.
     ![Edit Profile Page](static/readme-assets/readme-img/edit-profile-pg.png)
@@ -198,8 +199,8 @@ Add a Book / Edit Book Page:
 
 
 ![Add a Book Page](static/readme-assets/readme-img/add-book-pg.png)
-*  #### Add a Book Page provides: <a id="add-book"></a>  
-    * A form with which users can add a book to the webite.
+*  ### Add a Book Page provides: <a id="add-book"></a>  
+    * A form with which users can add a book to the website.
     * There is a label for each input that guides users to the type of the expected information for each field and, the form will not be submitted unless all the fields are validated.
     * In the event that the book title already exists in the database, a message will be shown to the user informing them about the issue.
     * A check box is featured in the form to mark the best seller books.
@@ -207,7 +208,7 @@ Add a Book / Edit Book Page:
 
 
 ![Sign Up Page](static/readme-assets/readme-img/sign-up-pg.png)
-*  #### Sign-Up Page provides: <a id="sign-up"></a>  
+*  ### Sign-Up Page provides: <a id="sign-up"></a>  
     * A registration form with which users can register and make an account.
     * The form checks if the username already exists in the database and shows a message to the user in that case.
     * The form will not be submitted unless are the fields are validated and correctly filled.
@@ -217,8 +218,8 @@ Add a Book / Edit Book Page:
 
 
 ![Sign In Page](static/readme-assets/readme-img/sign-in-pg.png)
-*  #### Sign-In Page provides: <a id="sign-in"></a>  
-    * A login form with which users can sign-in to their account.
+*  ### Sign-In Page provides: <a id="sign-in"></a>  
+    * A login form with which users can sign in to their account.
     * In case the username and/if the password is incorrect, a message will be shown to the user informing them about the issue.
     * In this form the account data in the database are checked with the user's input and log into the account if they match. 
     * There is a shortcut link to the sign-up page for users who have not registered yet.
@@ -226,26 +227,26 @@ Add a Book / Edit Book Page:
 
 
 ![Custom 404 Page](static/readme-assets/readme-img/404-page.png)
-*  #### Custom 404 Page: <a id="404"></a>
+*  ### Custom 404 Page: <a id="404"></a>
     * The custom 404 page prevents users from confusion and redirects them to the home page if the URL is unavailable or does not exist.
 
 
 
 ![Custom 500 Page](static/readme-assets/readme-img/500-page.png)
-*  #### Custom 500 Page: <a id="500"></a>
+*  ### Custom 500 Page: <a id="500"></a>
     * The custom 500 page prevents users from confusion and redirects them to the home page when an error occurs.
 
 
 
 ![Back To Top Button](static/readme-assets/readme-img/back-to-top-btn.png)
-*  #### Back To Top Button: <a id="back-btn"></a> 
+*  ### Back To Top Button: <a id="back-btn"></a> 
     * A back-to-top button is featured on all pages to enable users to jump to the top of the page quickly without the need to scroll all the way up to the page.
 
 
 
 ![Footer](static/readme-assets/readme-img/footer-base.png)
-*  #### Footer: <a id="footer"></a>
-    * The footer is identical on all pages and it provides a brief description of the website as well as some quick access links that differ on every stage of the website.
+*  ### Footer: <a id="footer"></a>
+    * The footer is identical on all pages and it provides a brief description of the website as well as some quick-access links that differ on every stage of the website.
     ![Expanded Footer](static/readme-assets/readme-img/expanded-footer.png)
     * The footer contains links to all book categories on the home page and excludes them on all other pages.
     ![Logged In Footer](static/readme-assets/readme-img/logged-in-footer.png)
@@ -253,9 +254,9 @@ Add a Book / Edit Book Page:
 
 
 ### Yet to be implemented <a id="yet-to-be-implemented"></a>
-   1. Enable users to upload images to the website instead of an image URl.
-   2. On Create Account Page, add ability to see the password that was typed in, to avoid accidental typos.
-   3. Enable users to update their password.
+   1. Enable users to upload images to the website instead of an image URL.
+   2. On Create Account Page, add the ability to see the password that was typed in, to avoid accidental typos.
+   3. Enable users to update their passwords.
    4. Enable users to recover their password if it is forgotten.
    
 
@@ -281,7 +282,7 @@ Add a Book / Edit Book Page:
 - [Book collection](static/readme-assets/book-example.json)                     
 - [Category collection](static/readme-assets/category-example.json)               
 * The "username" is added to all collections except the category, to match the user who added books and reviews.
-* I am aware of the fact that here I could have also get this done without creating an additional collection for "category", however, I have decided to do it in this way in order to be able to add extra categories to the collection bar in the future without the need of adding the relevant books first.
+* I am aware of the fact that here I could have also gotten this done without creating an additional collection for "category", however, I have decided to do it in this way in order to be able to add extra categories to the collection bar in the future without the need of adding the relevant books first.
 
 
 
