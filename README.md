@@ -42,6 +42,7 @@ On this website, users can find a summary of their favorite book, refer to the o
     * [Media](#media)
     * [Code](#code)
     * [Acknowledgement](#ackn)
+    * [Disclaimer](#disc)
    
 
 ## UX   <a id="ux"></a>
@@ -438,3 +439,8 @@ The heading image in the website is taken from:
 - Stack Overflow.
 - My mentor Richard Wells.
 - I have learned more in detail about how to complete my README from **Anna Gilhespy**'s project, provided in the Code Institute's Slack community as a README template.
+
+
+## Disclaimer <a id="disc"></a>
+The content of this website is educational purposes only.
+
